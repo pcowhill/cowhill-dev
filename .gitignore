@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build output (the deployed site artifact is built in CI)
+dist/
+.astro/
+
+# Generated branding derived from public/brand/*.svg at build time
+public/generated/
+
+# Test output
+test-results/
+playwright-report/
+tests/.tmp/
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+*.log
+tests/screenshots/out/

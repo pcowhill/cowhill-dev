@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "types": ["node"]
+  },
+  "include": ["src/shared/**/*.ts", "src/editor/**/*.ts", "src/scripts/**/*.ts", "src/config/**/*.ts", "src/data/**/*.ts", "src/integrations/**/*.ts", "scripts/**/*.ts", "tests/**/*.ts", "astro.config.ts", "playwright.config.ts", "vitest.config.ts"]
+}

@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import { resolveDeployment } from '../config/site.ts';
+import { routes, withBase } from '../shared/paths.ts';
+
+const { base } = resolveDeployment(process.env);
+---
+
+<Base title="Page not found" description="That page is not on the hill." path="404.html" index={false}>
+  <div class="not-found">
+    <img src={withBase(base, 'brand/cowhill-logo-stacked.svg')} alt="" width="420" height="200" />
+    <h1>Page not found</h1>
+    <p>The cow looked, but there is nothing at this address.</p>
+    <div class="not-found__actions">
+      <a class="button button--primary" href={routes.home(base)}>Go to the homepage</a>
+      <a class="button" href={routes.projects(base)}>Browse projects</a>
+    </div>
+  </div>
+</Base>

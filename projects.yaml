@@ -1,0 +1,154 @@
+# =============================================================================
+# cowhill.dev project catalog
+# =============================================================================
+#
+# This file is the ONLY place project metadata is authored. The website, its
+# search data, detail pages, sitemap and social previews are all generated from
+# it. Edit it here on GitHub (pencil icon, then "Commit changes" to main) or
+# open it with project-editor.html from a local copy of the repository.
+#
+# PUBLIC REPOSITORY NOTICE
+#   This repository is public. "draft: true" keeps a project OFF the website,
+#   but the record and any files under project-assets/ remain readable on
+#   GitHub. Never store secrets or sensitive unpublished material here.
+#
+# WORKFLOW
+#   1. Edit this file (directly, or with project-editor.html and Save).
+#   2. Commit to main (and push, if you edited a local copy).
+#   3. The "Site" GitHub Actions workflow validates, builds and deploys.
+#      A validation error stops the deployment and keeps the previous site
+#      online; open the failed run in the Actions tab to read the message.
+#
+# DOCUMENT
+#   schemaVersion: 1          Always 1 for this format.
+#   projects:                 An ordered list of project records. The order
+#                             matters: featured projects appear on the homepage
+#                             in this order, and it breaks ties when sorting.
+#
+# REQUIRED FIELDS (every project)
+#   id        Unique, stable, lowercase kebab-case identifier (letters, digits,
+#             single hyphens): "space-invaders", "budget-tool". It becomes the
+#             detail page URL /projects/<id>/, so changing it changes the URL.
+#   title     Display name. Any text.
+#   summary   One short plain-text sentence or two, shown on cards. No Markdown.
+#   tags      A list of free-form words: [game, web, python]. Tags match
+#             ignoring case and surrounding spaces. [] is valid.
+#   status    One of:
+#               active      currently being developed or expanded
+#               maintained  supported, without substantial active development
+#               paused      work stopped for now, with a possible return
+#               complete    achieved its goals; not deprecated, may improve
+#               archived    deprecated / historical; no maintenance commitment
+#             These describe development, not uptime. A usable archived project
+#             may keep its launch link. Archived projects stay in the catalog but
+#             are never highlighted on the homepage, even if featured is true.
+#
+# OPTIONAL FIELDS
+#   description   Longer Markdown text (background, development notes, how to
+#                 use it). Write it as a block with "description: |" and indent
+#                 every line by two extra spaces. Supported: paragraphs,
+#                 headings (# becomes a section heading under the title), lists,
+#                 emphasis, links, code, tables, and local images written as
+#                 ![alt](project-assets/<id>/file.png). Raw HTML, remote images
+#                 and non-http(s) links are rejected by validation.
+#   notice        A short plain-text qualification such as "Desktop recommended"
+#                 or "Early prototype". Shown on cards and the detail page.
+#   featured      true/false (default false). Up to three featured, non-archived
+#                 projects appear on the homepage, in file order.
+#   draft         true/false (default false). Drafts are excluded from the site,
+#                 search data, sitemap and metadata before anything is built.
+#   added         YYYY-MM-DD. The date the project was added to THIS catalog.
+#   updated       YYYY-MM-DD. The date of a meaningful project or catalog update.
+#                 "Recently updated" ordering uses updated, then added. Dates are
+#                 never changed automatically; leaving both out is valid, and
+#                 undated projects sort after dated ones.
+#   thumbnail     A local image shown on cards:
+#                   thumbnail:
+#                     src: project-assets/<id>/thumb.png
+#                     alt: Describe the image for screen readers
+#   screenshots   An ordered list of local images for the detail page:
+#                   screenshots:
+#                     - src: project-assets/<id>/screen-1.png
+#                       alt: The main menu
+#                       caption: Optional caption shown under the image
+#   links         An ordered list of resources (see below).
+#
+# IMAGES AND FILES
+#   Put files in project-assets/<id>/ (a folder named after the project id) and
+#   reference them with that exact repository-relative path, always using
+#   forward slashes. Only files referenced by published (non-draft) projects are
+#   copied to the website; a file shared with a published project is public.
+#   Images: .png .jpg .jpeg .gif .webp .avif .svg. Keep them reasonably small.
+#   Large downloads belong on GitHub Releases, Dropbox or another host; link to
+#   them with an absolute URL instead.
+#
+# LINKS (resources)
+#   Each entry has:
+#     label     Any wording: Play, Open tool, View source, Watch demo,
+#               Watch trailer, View presentation, Read PDF, Download slides,
+#               Download release, ...
+#     url       An absolute http(s) URL, stored exactly as given, or a local
+#               path such as project-assets/<id>/slides.pdf.
+#     primary   true on AT MOST ONE link. It becomes the card's main button and
+#               the large button on the detail page. Without a primary link the
+#               card shows "View details" instead; the first link is never
+#               assumed to be primary.
+#     kind      "link" (default) or "download". Links outside this catalog open
+#               in a new tab with an automatic "opens in a new tab" icon and
+#               wording; downloads get a download indicator and normal browser
+#               behavior instead.
+#
+# TEMPLATE (copy, paste under "projects:", and edit; delete unused lines)
+#
+#   - id: my-project
+#     title: My Project
+#     summary: One or two plain sentences that explain what it is.
+#     tags: [tool, web]
+#     status: active
+#     featured: false
+#     draft: true
+#     added: 2026-01-31
+#     updated: 2026-02-14
+#     notice: Desktop recommended
+#     description: |
+#       A longer Markdown description.
+#
+#       ## Background
+#
+#       Why it exists, how it was built, and what I learned.
+#     thumbnail:
+#       src: project-assets/my-project/thumbnail.png
+#       alt: The main screen of My Project
+#     screenshots:
+#       - src: project-assets/my-project/screenshot-1.png
+#         alt: The settings panel
+#         caption: Settings can be changed while the tool runs.
+#     links:
+#       - label: Open tool
+#         url: https://example.com/my-project/
+#         primary: true
+#       - label: View source
+#         url: https://github.com/example/my-project
+#       - label: Download release
+#         url: https://github.com/example/my-project/releases/latest
+#         kind: download
+#
+# Validate locally with "npm run validate" (see README.md).
+# =============================================================================
+
+schemaVersion: 1
+projects:
+  - id: portfolio
+    title: Patrick Cowhill — Portfolio
+    summary: My personal portfolio and professional background.
+    tags: [portfolio, website]
+    status: maintained
+    featured: true
+    added: 2026-09-22
+    description: |
+      My personal portfolio website, with information about my work and background.
+    links:
+      - label: Visit portfolio
+        url: https://www.patrickcowhill.com/
+        primary: true
+        kind: link

@@ -1,0 +1,84 @@
+---
+import Base from '../layouts/Base.astro';
+import { resolveDeployment, site } from '../config/site.ts';
+import { home } from '../content/home.ts';
+import { getPublishedProjects } from '../data/projects.ts';
+import { selectHomepage } from '../shared/catalog.ts';
+import { renderCard } from '../shared/render/card.ts';
+import { siteRenderContext } from '../shared/render/context.ts';
+import { ICONS } from '../shared/render/icons.ts';
+import { routes, withBase } from '../shared/paths.ts';
+import { countTags } from '../shared/tags.ts';
+
+const { origin, base } = resolveDeployment(process.env);
+const ctx = siteRenderContext(origin, base);
+const published = getPublishedProjects();
+const { featured, recent } = selectHomepage(published);
+const highlightable = published.filter((p) => p.status !== 'archived');
+// Tag links are only useful when they narrow something down.
+const tagCounts = countTags(highlightable).filter((t) => t.count < highlightable.length);
+const showTags = highlightable.length >= 2 && tagCounts.length >= 2;
+const tags = tagCounts.slice(0, 8);
+const featuredCards = featured.map((p) => renderCard(ctx, p, { headingLevel: 3 }).value).join('');
+const recentCards = recent.map((p) => renderCard(ctx, p, { headingLevel: 3 }).value).join('');
+---
+
+<Base title={site.tagline} description={site.description} path="" current="home">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__text">
+      <h1 class="hero__title" id="hero-title">{home.heading}</h1>
+      <p class="hero__intro">{home.intro}</p>
+      <div class="hero__actions">
+        <a class="button button--primary button--large" href={routes.projects(base)}>
+          <span class="link-label">{home.explore}</span><Fragment set:html={ICONS.arrow} />
+        </a>
+        <form class="search-form" action={routes.projects(base)} method="get" role="search">
+          <label class="sr-only" for="home-search">Search projects</label>
+          <input class="search-form__input" id="home-search" type="search" name="q" placeholder={home.searchPlaceholder} autocomplete="off" />
+          <button class="button" type="submit"><Fragment set:html={ICONS.search} /><span class="sr-only">Search</span></button>
+        </form>
+      </div>
+    </div>
+    <div class="hero__art">
+      <img src={withBase(base, 'brand/cowhill-logo-stacked.svg')} alt="The cowhill.dev logo: a charcoal cow standing on a green hill in front of a warm sun." width="420" height="200" decoding="async" />
+    </div>
+  </section>
+
+  <svg class="hill-divider" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false" height="40">
+    <path d="M0 40C150 30 300 8 480 10s300 22 420 22 210-14 300-20v28H0z" fill="#dbe6d9" />
+    <path d="M0 40C200 34 380 18 560 20s320 16 440 14 140-8 200-10v16H0z" fill="#618064" opacity=".9" />
+  </svg>
+
+  {featured.length > 0 && (
+    <section class="home-section" aria-labelledby="featured-heading">
+      <div class="home-section__header">
+        <h2 id="featured-heading">{home.featuredHeading}</h2>
+        <a class="home-section__more" href={routes.projects(base)}>All projects</a>
+      </div>
+      <div class={`catalog catalog--grid catalog--featured${featured.length === 1 ? ' catalog--single' : ''}`} set:html={featuredCards} />
+    </section>
+  )}
+
+  {recent.length > 0 && (
+    <section class="home-section" aria-labelledby="recent-heading">
+      <div class="home-section__header">
+        <h2 id="recent-heading">{home.recentHeading}</h2>
+        <a class="home-section__more" href={`${routes.projects(base)}?sort=updated`}>See all by date</a>
+      </div>
+      <div class="catalog catalog--grid" set:html={recentCards} />
+    </section>
+  )}
+
+  {showTags && (
+    <section class="home-section" aria-labelledby="tags-heading">
+      <div class="home-section__header">
+        <h2 id="tags-heading">{home.tagsHeading}</h2>
+      </div>
+      <ul class="tag-cloud">
+        {tags.map((tag) => (
+          <li><a class="tag" href={routes.tag(base, tag.key)}>{tag.label}<span class="tag-cloud__count">{tag.count}</span></a></li>
+        ))}
+      </ul>
+    </section>
+  )}
+</Base>

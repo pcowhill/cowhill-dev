@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>projects.yaml — cowhill.dev editor</title>
+<link rel="icon" href="{{FAVICON}}">
+<style>
+{{CSS}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#workspace">Skip to editor</a>
+<header class="ed-header">
+  <div class="ed-brand">
+    {{LOGO}}
+    <span class="ed-brand__title">Project editor</span>
+  </div>
+  <div class="ed-file" aria-live="polite">
+    <span class="ed-file__name" id="file-name">No file open</span>
+    <span class="ed-file__state" id="file-state" data-state="none"></span>
+  </div>
+  <div class="ed-toolbar">
+    <button type="button" class="button" id="btn-open">Open projects.yaml…</button>
+    <button type="button" class="button" id="btn-open-folder" hidden>Open repository folder…</button>
+    <button type="button" class="button button--primary" id="btn-save" disabled>Save</button>
+    <button type="button" class="button" id="btn-save-as" disabled>Save As…</button>
+    <button type="button" class="button" id="btn-download" disabled>Download YAML</button>
+  </div>
+</header>
+<p class="ed-status" id="status-message" role="status" data-tone="info"></p>
+<input type="file" id="file-input" accept=".yaml,.yml,application/yaml,text/yaml" class="sr-only" tabindex="-1" aria-hidden="true">
+
+<section class="ed-welcome" id="welcome" aria-labelledby="welcome-title">
+  <div class="ed-welcome__card">
+    <h1 id="welcome-title">Edit the cowhill.dev project catalog</h1>
+    <p>This editor opens the repository's <code>projects.yaml</code>, lets you edit projects with a form or as raw YAML, previews how they render on the website, and saves the file back. It works offline from your computer and never contacts GitHub.</p>
+    <div class="ed-welcome__actions">
+      <button type="button" class="button button--primary button--large" id="btn-open-welcome">Open projects.yaml…</button>
+      <button type="button" class="button" id="btn-open-basic">Choose file (basic)</button>
+    </div>
+    <p class="ed-welcome__drop">…or drag <code>projects.yaml</code> onto this window.</p>
+    <p class="ed-welcome__note" id="capability-note"></p>
+    <details class="ed-help">
+      <summary>How publishing works</summary>
+      <ol>
+        <li>Download or clone the <code>cowhill-dev</code> repository so you have <code>projects.yaml</code> and <code>project-editor.html</code> side by side.</li>
+        <li>Open <code>projects.yaml</code> here, edit, preview, and <strong>Save</strong>. In browsers without direct saving, use <strong>Download YAML</strong> and replace the repository's <code>projects.yaml</code> with the downloaded file (it may have been renamed, for example <code>projects (1).yaml</code>).</li>
+        <li>Put any images in <code>project-assets/&lt;project-id&gt;/</code> yourself. Use <strong>Open repository folder</strong> to preview them and check that referenced files exist.</li>
+        <li>Commit and push to <code>main</code>. GitHub Actions validates and deploys the website; a local save changes nothing online until it is committed and pushed.</li>
+      </ol>
+      <p><strong>This repository is public.</strong> Drafts are excluded from the website but remain readable on GitHub. Do not store secrets or sensitive material in the catalog.</p>
+      <p>Previews use the deployment configuration <code id="site-config"></code> to decide which links are internal.</p>
+    </details>
+  </div>
+</section>
+
+<div class="ed-workspace" id="workspace" hidden>
+  <aside class="ed-sidebar" aria-label="Projects">
+    <div class="ed-sidebar__head">
+      <label class="sr-only" for="list-filter">Filter projects</label>
+      <input type="search" id="list-filter" placeholder="Filter by id or title" autocomplete="off">
+      <span class="ed-sidebar__count" id="project-count">0 projects</span>
+    </div>
+    <ul class="project-list" id="project-list"></ul>
+    <div class="ed-sidebar__tools">
+      <button type="button" class="button" id="btn-add">Add</button>
+      <button type="button" class="button" id="btn-duplicate">Duplicate</button>
+      <button type="button" class="button button--danger" id="btn-remove">Remove</button>
+      <button type="button" class="button" id="btn-up" aria-label="Move project up">↑</button>
+      <button type="button" class="button" id="btn-down" aria-label="Move project down">↓</button>
+    </div>
+    <p class="ed-sidebar__folder">Folder: <span id="folder-name">not opened</span> <button type="button" class="button button--quiet" id="btn-open-from-folder" hidden>Open projects.yaml from folder</button></p>
+  </aside>
+
+  <main class="ed-main" id="main">
+    <div class="ed-tabs" role="tablist" aria-label="Editor views" id="tab-list">
+      <button type="button" role="tab" data-tab="form" aria-selected="true" aria-controls="panel-form">Form</button>
+      <button type="button" role="tab" data-tab="yaml" aria-selected="false" aria-controls="panel-yaml" tabindex="-1">YAML</button>
+      <button type="button" role="tab" data-tab="card" aria-selected="false" aria-controls="panel-preview" tabindex="-1">Card preview</button>
+      <button type="button" role="tab" data-tab="list" aria-selected="false" aria-controls="panel-preview" tabindex="-1">List item preview</button>
+      <button type="button" role="tab" data-tab="detail" aria-selected="false" aria-controls="panel-preview" tabindex="-1">Detail page preview</button>
+    </div>
+    <div class="ed-panel" id="panel-form-wrap">
+      <div class="form-lock" id="form-lock" hidden role="alert">The YAML tab contains errors. Fix them there, or use "Revert to last valid YAML", to continue editing with the form.</div>
+      <form class="ed-panel__body" id="panel-form" role="tabpanel" aria-label="Project form" onsubmit="return false;"></form>
+    </div>
+    <div class="ed-panel" id="panel-yaml" role="tabpanel" aria-label="YAML" hidden>
+      <div class="ed-panel__tools">
+        <p>The complete document. Comments and ordering are preserved. Edits here update the form when the YAML parses.</p>
+        <button type="button" class="button" id="btn-yaml-revert">Revert to last valid YAML</button>
+        <button type="button" class="button" id="btn-download-raw" hidden>Download unvalidated text</button>
+      </div>
+      <label class="sr-only" for="yaml-text">YAML document</label>
+      <textarea id="yaml-text" class="yaml-text" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+    </div>
+    <div class="ed-panel" id="panel-preview" role="tabpanel" aria-label="Preview" hidden>
+      <div class="ed-panel__tools">
+        <div class="view-toggle" role="group" aria-label="Preview width">
+          <button type="button" data-width="wide" aria-pressed="true">Wide</button>
+          <button type="button" data-width="narrow" aria-pressed="false">Narrow (phone)</button>
+        </div>
+        <p class="preview-link-notice" id="preview-link-notice" hidden></p>
+      </div>
+      <div class="preview-frame" id="preview-frame" data-width="wide">
+        <div class="preview-content site-main" id="preview-content"></div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="ed-messages" aria-label="Messages">
+    <h2>Messages</h2>
+    <div id="messages"></div>
+  </aside>
+</div>
+
+<dialog id="conflict-dialog" class="ed-dialog" aria-labelledby="conflict-title">
+  <h2 id="conflict-title">The file changed on disk</h2>
+  <p>projects.yaml was modified outside this editor since it was opened. Saving now would overwrite those changes.</p>
+  <div class="ed-dialog__actions">
+    <button type="button" class="button" id="conflict-reload">Reload from disk (discard my edits)</button>
+    <button type="button" class="button button--primary" id="conflict-download">Download my edited copy</button>
+    <button type="button" class="button" id="conflict-cancel">Cancel</button>
+  </div>
+</dialog>
+
+<footer class="ed-footer">
+  <p>Explicit saves only: nothing is written or uploaded automatically, and nothing is stored in the browser. Committing and pushing to GitHub is a separate step. <strong>Public repository:</strong> drafts stay off the website but are visible on GitHub.</p>
+</footer>
+<script>
+{{JS}}
+</script>
+</body>
+</html>

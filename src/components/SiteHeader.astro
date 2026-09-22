@@ -1,0 +1,31 @@
+---
+import { resolveDeployment, site } from '../config/site.ts';
+import { routes, withBase } from '../shared/paths.ts';
+import { renderAnchor } from '../shared/links.ts';
+import { getPortfolioLink } from '../data/projects.ts';
+
+export interface Props {
+  current?: 'home' | 'projects' | 'about';
+}
+const { current } = Astro.props;
+const { origin, base } = resolveDeployment(process.env);
+const portfolio = getPortfolioLink();
+const portfolioAnchor = portfolio
+  ? renderAnchor(portfolio.href, 'Portfolio', { origin, base }, { className: 'site-nav__link' }).value
+  : '';
+---
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href={routes.home(base)} aria-current={current === 'home' ? 'page' : undefined}>
+      <img src={withBase(base, 'brand/cowhill-logo-horizontal.svg')} alt={`${site.name} home`} width="236" height="40" />
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <ul class="site-nav__list">
+        <li><a class="site-nav__link" href={routes.projects(base)} aria-current={current === 'projects' ? 'page' : undefined}>Projects</a></li>
+        <li><a class="site-nav__link" href={routes.about(base)} aria-current={current === 'about' ? 'page' : undefined}>About</a></li>
+        {portfolioAnchor ? <li set:html={portfolioAnchor} /> : null}
+      </ul>
+    </nav>
+  </div>
+</header>

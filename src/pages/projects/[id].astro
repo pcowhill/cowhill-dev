@@ -1,0 +1,42 @@
+---
+import Base from '../../layouts/Base.astro';
+import { resolveDeployment, site } from '../../config/site.ts';
+import { getPublishedProjects } from '../../data/projects.ts';
+import { renderDetail } from '../../shared/render/detail.ts';
+import { siteRenderContext, imageUrl } from '../../shared/render/context.ts';
+import { ICONS } from '../../shared/render/icons.ts';
+import { routes } from '../../shared/paths.ts';
+import { STATUS_INFO, type Project } from '../../shared/schema.ts';
+
+export function getStaticPaths() {
+  // Only published records become pages; drafts were removed by the loader.
+  return getPublishedProjects().map((project) => ({ params: { id: project.id }, props: { project } }));
+}
+
+const { project } = Astro.props as { project: Project };
+const { origin, base } = resolveDeployment(process.env);
+const ctx = siteRenderContext(origin, base);
+const body = renderDetail(ctx, project).value;
+const socialSource = project.thumbnail ?? project.screenshots[0];
+const socialImage = socialSource ? imageUrl(ctx, socialSource.src).url : null;
+const description = `${project.summary} (${STATUS_INFO[project.status].label} project on ${site.name}.)`;
+---
+
+<Base
+  title={project.title}
+  description={description}
+  path={`projects/${project.id}/`}
+  image={socialImage ? `${origin}${socialImage}` : undefined}
+  imageAlt={socialSource?.alt}
+  ogType="article"
+  current="projects"
+>
+  <div class="project-page">
+    <a class="back-link" id="back-to-catalog" href={routes.projects(base)}><Fragment set:html={ICONS.back} />All projects</a>
+    <Fragment set:html={body} />
+  </div>
+  <script>
+    import { initDetail } from '../../scripts/detail.ts';
+    initDetail();
+  </script>
+</Base>

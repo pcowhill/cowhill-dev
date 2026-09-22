@@ -1,0 +1,13 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "erasableSyntaxOnly": true,
+    "verbatimModuleSyntax": true,
+    "noUncheckedIndexedAccess": true,
+    "types": ["node"],
+    "baseUrl": "."
+  },
+  "include": [".astro/types.d.ts", "src/**/*", "scripts/**/*", "tests/**/*", "astro.config.ts", "playwright.config.ts", "vitest.config.ts"],
+  "exclude": ["dist", "node_modules", "public"]
+}
