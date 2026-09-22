@@ -1,0 +1,29 @@
+# Header comment line one
+# Header comment line two
+
+schemaVersion: 1
+projects:
+  # Comment above the first project
+  - id: first
+    title: "Quoted: title with colon"
+    summary: Ünïcödé summary — with dashes and emoji 🐄
+    tags: [alpha, beta] # trailing comment on tags
+    status: active
+    notice: ""
+    description: |
+      Line one.
+
+      Line two with `code`.
+    links:
+      - label: Play
+        url: https://example.org/play
+        primary: true
+      # comment inside links
+      - label: Source
+        url: https://example.org/src
+
+  - id: second
+    title: 'Single quoted'
+    summary: Second summary
+    tags: []
+    status: complete

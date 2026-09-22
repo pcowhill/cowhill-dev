@@ -1,0 +1,8 @@
+schemaVersion: 1
+projects:
+  - id: dup
+    title: A
+    title: B
+    summary: s
+    tags: []
+    status: active

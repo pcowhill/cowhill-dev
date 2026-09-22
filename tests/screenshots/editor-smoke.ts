@@ -1,0 +1,44 @@
+import path from 'node:path';
+import fs from 'node:fs';
+import { chromium } from '@playwright/test';
+
+const root = process.cwd();
+const out = path.join(root, 'tests', 'screenshots', 'out');
+fs.mkdirSync(out, { recursive: true });
+const browser = await chromium.launch();
+const context = await browser.newContext({ viewport: { width: 1440, height: 950 } });
+const page = await context.newPage();
+const blocked: string[] = [];
+await context.route(/^(?!file:).*/, (route) => {
+  blocked.push(route.request().url());
+  void route.abort();
+});
+const errors: string[] = [];
+page.on('pageerror', (err) => errors.push(err.message));
+page.on('console', (msg) => {
+  if (msg.type() === 'error') errors.push(msg.text());
+});
+await page.goto('file://' + path.join(root, 'project-editor.html'));
+await page.screenshot({ path: path.join(out, 'editor-welcome.png') });
+await page.setInputFiles('#file-input', path.join(root, 'projects.yaml'));
+await page.waitForSelector('#workspace:not([hidden])');
+await page.screenshot({ path: path.join(out, 'editor-form.png'), fullPage: true });
+await page.click('[data-tab="yaml"]');
+await page.screenshot({ path: path.join(out, 'editor-yaml.png') });
+await page.click('[data-tab="card"]');
+await page.screenshot({ path: path.join(out, 'editor-card.png') });
+await page.click('[data-tab="detail"]');
+await page.screenshot({ path: path.join(out, 'editor-detail.png') });
+await page.click('[data-tab="form"]');
+await page.fill('#f-title', 'Patrick Cowhill — Portfolio (edited)');
+await page.check('[data-path="draft"]');
+await page.click('[data-tab="list"]');
+await page.screenshot({ path: path.join(out, 'editor-list-draft.png') });
+const state = await page.evaluate(() => (window as any).cowhillEditor.getState());
+const text = await page.evaluate(() => (window as any).cowhillEditor.getText());
+console.log('state', state);
+console.log('--- text tail');
+console.log(text.split('\n').slice(-16).join('\n'));
+console.log('blocked requests:', blocked);
+console.log('page errors:', errors);
+await browser.close();

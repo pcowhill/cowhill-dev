@@ -1,0 +1,71 @@
+---
+import '../shared/styles/tokens.css';
+import '../shared/styles/components.css';
+import '../styles/site.css';
+import { resolveDeployment, site } from '../config/site.ts';
+import { absoluteUrl, withBase } from '../shared/paths.ts';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+export interface Props {
+  /** Page title without the site name. */
+  title: string;
+  description: string;
+  /** Site-relative path with trailing slash, e.g. "projects/". "" for the homepage. */
+  path: string;
+  /** Absolute URL of the social preview image; defaults to the shared card. */
+  image?: string;
+  /** Alternative text for the social image. */
+  imageAlt?: string;
+  ogType?: 'website' | 'article';
+  /** Set false on pages that must not be indexed (404). */
+  index?: boolean;
+  current?: 'home' | 'projects' | 'about';
+}
+
+const { title, description, path, image, imageAlt, ogType = 'website', index = true, current } = Astro.props;
+const { origin, base } = resolveDeployment(process.env);
+const canonical = absoluteUrl(origin, base, path);
+const fullTitle = path === '' ? `${site.name} — ${site.tagline}` : `${title} — ${site.name}`;
+const socialImage = image ?? absoluteUrl(origin, base, 'generated/social-card.png');
+const socialAlt = imageAlt ?? 'The cowhill.dev logo: a cow on a green hill in front of the sun.';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={site.author} />
+    <meta name="cowhill-base" content={base} />
+    <meta name="cowhill-origin" content={origin} />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#fbf7ef" />
+    {index ? <link rel="canonical" href={canonical} /> : <meta name="robots" content="noindex" />}
+    <link rel="icon" href={withBase(base, 'generated/favicon.svg')} type="image/svg+xml" />
+    <link rel="icon" href={withBase(base, 'generated/favicon-32.png')} type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href={withBase(base, 'generated/apple-touch-icon.png')} />
+    <link rel="sitemap" href={withBase(base, 'sitemap.xml')} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content={socialAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <SiteHeader current={current} />
+    <main id="main" class="site-main" tabindex="-1">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

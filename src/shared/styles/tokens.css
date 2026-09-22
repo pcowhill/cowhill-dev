@@ -1,0 +1,47 @@
+/* Design tokens derived from the supplied logo palette:
+   Charcoal #142324 | Sage #618064 | Sand #F1DABA */
+:root {
+  --color-charcoal: #142324;
+  --color-sage: #618064;
+  --color-sage-deep: #4a6a4d;
+  --color-sage-soft: #dbe6d9;
+  --color-sand: #f1daba;
+  --color-sand-soft: #f8ecd9;
+  --color-sun: #d9a441;
+
+  --color-bg: #fbf7ef;
+  --color-surface: #fffdf9;
+  --color-surface-muted: #f4eee1;
+  --color-text: #142324;
+  --color-text-muted: #4f5b57;
+  --color-border: #e2dac9;
+  --color-border-strong: #c9c0ad;
+  --color-link: var(--color-sage-deep);
+  --color-link-hover: #33503a;
+  --color-focus: #1f5f8b;
+  --color-danger: #9b2c2c;
+  --color-danger-soft: #fbe6e3;
+  --color-warning-soft: #fff4d6;
+  --color-warning-text: #6d4c00;
+
+  --font-sans:
+    system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 1px 2px rgba(20, 35, 36, 0.06);
+  --shadow: 0 2px 8px rgba(20, 35, 36, 0.08);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+
+  --measure: 68ch;
+  --content-width: 72rem;
+}

@@ -1,0 +1,143 @@
+---
+import Base from '../../layouts/Base.astro';
+import { resolveDeployment, site } from '../../config/site.ts';
+import { getPublishedProjects } from '../../data/projects.ts';
+import { DEFAULT_STATE, SORT_KEYS, SORT_LABELS, sortEntries } from '../../shared/catalog.ts';
+import { markdownToPlainText } from '../../shared/markdown.ts';
+import { renderCard } from '../../shared/render/card.ts';
+import { siteRenderContext } from '../../shared/render/context.ts';
+import { ICONS } from '../../shared/render/icons.ts';
+import { STATUSES, STATUS_INFO } from '../../shared/schema.ts';
+import { countTags } from '../../shared/tags.ts';
+
+const { origin, base } = resolveDeployment(process.env);
+const ctx = siteRenderContext(origin, base);
+const published = sortEntries(getPublishedProjects(), DEFAULT_STATE.sort);
+const total = published.length;
+
+const statusCounts = STATUSES.map((status) => ({ status, count: published.filter((p) => p.status === status).length })).filter((s) => s.count > 0);
+const showStatusFilter = statusCounts.length >= 2;
+const tags = countTags(published);
+const showTagFilter = tags.some((t) => t.count < total);
+
+// Search data for the browser: published records only, description as plain text.
+const searchData = published.map((p) => ({
+  id: p.id,
+  title: p.title,
+  summary: p.summary,
+  tags: p.tags,
+  status: p.status,
+  added: p.added,
+  updated: p.updated,
+  index: p.index,
+  text: p.description ? markdownToPlainText(p.description) : '',
+}));
+const cards = published.map((p) => renderCard(ctx, p, { headingLevel: 2 }).value).join('');
+const description = `Browse every project on ${site.name}: search by name, filter by tag and development status, and open each project's page.`;
+---
+
+<Base title="Projects" description={description} path="projects/" current="projects">
+  <div class="page-header">
+    <h1>Projects</h1>
+    <p>Everything I have catalogued so far. Search, filter, and sort to find what you are looking for.</p>
+  </div>
+
+  <div class="catalog-layout">
+    <form class="catalog-controls" id="catalog-controls" method="get" action="" aria-label="Filter projects">
+      <div class="field">
+        <label class="field-label" for="catalog-search">Search</label>
+        <input id="catalog-search" type="search" name="q" placeholder="Title, summary, tags…" autocomplete="off" />
+      </div>
+
+      <fieldset id="status-filter" hidden={!showStatusFilter}>
+        <legend>Status</legend>
+        <ul class="check-list">
+          {statusCounts.map(({ status, count }) => (
+            <li>
+              <label>
+                <input type="checkbox" name="status" value={status} checked />
+                <span>{STATUS_INFO[status].label}</span>
+                <span class="count">({count})</span>
+              </label>
+            </li>
+          ))}
+        </ul>
+      </fieldset>
+
+      <fieldset id="tag-filter" hidden={!showTagFilter}>
+        <legend>Tags <span class="sr-only">(projects must match every selected tag)</span></legend>
+        <ul class="chip-list">
+          {tags.map((tag) => (
+            <li>
+              <label class="chip">
+                <input type="checkbox" name="tags" value={tag.key} />
+                <span>{tag.label}</span>
+                <span class="count">{tag.count}</span>
+              </label>
+            </li>
+          ))}
+        </ul>
+      </fieldset>
+
+      <div class="field">
+        <label class="field-label" for="catalog-sort">Sort by</label>
+        <select id="catalog-sort" name="sort">
+          {SORT_KEYS.map((key) => (
+            <option value={key} selected={key === DEFAULT_STATE.sort}>{SORT_LABELS[key]}</option>
+          ))}
+        </select>
+      </div>
+
+      <div class="catalog-controls__actions">
+        <button class="button" type="submit" id="catalog-apply">Apply</button>
+        <button class="button button--quiet" type="button" id="catalog-reset">Reset filters</button>
+      </div>
+    </form>
+
+    <section aria-labelledby="results-heading">
+      <h2 id="results-heading" class="sr-only">Results</h2>
+      <div class="catalog-toolbar">
+        <p class="catalog-toolbar__status" id="catalog-count" aria-live="polite">{total === 1 ? '1 project' : `${total} projects`}</p>
+        <div class="catalog-toolbar__tools">
+          <div class="view-toggle js-only" role="group" aria-label="View">
+            <button type="button" data-view="grid" aria-pressed="true"><Fragment set:html={ICONS.grid} />Grid</button>
+            <button type="button" data-view="list" aria-pressed="false"><Fragment set:html={ICONS.list} />List</button>
+          </div>
+        </div>
+      </div>
+
+      {total === 0 ? (
+        <div class="catalog-empty">
+          <p>No projects have been published yet. Check back soon.</p>
+        </div>
+      ) : (
+        <Fragment>
+          <div class="catalog catalog--grid" id="catalog-results" set:html={cards} />
+          <div class="catalog-empty" id="catalog-empty" hidden>
+            <p>No projects match these filters.</p>
+            <button class="button" type="button" data-reset>Reset filters</button>
+          </div>
+        </Fragment>
+      )}
+
+      <details class="status-legend">
+        <summary>What the statuses mean</summary>
+        <dl>
+          {STATUSES.map((status) => (
+            <Fragment>
+              <dt>{STATUS_INFO[status].label}</dt>
+              <dd>{STATUS_INFO[status].meaning}</dd>
+            </Fragment>
+          ))}
+        </dl>
+        <p>Statuses describe development, not whether something is online. Archived projects stay listed here; uncheck "Archived" to hide them.</p>
+      </details>
+    </section>
+  </div>
+
+  <script type="application/json" id="catalog-data" set:html={JSON.stringify(searchData)} />
+  <script>
+    import { initCatalog } from '../../scripts/catalog.ts';
+    initCatalog();
+  </script>
+</Base>

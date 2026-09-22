@@ -1,0 +1,123 @@
+# Test fixture: synthetic records with sentinels. Never used by the real site.
+schemaVersion: 1
+projects:
+  - id: sentinel-published
+    title: SENTINEL_PUBLISHED Alpha
+    summary: A published fixture with images, dates, links and a description.
+    tags: [Game, web, " Tools "]
+    status: active
+    featured: true
+    added: 2026-01-10
+    updated: 2026-03-05
+    notice: Desktop recommended
+    description: |
+      ## Background
+
+      SENTINEL_DESCRIPTION text with a [link](https://example.org/app) and a
+      [same-site link](https://www.patrickcowhill.com/cowhill-dev/about/).
+
+      ![Inline image](project-assets/sentinel-published/inline.png)
+
+      Raw text like <not-a-tag but with angle brackets is fine.
+    thumbnail:
+      src: project-assets/sentinel-published/thumb.png
+      alt: Alpha thumbnail
+    screenshots:
+      - src: project-assets/sentinel-published/shot-1.png
+        alt: First screenshot
+        caption: The first screen.
+      - src: project-assets/shared-pics/shared.png
+        alt: Shared picture
+    links:
+      - label: Play
+        url: https://example.org/app
+        primary: true
+      - label: View source
+        url: https://github.com/example/alpha
+      - label: Read PDF
+        url: project-assets/sentinel-published/notes.pdf
+      - label: Download release
+        url: https://github.com/example/alpha/releases/download/v1/alpha.zip
+        kind: download
+      - label: Download notes
+        url: project-assets/sentinel-published/notes.pdf
+        kind: download
+  - id: sentinel-draft
+    title: SENTINEL_DRAFT Hidden
+    summary: DRAFTONLY summary that must never be published.
+    tags: [secret-tag]
+    status: active
+    draft: true
+    featured: true
+    added: 2026-04-01
+    description: |
+      DRAFTONLY description ![secret](project-assets/sentinel-draft/DRAFTONLY-secret.png)
+    thumbnail:
+      src: project-assets/sentinel-draft/DRAFTONLY-secret.png
+      alt: secret
+    links:
+      - label: Secret link
+        url: https://example.org/DRAFTONLY
+  - id: sentinel-archived
+    title: SENTINEL_ARCHIVED Old thing
+    summary: Archived but still usable.
+    tags: [game, retro]
+    status: archived
+    featured: true
+    added: 2020-05-05
+    updated: 2021-01-01
+    links:
+      - label: Play anyway
+        url: https://example.org/old
+        primary: true
+  - id: sentinel-complete
+    title: SENTINEL_COMPLETE Done thing
+    summary: Complete, feature-eligible, no primary link.
+    tags: [tool]
+    status: complete
+    featured: true
+    added: 2025-12-01
+    links:
+      - label: View source
+        url: https://github.com/example/done
+      - label: Watch demo
+        url: https://example.org/video
+  - id: sentinel-undated
+    title: SENTINEL_UNDATED Zeta
+    summary: No dates, no links, no images, no description.
+    tags: []
+    status: paused
+  - id: sentinel-maintained
+    title: SENTINEL_MAINTAINED Beta
+    summary: Maintained with only an added date.
+    tags: [web, tool]
+    status: maintained
+    added: 2026-02-20
+    links:
+      - label: Open tool
+        url: https://tools.cowhill.dev/beta/
+        primary: true
+  - id: sentinel-featured-fourth
+    title: SENTINEL_FOURTH Featured
+    summary: Fourth featured project, should not be highlighted (limit three).
+    tags: [experiment]
+    status: active
+    featured: true
+    added: 2026-05-01
+  - id: portfolio
+    title: SENTINEL_PORTFOLIO Site
+    summary: The portfolio record that drives the Portfolio navigation link.
+    tags: [portfolio, website]
+    status: maintained
+    added: 2026-01-05
+    links:
+      - label: Visit portfolio
+        url: https://www.patrickcowhill.com/
+        primary: true
+  - id: sentinel-recent
+    title: SENTINEL_RECENT Gamma
+    summary: Recent, not featured.
+    tags: [experiment, web]
+    status: active
+    added: 2026-06-01
+    updated: 2026-06-15
