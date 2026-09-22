@@ -88,8 +88,43 @@ describe.each(Object.keys(VARIANTS) as (keyof typeof VARIANTS)[])('built output 
     for (const file of walk(dist).filter((f) => f.endsWith('.html'))) {
       const content = fs.readFileSync(file, 'utf8');
       if (prefix) expect(content, file).not.toMatch(/href="\/(projects|about|_astro|brand|generated)\b/);
+      else expect(content, file).not.toMatch(/(?:href|src|content)="\/cowhill-dev(?:\/|")/);
       expect(content, file).not.toContain('href="/cowhill-dev/cowhill-dev');
     }
+  });
+
+  it('classifies same-host links against origin and base, and keeps the portfolio external', () => {
+    const detail = read(dist, 'projects/sentinel-published/index.html');
+    const anchor = (label: string) => new RegExp(`<a([^>]*)>(?:<span[^>]*>)?${label}`).exec(detail)?.[1] ?? '';
+    const previewLink = anchor('same-site link');
+    const rootLink = anchor('root-site link');
+    expect(previewLink).toContain('href="https://www.patrickcowhill.com/cowhill-dev/about/"');
+    expect(rootLink).toContain('href="https://www.cowhill.dev/about/"');
+    if (name === 'repo') {
+      expect(previewLink).not.toContain('target=');
+      expect(rootLink).toContain('target="_blank"');
+    } else {
+      expect(previewLink).toContain('target="_blank"');
+      expect(rootLink).not.toContain('target=');
+    }
+    const portfolio = read(dist, 'projects/portfolio/index.html');
+    expect(portfolio).toContain('href="https://www.patrickcowhill.com/" target="_blank" rel="noopener noreferrer"');
+    const nav = /<nav[^>]*aria-label="Main"[^>]*>(.*?)<\/nav>/s.exec(portfolio)![1]!;
+    expect(nav).toContain('href="https://www.patrickcowhill.com/"');
+    expect(nav).toContain(`href="${prefix}/projects/"`);
+  });
+
+  it('detects references that leave the base path', () => {
+    const scratch = path.join(TMP, `dist-leak-${name}`);
+    fs.rmSync(scratch, { recursive: true, force: true });
+    fs.cpSync(dist, scratch, { recursive: true });
+    const about = path.join(scratch, 'about', 'index.html');
+    const leaked = prefix ? 'href="/projects/"' : 'href="/cowhill-dev/projects/"';
+    fs.writeFileSync(about, fs.readFileSync(about, 'utf8').replace('</main>', `<a ${leaked}>leak</a></main>`));
+    const problems = inspectDist({ dist: scratch, origin: variant.origin, base: variant.base, forbiddenStrings: SENTINELS, projectsFile: path.join(FIXTURE_ROOT, 'projects.yaml'), repoRoot: FIXTURE_ROOT });
+    if (prefix) expect(problems).toEqual([expect.stringMatching(/reference outside the base path \/cowhill-dev\/ in about\/index.html: \/projects\//)]);
+    else expect(problems).toEqual([]);
+    fs.rmSync(scratch, { recursive: true, force: true });
   });
 
   it('builds the homepage highlights from published, non-archived projects', () => {

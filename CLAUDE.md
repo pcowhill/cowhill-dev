@@ -28,8 +28,13 @@ project catalog).
   mandatory runtime network requests.
 - Do not change DNS, the custom domain, Pages settings, Route 53, Lightsail,
   other repositories or infrastructure unless the owner explicitly asks. The
-  domain switch is documented in `docs/custom-domain.md` and is a separate,
-  deliberate procedure.
+  repository is configured for `https://www.cowhill.dev/`; making that address
+  live (Pages setting, DNS, certificate) is the owner's separate, deliberate
+  procedure in `docs/custom-domain.md`. Do not describe it as complete unless
+  the checks there have passed.
+- The production guard in `.github/workflows/site.yml` (live Pages origin/base
+  comparison) runs under the deploy job's condition. Never weaken it, add
+  `continue-on-error`, or make pull requests deploy.
 - Do not create scheduled or recurring autonomous sessions, check-ins or
   triggers for this repository.
 

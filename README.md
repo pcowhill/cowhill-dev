@@ -14,10 +14,14 @@ one file: **`projects.yaml`** at the repository root.
 > readable on GitHub. Draft means "not published", not "private". Never store
 > secrets or sensitive unpublished material here.
 
-Current preview deployment: **https://www.patrickcowhill.com/cowhill-dev/**
-(GitHub Pages inherits the user site's custom domain, see
-[Deployment](#deployment)). The eventual home is `https://www.cowhill.dev/`;
-switching is a separate procedure described in [docs/custom-domain.md](docs/custom-domain.md).
+The repository is configured for production at **https://www.cowhill.dev/**
+(a root deployment on the custom domain, `deployment` in
+`src/config/site.ts`). Whether that address is actually live depends on
+manual steps outside this repository (domain verification, the repository's
+Pages custom-domain setting, DNS in Route 53, certificate provisioning); until
+they are completed and checked, GitHub serves the previous preview address
+`https://www.patrickcowhill.com/cowhill-dev/`. The cutover, its checks and the
+rollback are described in [docs/custom-domain.md](docs/custom-domain.md).
 
 ## Quick start
 
@@ -215,7 +219,7 @@ The GitHub CLI is not required.
 git clone https://github.com/pcowhill/cowhill-dev.git
 cd cowhill-dev
 npm ci                 # install exact dependency versions from package-lock.json
-npm run dev            # local preview at http://localhost:4321/cowhill-dev/
+npm run dev            # local preview at http://localhost:4321/
 npm run verify         # validate + editor check + typecheck + tests + build + inspect
 npm run test:e2e       # browser tests (first time: npx playwright install chromium)
 ```
@@ -232,10 +236,12 @@ Other commands:
 | `npm run inspect-dist`     | Check the build output for missing pages or unpublished material.    |
 | `node tests/screenshots/capture.ts` | Screenshot the built site and the editor into `tests/screenshots/out/`. |
 
-Local root-path or alternative-origin builds for testing:
+Alternative-origin or repository-path builds for testing (the committed
+configuration is a root deployment; a `/<repository>` base path remains fully
+supported and is exercised by the tests):
 
 ```powershell
-$env:SITE_ORIGIN = "http://localhost:4321"; $env:SITE_BASE = "/"; npm run build
+$env:SITE_ORIGIN = "https://www.patrickcowhill.com"; $env:SITE_BASE = "/cowhill-dev"; npm run build
 ```
 
 ### Where to change things
@@ -269,14 +275,17 @@ Windows and Linux.
 
 The **Site** workflow (`.github/workflows/site.yml`):
 
-- **Pull requests**: validation, editor freshness, type checks, unit and
-  publication tests, production build, output inspection, browser tests. No
-  deployment.
-- **Pushes to `main`** (and manual runs from `main`): the same checks, then the
-  verified `dist/` artifact is uploaded with `actions/upload-pages-artifact` and
-  deployed with `actions/deploy-pages` to the `github-pages` environment. The
-  deployed artifact is the one that was tested, not a separate rebuild, and a
-  failed step leaves the current site untouched.
+- **Pull requests** (and manual runs from other branches): validation, editor
+  freshness, type checks, unit and publication tests, production build, output
+  inspection, browser tests. No deployment, and no comparison with the live
+  Pages configuration, so a change of address can be reviewed before the Pages
+  settings change.
+- **Pushes to `main`** (and manual runs from `main`): the production guard
+  below, then the same checks, then the verified `dist/` artifact is uploaded
+  with `actions/upload-pages-artifact` and deployed with `actions/deploy-pages`
+  to the `github-pages` environment. The deployed artifact is the one that was
+  tested, not a separate rebuild, and a failed step leaves the current site
+  untouched.
 - Deployment concurrency is serialized per branch and never cancels an
   in-progress production deploy.
 
@@ -285,17 +294,22 @@ Pages → Build and deployment → Source: GitHub Actions).
 
 ### Origin and base path
 
-GitHub Pages serves this repository at `https://www.patrickcowhill.com/cowhill-dev/`
-because the user site `pcowhill.github.io` uses a custom domain, and project
-sites inherit it. The committed `deployment` setting in `src/config/site.ts`
-holds that origin and base path; every link, asset URL, canonical URL, sitemap
-entry and social preview derives from it. The workflow compares the setting
-with what GitHub reports for the Pages site (`actions/configure-pages`) and
-fails when the host or base path differ, so the site can never deploy with
-URLs pointing at the wrong address. GitHub reports `http://` while "Enforce
-HTTPS" is not enabled for this repository's Pages site; the check accepts the
-committed `https://` origin for the same host (the domain serves HTTPS) and
-prints a note. Enable "Enforce HTTPS" in Settings → Pages when GitHub offers it. Moving to `https://www.cowhill.dev/` is documented in
+The committed `deployment` setting in `src/config/site.ts` (origin
+`https://www.cowhill.dev`, base `/`) is the address every link, asset URL,
+canonical URL, sitemap entry and social preview is written for. GitHub decides
+where the site is actually served (repository Settings → Pages → Custom
+domain, plus DNS). On every run that can deploy (push to `main` or manual run
+from `main`, the deploy job's own condition) the workflow reads the live Pages
+configuration with `actions/configure-pages` and fails, before building, when
+the reported hostname or base path differs from the committed values, so the
+site can never deploy with URLs pointing at the wrong address. Pull requests
+skip only that comparison. GitHub reports `http://` while "Enforce HTTPS" is
+not enabled; the check accepts the committed `https://` origin for the same
+host and prints a note, and never downgrades canonical URLs to `http://`.
+
+Because the site is published by a GitHub Actions workflow, no `CNAME` file is
+needed or used; the Pages setting is authoritative. The steps to make
+`https://www.cowhill.dev/` live (and to roll back) are in
 [docs/custom-domain.md](docs/custom-domain.md).
 
 ## Repository layout
@@ -320,7 +334,7 @@ docs/                    custom-domain procedure, editor manual checklist, scree
 
 ## More documentation
 
-- [docs/custom-domain.md](docs/custom-domain.md): switching to www.cowhill.dev.
+- [docs/custom-domain.md](docs/custom-domain.md): making www.cowhill.dev live, checks and rollback.
 - [docs/editor-manual-checklist.md](docs/editor-manual-checklist.md): manual
   checks for browser features automated tests cannot cover.
 - [CLAUDE.md](CLAUDE.md): rules for AI-assisted changes.

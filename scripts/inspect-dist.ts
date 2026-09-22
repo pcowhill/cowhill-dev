@@ -70,6 +70,20 @@ export function inspectDist(options: InspectOptions): string[] {
     if (sitemap.includes(`/projects/${project.id}/`)) problems.push(`sitemap lists draft "${project.id}"`);
   }
 
+  // Every site-absolute reference must sit under the deployment base: a
+  // root deployment must not keep a repository-path prefix and a
+  // repository-path deployment must not emit root-relative references.
+  const basePrefix = options.base === '/' ? '' : options.base;
+  for (const file of files.filter((f) => f.endsWith('.html'))) {
+    const content = fs.readFileSync(file, 'utf8');
+    for (const match of content.matchAll(/\b(?:href|src|content|action)="(\/[^"/][^"]*|\/)"/g)) {
+      const target = match[1]!;
+      if (basePrefix && target !== basePrefix && target !== `${basePrefix}/` && !target.startsWith(`${basePrefix}/`)) {
+        problems.push(`reference outside the base path ${basePrefix}/ in ${path.relative(dist, file)}: ${target}`);
+      }
+    }
+  }
+
   const forbidden = [...(options.forbiddenStrings ?? [])];
   for (const draft of catalog.all.filter((p) => p.draft)) forbidden.push(`projects/${draft.id}/`, draft.title);
   const textFiles = files.filter((f) => /\.(html|js|css|xml|txt|json|svg)$/.test(f));

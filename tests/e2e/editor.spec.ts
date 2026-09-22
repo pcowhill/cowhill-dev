@@ -41,6 +41,7 @@ test('opens over file:// with no CDN or fetch dependency and explains the workfl
   await expect(page.locator('#welcome-title')).toBeVisible();
   await expect(page.locator('#btn-open-welcome')).toBeVisible();
   await expect(page.locator('.ed-help')).toContainText('Commit and push');
+  await expect(page.locator('#site-config')).toHaveText('https://www.cowhill.dev');
   await expect(page.locator('#btn-save')).toBeDisabled();
   const html = fs.readFileSync(path.join(process.cwd(), 'project-editor.html'), 'utf8');
   expect(html).not.toMatch(/<script[^>]+src=/);

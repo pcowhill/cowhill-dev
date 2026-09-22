@@ -2,9 +2,16 @@
 # main, and deploys the verified build artifact to GitHub Pages from main.
 #
 # - Pull requests: full verification and a production build, no deployment.
+#   The committed deployment origin/base is NOT compared with the live Pages
+#   configuration, so a change of address can be reviewed before the Pages
+#   settings are changed.
 # - Pushes to main: full verification, artifact inspection, then deployment of
 #   that same artifact. A failed step never replaces the live site.
 # - workflow_dispatch: same pipeline; deployment only when run from main.
+#
+# Every run that can deploy (the condition on the deploy job, repeated on the
+# two Pages-configuration steps) fails closed when GitHub reports a different
+# hostname or base path than src/config/site.ts is configured for.
 name: Site
 
 on:
@@ -44,11 +51,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Production guard: same condition as the deploy job. Runs that cannot
+      # deploy (pull requests, manual runs from other branches) skip only this
+      # comparison and still run every check below.
       - name: Read GitHub Pages configuration
         id: pages
+        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         uses: actions/configure-pages@v5
 
       - name: Check deployment origin and base path
+        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: npm run check:pages-config -- --origin "${{ steps.pages.outputs.origin }}" --base-path "${{ steps.pages.outputs.base_path }}"
 
       - name: Validate projects.yaml
