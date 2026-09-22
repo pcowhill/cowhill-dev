@@ -7,6 +7,7 @@ import { escapeHtml as e } from '../shared/html.ts';
 import { assetPublicPath, routes, type ParsedAssetPath } from '../shared/paths.ts';
 import type { RenderContext } from '../shared/render/context.ts';
 import { STATUS_INFO, isStatus } from '../shared/schema.ts';
+import { normalizeTag } from '../shared/tags.ts';
 import type { AssetReference, ValidationIssue, ValidationResult } from '../shared/validate.ts';
 import { EditorModel, type ProjectSnapshot } from './model.ts';
 import {
@@ -26,7 +27,7 @@ import {
   writeHandle,
   type FileSource,
 } from './files.ts';
-import { renderProjectForm } from './form.ts';
+import { renderProjectForm, renderTagSuggestions, tagStrings } from './form.ts';
 import { previewProject, renderPreview, type PreviewKind } from './preview.ts';
 
 type Tab = 'form' | 'yaml' | 'card' | 'list' | 'detail';
@@ -251,7 +252,9 @@ function renderForm(): void {
     panel.innerHTML = '<p class="empty">Select a project on the left, or add one.</p>';
     return;
   }
-  panel.innerHTML = renderProjectForm(state.model, snapshot);
+  // The form is replaced wholesale; keep the cheat sheet expanded if it was.
+  const cheatSheetOpen = (document.getElementById('f-md-cheatsheet') as HTMLDetailsElement | null)?.open ?? false;
+  panel.innerHTML = renderProjectForm(state.model, snapshot, { cheatSheetOpen });
   panel.classList.toggle('is-locked', state.yamlInvalid);
   const lock = $('form-lock');
   lock.hidden = !state.yamlInvalid;
@@ -279,6 +282,7 @@ function applyFieldChange(el: HTMLInputElement | HTMLTextAreaElement | HTMLSelec
   } else if (kind === 'tags') {
     const values = (el as HTMLInputElement).value.split(',').map((t) => t.trim()).filter(Boolean);
     state.model.setStringList([i, 'tags'], values);
+    refreshTagSuggestions();
   } else if (kind === 'thumb') {
     const src = (document.getElementById('f-thumb-src') as HTMLInputElement).value.trim();
     const alt = (document.getElementById('f-thumb-alt') as HTMLInputElement).value;
@@ -299,6 +303,21 @@ function applyFieldChange(el: HTMLInputElement | HTMLTextAreaElement | HTMLSelec
   syncYamlFromModel();
 }
 
+/** Redraws the tag chips under the Tags field without re-rendering (and refocusing) the whole form. */
+function refreshTagSuggestions(): void {
+  const container = document.getElementById('f-tag-suggestions');
+  if (container && state.model) container.outerHTML = renderTagSuggestions(state.model, state.selected);
+}
+
+/** Adds a suggested tag to the selected project, or removes it when already present. */
+function toggleTag(index: number, tag: string): void {
+  if (!state.model) return;
+  const key = normalizeTag(tag);
+  const current = tagStrings(state.model.getField(index, 'tags'));
+  const next = current.some((t) => normalizeTag(t) === key) ? current.filter((t) => normalizeTag(t) !== key) : [...current, tag];
+  state.model.setStringList([index, 'tags'], next);
+}
+
 function handleFormAction(button: HTMLElement): void {
   if (!state.model || state.yamlInvalid) return;
   const i = state.selected;
@@ -306,6 +325,9 @@ function handleFormAction(button: HTMLElement): void {
   const item = Number(button.dataset.item ?? -1);
   const dir = (Number(button.dataset.dir ?? 0) as -1 | 1) || 1;
   switch (action) {
+    case 'toggle-tag':
+      toggleTag(i, button.dataset.tag ?? '');
+      break;
     case 'clear-thumbnail':
       state.model.setMapping([i, 'thumbnail'], undefined);
       break;
@@ -336,6 +358,11 @@ function handleFormAction(button: HTMLElement): void {
   renderForm();
   renderPreviews();
   syncYamlFromModel();
+  if (action === 'toggle-tag') {
+    // The form was re-rendered: put keyboard focus back on the chip (or the field when the chip is gone).
+    const chip = Array.from(document.querySelectorAll<HTMLElement>('[data-action="toggle-tag"]')).find((el) => el.dataset.tag === button.dataset.tag);
+    (chip ?? document.getElementById('f-tags'))?.focus();
+  }
 }
 
 // ---------------------------------------------------------------------------

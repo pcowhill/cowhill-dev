@@ -337,7 +337,12 @@ a:hover {
   }
 }
 
-/* Detail page */
+/* Detail page. The article is a size container so the two-column layout
+   depends on the space it actually has (the website's content column or the
+   editor's preview frame), not on the viewport. */
+.project-detail {
+  container-type: inline-size;
+}
 .project-detail__header {
   display: flex;
   flex-direction: column;
@@ -369,8 +374,32 @@ a:hover {
   flex-wrap: wrap;
   gap: var(--space-2);
 }
+.project-detail__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: var(--space-6);
+}
+/* Wide enough for two readable columns: description and resources on the
+   left, screenshots (or the thumbnail) on the right, both reaching the edges
+   of the content column. Narrow containers keep the stacked source order. */
+@container (min-width: 46rem) {
+  .project-detail--with-media .project-detail__body {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    /* Description, resources, then a flexible row that only the media column
+       fills, so a tall media column never pushes the resources down. */
+    grid-template-rows: auto auto minmax(0, 1fr);
+    align-items: start;
+  }
+  .project-detail--with-media .project-detail__body > * {
+    grid-column: 1;
+  }
+  .project-detail--with-media .project-detail__media {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+  }
+}
 .project-detail__hero {
-  margin: 0 0 var(--space-5);
+  margin: 0 0 var(--space-6);
 }
 .project-detail__hero-image {
   display: block;
@@ -428,6 +457,28 @@ a:hover {
   border: 1px solid var(--color-border);
   border-radius: 999px;
   padding: 0 0.5rem;
+}
+
+/* Collapsible explanatory notes: the catalog's status legend and the editor's
+   Markdown cheat sheet share this look. */
+.legend {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+.legend summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.legend dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem var(--space-3);
+  margin: var(--space-3) 0 0;
+}
+.legend dt,
+.legend dd {
+  margin: 0;
 }
 
 /* Rendered Markdown */

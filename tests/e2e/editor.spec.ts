@@ -92,6 +92,78 @@ test('preview links never navigate the editor; testing a destination is explicit
   await expect(page.locator('#preview-link-notice')).toContainText('/projects/first/');
 });
 
+test('the Markdown cheat sheet is a collapsed legend that stays open across project switches', async ({ page }) => {
+  await page.setInputFiles('#file-input', ROUNDTRIP);
+  const sheet = page.locator('#f-md-cheatsheet');
+  await expect(sheet).toHaveClass(/legend/);
+  await expect(sheet.locator('summary')).toHaveText('Markdown cheat sheet');
+  await expect(sheet.locator('dl').first()).toBeHidden();
+  await sheet.locator('summary').click();
+  await expect(sheet.locator('dt code').first()).toBeVisible();
+  await expect(sheet).toContainText('# Section');
+  await expect(sheet).toContainText('- First item');
+  await expect(sheet).toContainText('[Link text](https://example.com/)');
+  await expect(sheet).toContainText('![Alt text](project-assets/first/figure.png)');
+  await expect(sheet).toContainText('```python');
+  await expect(sheet).toContainText('| Feature | Status |');
+  await expect(sheet).toContainText('$E = mc^2$');
+  await expect(sheet).toContainText('math is not rendered');
+  await page.click('.project-item[data-index="1"]');
+  await expect(page.locator('#f-md-cheatsheet')).toHaveAttribute('open', '');
+  await expect(page.locator('#f-md-cheatsheet')).toContainText('project-assets/second/figure.png');
+});
+
+test('tags used in the file are offered as chips that add or remove the tag', async ({ page }) => {
+  await page.setInputFiles('#file-input', ROUNDTRIP);
+  const chips = page.locator('#f-tag-suggestions [data-action="toggle-tag"]');
+  await expect(chips).toHaveText(['alpha1', 'beta1']);
+  await expect(chips.nth(0)).toHaveAttribute('aria-pressed', 'true');
+  await page.click('.project-item[data-index="1"]');
+  await expect(page.locator('#f-tags')).toHaveValue('');
+  await expect(chips.nth(0)).toHaveAttribute('aria-pressed', 'false');
+  await chips.nth(0).click();
+  await expect(page.locator('#f-tags')).toHaveValue('alpha');
+  await expect(page.locator('#f-tag-suggestions [data-tag="alpha"]')).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('#f-tag-suggestions [data-tag="alpha"]')).toBeFocused();
+  await expect(page.locator('#f-tag-suggestions [data-tag="alpha"] .f-tag-count')).toHaveText('2');
+  await page.click('#f-tag-suggestions [data-tag="beta"]');
+  await expect(page.locator('#f-tags')).toHaveValue('alpha, beta');
+  await expect(page.locator('#file-state')).toContainText('Unsaved changes');
+  expect(await text(page)).toContain('tags: [alpha, beta]\n    status: complete');
+  // Clicking a pressed chip removes the tag; typing a new tag makes it available to other projects.
+  await page.click('#f-tag-suggestions [data-tag="alpha"]');
+  await expect(page.locator('#f-tags')).toHaveValue('beta');
+  await page.fill('#f-tags', 'beta, Gamma');
+  await expect(page.locator('#f-tag-suggestions [data-tag="Gamma"]')).toHaveAttribute('aria-pressed', 'true');
+  await page.click('.project-item[data-index="0"]');
+  await expect(page.locator('#f-tag-suggestions [data-tag="Gamma"]')).toHaveAttribute('aria-pressed', 'false');
+  await expect(page.locator('#f-tags')).toHaveValue('alpha, beta');
+});
+
+test('the detail preview uses the shared two-column layout when the frame is wide', async ({ browser }) => {
+  // The preview frame, not the window, decides the layout: give it a wide desktop window.
+  const context = await browser.newContext({ viewport: { width: 1800, height: 1000 } });
+  await context.route(/^(?!file:).*/, (route) => void route.abort());
+  const page = await context.newPage();
+  await page.goto(EDITOR);
+  await page.setInputFiles('#file-input', ROUNDTRIP);
+  await page.click('[data-action="add-screenshot"]');
+  await page.fill('#f-shot-0-src', 'project-assets/first/shot.png');
+  await page.fill('#f-shot-0-alt', 'A shot');
+  await page.click('[data-tab="detail"]');
+  const article = page.locator('#preview-content .project-detail');
+  await expect(article).toHaveClass(/project-detail--with-media/);
+  const prose = await page.locator('#preview-content .prose').boundingBox();
+  const media = await page.locator('#preview-content .project-detail__media').boundingBox();
+  expect(media!.x).toBeGreaterThan(prose!.x + prose!.width);
+  await page.click('[data-width="narrow"]');
+  await expect(page.locator('#preview-frame')).toHaveCSS('width', '375px');
+  const proseNarrow = await page.locator('#preview-content .prose').boundingBox();
+  const mediaNarrow = await page.locator('#preview-content .project-detail__media').boundingBox();
+  expect(mediaNarrow!.y).toBeGreaterThan(proseNarrow!.y + proseNarrow!.height - 1);
+  await context.close();
+});
+
 test('invalid YAML locks the form, keeps raw text, offers recovery and reverts', async ({ page }) => {
   await page.setInputFiles('#file-input', ROUNDTRIP);
   await page.click('[data-tab="yaml"]');

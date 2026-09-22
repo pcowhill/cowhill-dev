@@ -91,6 +91,39 @@ for (const variant of ['root', 'repo'] as const) {
       expect(await robots.text()).toContain(`Sitemap: ${origin}${site.prefix}/sitemap.xml`);
     });
 
+    test('detail page fills the content column and shows screenshots beside the text on wide screens', async ({ page }) => {
+      await page.goto(site.url('/projects/sentinel-published/'));
+      const headerBox = await page.locator('.site-header__inner').boundingBox();
+      const articleBox = await page.locator('.project-detail').boundingBox();
+      const headerStyle = await page.locator('.site-header__inner').evaluate((el) => getComputedStyle(el));
+      const headerLeft = headerBox!.x + parseFloat(headerStyle.paddingLeft);
+      const headerRight = headerBox!.x + headerBox!.width - parseFloat(headerStyle.paddingRight);
+      // The article starts under the logo and ends under the last navigation link.
+      expect(Math.abs(articleBox!.x - headerLeft)).toBeLessThan(1);
+      expect(Math.abs(articleBox!.x + articleBox!.width - headerRight)).toBeLessThan(1);
+      const prose = await page.locator('.project-detail .prose').boundingBox();
+      const shots = await page.locator('.project-detail__media').boundingBox();
+      expect(shots!.x).toBeGreaterThan(prose!.x + prose!.width);
+      expect(Math.abs(shots!.y - prose!.y)).toBeLessThan(2);
+      expect(Math.abs(shots!.x + shots!.width - headerRight)).toBeLessThan(1);
+      const resources = await page.locator('.project-detail__resources').boundingBox();
+      expect(resources!.x).toBeLessThan(shots!.x);
+      expect(resources!.y).toBeGreaterThan(prose!.y + prose!.height - 1);
+    });
+
+    test('detail page stacks description, screenshots and resources on narrow screens', async ({ browser }) => {
+      const context = await browser.newContext({ viewport: { width: 600, height: 900 } });
+      const page = await context.newPage();
+      await page.goto(site.url('/projects/sentinel-published/'));
+      const prose = await page.locator('.project-detail .prose').boundingBox();
+      const shots = await page.locator('.project-detail__media').boundingBox();
+      const resources = await page.locator('.project-detail__resources').boundingBox();
+      expect(shots!.y).toBeGreaterThan(prose!.y + prose!.height - 1);
+      expect(resources!.y).toBeGreaterThan(shots!.y + shots!.height - 1);
+      expect(Math.abs(shots!.x - prose!.x)).toBeLessThan(1);
+      await context.close();
+    });
+
     test('sparse detail page hides empty sections', async ({ page }) => {
       await page.goto(site.url('/projects/sentinel-undated/'));
       await expect(page.locator('h1')).toHaveText('SENTINEL_UNDATED Zeta');
