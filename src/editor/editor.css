@@ -475,6 +475,67 @@ code {
   font-size: 0.9rem;
 }
 
+/* Tag suggestions under the Tags field */
+.f-tag-suggestions {
+  margin: calc(-1 * var(--space-2)) 0 var(--space-3);
+}
+.f-tag-suggestions .f-hint {
+  margin-bottom: 0.4rem;
+}
+.f-tag-suggestions .tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-family: inherit;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.f-tag-suggestions .tag[aria-pressed='true'] {
+  font-weight: 600;
+}
+.f-tag-count {
+  font-size: 0.85em;
+  opacity: 0.75;
+}
+
+/* Markdown cheat sheet under the description */
+.md-cheatsheet {
+  margin-top: calc(-1 * var(--space-1));
+}
+.md-cheatsheet__intro {
+  margin: var(--space-2) 0 0;
+}
+.md-cheatsheet__title {
+  margin: var(--space-3) 0 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+}
+.md-cheatsheet dl {
+  grid-template-columns: minmax(10rem, max-content) 1fr;
+  align-items: start;
+  margin-top: var(--space-2);
+}
+.md-cheatsheet dt code,
+.md-cheatsheet dt pre {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.md-cheatsheet dt pre {
+  padding: 0.35rem 0.5rem;
+  background: var(--color-surface-muted);
+  border-radius: var(--radius-sm);
+}
+.md-cheatsheet dt pre code {
+  padding: 0;
+  background: none;
+}
+
 /* YAML */
 .yaml-text {
   width: 100%;

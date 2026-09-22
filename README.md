@@ -50,7 +50,9 @@ deploys the website.
    so images in `project-assets/` show in previews and are checked for
    existence.
 4. Edit with the form or the YAML tab, check the Card / List item / Detail
-   page previews, then **Save**.
+   page previews, then **Save**. The form offers every tag already used in
+   the file as a clickable chip, and a Markdown cheat sheet sits under the
+   description field.
 5. Commit and push `projects.yaml` (and any new files in `project-assets/`).
 
 Important:

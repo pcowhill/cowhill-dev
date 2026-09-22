@@ -1,6 +1,8 @@
 /** Renders the project form as HTML. Event handling lives in main.ts. */
 import { escapeHtml as e } from '../shared/html.ts';
 import { STATUSES, STATUS_INFO, LINK_KINDS } from '../shared/schema.ts';
+import { countTags, normalizeTag } from '../shared/tags.ts';
+import { renderCheatSheet } from './cheatsheet.ts';
 import type { EditorModel, ProjectSnapshot } from './model.ts';
 
 function str(value: unknown): string {
@@ -15,7 +17,39 @@ function textField(opts: { id: string; label: string; path: string; value: strin
 </div>`;
 }
 
-export function renderProjectForm(model: EditorModel, snapshot: ProjectSnapshot): string {
+/** The string entries of a project's authored tag list (invalid values are ignored). */
+export function tagStrings(tags: unknown): string[] {
+  return Array.isArray(tags) ? tags.filter((t): t is string => typeof t === 'string') : [];
+}
+
+/**
+ * Every tag used anywhere in the open document, most used first, as chips that
+ * add the tag to (or remove it from) the selected project. Tags already on the
+ * project are shown pressed. Re-rendered on its own when the tag field changes.
+ */
+export function renderTagSuggestions(model: EditorModel, index: number): string {
+  const counts = countTags(model.snapshots().map((s) => ({ tags: tagStrings(s.raw.tags) })));
+  const current = new Set(tagStrings(model.getField(index, 'tags')).map(normalizeTag));
+  if (counts.length === 0) {
+    return `<div class="f-tag-suggestions" id="f-tag-suggestions"><p class="f-hint">No tags are used in this file yet. Tags you add here will be offered to other projects.</p></div>`;
+  }
+  return `<div class="f-tag-suggestions" id="f-tag-suggestions">
+  <p class="f-hint" id="f-tag-suggestions-label">Tags used in this file. Click one to add it to this project, or click again to remove it.</p>
+  <ul class="tag-list" aria-labelledby="f-tag-suggestions-label">${counts
+    .map(
+      (tag) =>
+        `<li><button type="button" class="tag" data-action="toggle-tag" data-tag="${e(tag.label)}" aria-pressed="${current.has(tag.key) ? 'true' : 'false'}">${e(tag.label)}<span class="f-tag-count" aria-label="used by ${tag.count} project${tag.count === 1 ? '' : 's'}">${tag.count}</span></button></li>`,
+    )
+    .join('')}</ul>
+</div>`;
+}
+
+export interface FormOptions {
+  /** Keep the Markdown cheat sheet expanded across re-renders. */
+  cheatSheetOpen?: boolean;
+}
+
+export function renderProjectForm(model: EditorModel, snapshot: ProjectSnapshot, options: FormOptions = {}): string {
   const i = snapshot.index;
   const get = (field: Parameters<EditorModel['getField']>[1]) => model.getField(i, field);
   const tags = get('tags');
@@ -56,6 +90,7 @@ ${
       <p class="f-hint">Comma separated. Matching ignores case and surrounding spaces.</p>
     </div>
   </div>
+  ${renderTagSuggestions(model, i)}
   <div class="f-row f-row--checks">
     <label class="f-check"><input type="checkbox" data-kind="bool" data-path="featured"${get('featured') === true ? ' checked' : ''}> Featured on the homepage <span class="f-hint-inline">(up to three, never archived)</span></label>
     <label class="f-check"><input type="checkbox" data-kind="bool" data-path="draft"${get('draft') === true ? ' checked' : ''}> Draft <span class="f-hint-inline">(excluded from the website; still visible in the public repository)</span></label>
@@ -78,6 +113,7 @@ ${
     <textarea id="f-description" rows="10" class="f-mono" data-kind="text" data-path="description" data-optional="true" spellcheck="true">${e(str(get('description')))}</textarea>
     <p class="f-hint">Paragraphs, headings, lists, links, code, tables and local images: <code>![alt](project-assets/&lt;id&gt;/file.png)</code>. Raw HTML and remote images are rejected.</p>
   </div>
+  ${renderCheatSheet(snapshot.id, { open: options.cheatSheetOpen })}
 </fieldset>
 
 <fieldset class="f-group">

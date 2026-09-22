@@ -473,26 +473,11 @@ h3 {
 }
 .status-legend {
   margin-top: var(--space-5);
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-}
-.status-legend summary {
-  cursor: pointer;
-  font-weight: 600;
-  color: var(--color-text);
-}
-.status-legend dl {
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  gap: 0.35rem var(--space-3);
-  margin: var(--space-3) 0 0;
-}
-.status-legend dt,
-.status-legend dd {
-  margin: 0;
 }
 
-/* Detail page */
+/* Detail page. The article fills the content column like the header above it;
+   the description keeps its own readable measure (.prose) and the shared
+   .project-detail__body grid places screenshots beside it when space allows. */
 .back-link {
   display: inline-flex;
   align-items: center;
@@ -504,10 +489,6 @@ h3 {
 .back-link:hover {
   text-decoration: underline;
 }
-.project-page {
-  max-width: 52rem;
-}
-
 /* About page */
 .about {
   max-width: var(--measure);
