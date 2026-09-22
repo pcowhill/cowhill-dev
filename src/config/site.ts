@@ -2,25 +2,30 @@
  * Single source of truth for where the website is published.
  *
  * Every internal link, asset URL, canonical URL, sitemap entry, and the
- * search-page navigation is derived from `deployment` below, so switching the
- * site from the GitHub Pages preview to the eventual custom domain is one
- * edit here (see docs/custom-domain.md).
+ * search-page navigation is derived from `deployment` below. The values are
+ * the production configuration for the custom domain `www.cowhill.dev`
+ * served at the site root; the earlier repository-path preview
+ * (`https://www.patrickcowhill.com/cowhill-dev/`) is documented in
+ * docs/custom-domain.md, which also describes the cutover and the rollback.
  *
  * `origin` is the scheme + host with no trailing slash.
  * `base` is the path prefix the site is served under: "/" for a root
  * deployment or "/<repository-name>" for a repository-path preview.
  *
- * The CI workflow compares these values with what GitHub reports for the
- * repository's Pages site and fails the build on a mismatch, so a deployment
- * can never ship canonical URLs that point somewhere else.
+ * On production-deploy-capable runs (pushes to main and manual runs from
+ * main) the CI workflow compares these values with what GitHub reports for
+ * the repository's Pages site and fails the build on a mismatch, so a
+ * deployment can never ship canonical URLs that point somewhere else. Pull
+ * requests build and test with these values without that comparison, so a
+ * change of address can be reviewed before the Pages settings are changed.
  *
  * For local experiments you can override both values with environment
  * variables without editing this file:
  *   SITE_ORIGIN=http://localhost:4321 SITE_BASE=/ npm run build
  */
 export const deployment = {
-  origin: 'https://www.patrickcowhill.com',
-  base: '/cowhill-dev',
+  origin: 'https://www.cowhill.dev',
+  base: '/',
 };
 
 export const site = {

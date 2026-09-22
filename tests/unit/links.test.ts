@@ -45,6 +45,15 @@ describe('link classification', () => {
     expect(html).not.toContain('target="_blank"');
   });
 
+  it('resolves local assets and the portfolio link correctly for the root deployment', () => {
+    const resolved = resolveProjectLink({ label: 'Read PDF', url: 'project-assets/demo/notes.pdf' }, rootCtx);
+    expect(resolved).toMatchObject({ href: '/assets/projects/demo/notes.pdf', behavior: 'external', isLocalAsset: true });
+    expect(resolved.href).not.toContain('/cowhill-dev/');
+    expect(resolveProjectLink({ label: 'Visit portfolio', url: 'https://www.patrickcowhill.com/' }, rootCtx).behavior).toBe('external');
+    expect(resolveHref('https://www.cowhill.dev/about/', rootCtx).behavior).toBe('internal');
+    expect(renderAnchor('/projects/', 'Projects', rootCtx).value).toBe('<a href="/projects/"><span class="link-label">Projects</span></a>');
+  });
+
   it('does not add a download attribute or new-tab icon to external downloads', () => {
     const html = renderProjectLink({ label: 'Download release', url: 'https://github.com/x/y/releases/download/v1/y.zip', kind: 'download' }, ctx).value;
     expect(html).not.toContain('download=');

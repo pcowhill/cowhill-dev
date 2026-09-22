@@ -13,8 +13,10 @@ projects:
     description: |
       ## Background
 
-      SENTINEL_DESCRIPTION text with a [link](https://example.org/app) and a
-      [same-site link](https://www.patrickcowhill.com/cowhill-dev/about/).
+      SENTINEL_DESCRIPTION text with a [link](https://example.org/app), a
+      [same-site link](https://www.patrickcowhill.com/cowhill-dev/about/) for the
+      repository-path preview and a [root-site link](https://www.cowhill.dev/about/)
+      for the root deployment.
 
       ![Inline image](project-assets/sentinel-published/inline.png)
 

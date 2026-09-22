@@ -66,9 +66,29 @@ for (const variant of ['root', 'repo'] as const) {
       await expect(page.locator('.prose img')).toHaveAttribute('src', `${site.prefix}/assets/projects/sentinel-published/inline.png`);
       await expect(page.locator('.prose h3').first()).toHaveText('Background');
       const sameSite = page.locator('.prose a:has-text("same-site link")');
-      if (variant === 'repo') await expect(sameSite).not.toHaveAttribute('target', /.*/);
-      else await expect(sameSite).toHaveAttribute('target', '_blank');
+      const rootSite = page.locator('.prose a:has-text("root-site link")');
+      if (variant === 'repo') {
+        await expect(sameSite).not.toHaveAttribute('target', /.*/);
+        await expect(rootSite).toHaveAttribute('target', '_blank');
+      } else {
+        await expect(sameSite).toHaveAttribute('target', '_blank');
+        await expect(rootSite).not.toHaveAttribute('target', /.*/);
+      }
+      await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', `${variant === 'repo' ? 'https://www.patrickcowhill.com/cowhill-dev' : 'https://www.cowhill.dev'}/projects/sentinel-published/`);
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `${variant === 'repo' ? 'https://www.patrickcowhill.com/cowhill-dev' : 'https://www.cowhill.dev'}/projects/sentinel-published/`);
+    });
+
+    test('sitemap and robots.txt advertise the deployment origin and base only', async ({ page }) => {
+      const origin = variant === 'repo' ? 'https://www.patrickcowhill.com' : 'https://www.cowhill.dev';
+      const sitemap = await page.request.get(site.url('/sitemap.xml'));
+      expect(sitemap.status()).toBe(200);
+      const xml = await sitemap.text();
+      const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+      expect(locs.length).toBeGreaterThan(3);
+      for (const loc of locs) expect(loc).toMatch(new RegExp(`^${origin}${site.prefix}/`));
+      if (variant === 'root') for (const loc of locs) expect(loc).not.toContain('/cowhill-dev/');
+      const robots = await page.request.get(site.url('/robots.txt'));
+      expect(await robots.text()).toContain(`Sitemap: ${origin}${site.prefix}/sitemap.xml`);
     });
 
     test('sparse detail page hides empty sections', async ({ page }) => {
@@ -84,6 +104,8 @@ for (const variant of ['root', 'repo'] as const) {
       const response = await page.goto(site.url('/projects/sentinel-draft/'));
       expect(response?.status()).toBe(404);
       await expect(page.locator('h1')).toHaveText('Page not found');
+      await expect(page.locator('.site-logo img')).toHaveAttribute('src', `${site.prefix}/brand/cowhill-logo-horizontal.svg`);
+      await expect(page.locator('.not-found a:text("Browse projects")')).toHaveAttribute('href', `${site.prefix}/projects/`);
       await page.click('.not-found a:text("Browse projects")');
       await expect(page).toHaveURL(new RegExp(`${site.prefix}/projects/$`));
       const draftAsset = await page.request.get(site.url('/assets/projects/sentinel-draft/DRAFTONLY-secret.png'));

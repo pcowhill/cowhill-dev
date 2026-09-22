@@ -21,7 +21,9 @@ describe('base handling', () => {
   });
   it('resolves deployment from the environment', () => {
     expect(resolveDeployment({ SITE_ORIGIN: 'http://localhost:4321/', SITE_BASE: '' })).toEqual({ origin: 'http://localhost:4321', base: '/' });
-    expect(resolveDeployment({})).toEqual({ origin: 'https://www.patrickcowhill.com', base: '/cowhill-dev' });
+    expect(resolveDeployment({})).toEqual({ origin: 'https://www.cowhill.dev', base: '/' });
+    expect(resolveDeployment({ SITE_ORIGIN: 'https://www.patrickcowhill.com', SITE_BASE: '/cowhill-dev/' })).toEqual({ origin: 'https://www.patrickcowhill.com', base: '/cowhill-dev' });
+    expect(resolveDeployment({ SITE_BASE: '/cowhill-dev' })).toEqual({ origin: 'https://www.cowhill.dev', base: '/cowhill-dev' });
   });
 });
 
