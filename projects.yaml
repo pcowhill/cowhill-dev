@@ -152,3 +152,57 @@ projects:
         url: https://www.patrickcowhill.com/
         primary: true
         kind: link
+    updated: 2026-09-22
+    thumbnail:
+      src: project-assets/portfolio/thumbnail.png
+      alt: Portfolio Hero Image
+    screenshots:
+      - src: project-assets/portfolio/main-page.png
+        alt: Portfolio Main Page
+        caption: List of Projects found on the portfolio's main page.
+
+  - id: browser-video-editor
+    title: Browser Video Editor
+    summary: A bowser-based video editing app created and iteratively expanded with an experimental AI-agile team of agents.
+    tags: [website, video]
+    status: active
+    draft: false
+    links:
+      - label: Visit Browser Video Editor
+        url: https://pcowhill.github.io/claude-agile-team-demo/
+        primary: true
+      - label: Visit the AI-Agile Team GitHub Repo
+        url: https://github.com/pcowhill/claude-agile-team-demo/
+    featured: true
+    added: 2026-09-22
+    updated: 2026-09-22
+    thumbnail:
+      src: project-assets/browser-video-editor/thumbnail.png
+      alt: Browser Video Editor Main Page
+    description: |
+      # The Experiment
+      While the final product of this project is a fully-functional browser-based video editing application, the underlying experiment is what is most interesting to me.  I set out to explore how much of the product creation process (from a software development perspective) can be performed by AI agents utilizing an agile-based workflow.  Over the course of development, I would be responsible for playing around with the Browser Video Editor app and creating issues directly in GitHub to voice my preferences, propose new features, and report bugs.  An AI agent (Claude in this case) would be responsible for everything else from project management and development to code review and testing.
+
+      500+ issues and pull requests were created over the course of weeks, and what resulted is a feature-rich, portable application that I will certainly be using in the future for any of my projects involving creating videos, demos, and presentations.
+
+      # The Application
+      The Browser Video Editor can:
+      - Live record or import existing video clips, images, and audio in various file formats.
+      - Save project configuration, uploaded media, and restore state from previous sessions.
+      - Build a dynamic timeline from media handling sequencing, overlap, and transition effects.
+      - Preview full video with chapters, looping, and frame controls.
+      - Provide fine-tune controls for picture look, audio mastering, and canvas settings.
+      - Apply effects for transitions, zoom, spotlight, and redacting.
+      - Add additional content such as color slates, text overlays, and imported subtitles.
+      - Export final products as videos, audio, and GIFs as clips or as a whole.
+      - And much more...
+    screenshots:
+      - src: project-assets/browser-video-editor/spotlight-mode.png
+        alt: Spotlight Mode
+        caption: Selecting a region of the screen to apply a spotlight effect.
+      - src: project-assets/browser-video-editor/user-guide.png
+        alt: User Guide
+        caption: Searching in the user guide for controls to apply zoom effects.
+      - src: project-assets/browser-video-editor/export-project.png
+        alt: Export Project
+        caption: Choosing settings when exporting a project.
