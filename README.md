@@ -291,8 +291,11 @@ sites inherit it. The committed `deployment` setting in `src/config/site.ts`
 holds that origin and base path; every link, asset URL, canonical URL, sitemap
 entry and social preview derives from it. The workflow compares the setting
 with what GitHub reports for the Pages site (`actions/configure-pages`) and
-fails on a mismatch, so the site can never deploy with URLs pointing at the
-wrong address. Moving to `https://www.cowhill.dev/` is documented in
+fails when the host or base path differ, so the site can never deploy with
+URLs pointing at the wrong address. GitHub reports `http://` while "Enforce
+HTTPS" is not enabled for this repository's Pages site; the check accepts the
+committed `https://` origin for the same host (the domain serves HTTPS) and
+prints a note. Enable "Enforce HTTPS" in Settings → Pages when GitHub offers it. Moving to `https://www.cowhill.dev/` is documented in
 [docs/custom-domain.md](docs/custom-domain.md).
 
 ## Repository layout
