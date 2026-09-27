@@ -139,20 +139,23 @@
 schemaVersion: 1
 projects:
   - id: portfolio
-    title: Patrick Cowhill — Portfolio
-    summary: My personal portfolio and professional background.
+    title: Patrick Cowhill â€” Legacy Portfolio
+    summary: The legacy version of my personal portfolio and professional background.
     tags: [portfolio, website]
-    status: maintained
+    status: complete
     featured: true
-    added: 2026-09-22
+    added: 2025-07-18
     description: |
-      My personal portfolio website, with information about my work and background.
+      The legacy version of my personal portfolio website, with information about my work and background.  The successor to this site can be found at [patrickcowhill.com](https://www.patrickcowhill.com/) .
+
+      ## Reason for Retiring
+      This page originally served the dual purpose of being a catalog of projects that I worked on and a professional portfolio to summarize my professional life.  However, with the explosion of new projects that I pursued in the middle of 2026, I felt the separation of these two into dedicated spaces was more appropriate moving forward.  My professional portfolio is now located at [patrickcowhill.com](https://www.patrickcowhill.com/) and my catalog of projects is located at [cowhill.dev](https://www.cowhill.dev/) .
     links:
       - label: Visit portfolio
-        url: https://www.patrickcowhill.com/
+        url: https://legacy.patrickcowhill.com/
         primary: true
         kind: link
-    updated: 2026-09-22
+    updated: 2025-07-18
     thumbnail:
       src: project-assets/portfolio/thumbnail.png
       alt: Portfolio Hero Image
@@ -164,7 +167,7 @@ projects:
   - id: browser-video-editor
     title: Browser Video Editor
     summary: A bowser-based video editing app created and iteratively expanded with an experimental AI-agile team of agents.
-    tags: [website, video]
+    tags: [website, video, graphics]
     status: active
     draft: false
     links:
@@ -206,3 +209,208 @@ projects:
       - src: project-assets/browser-video-editor/export-project.png
         alt: Export Project
         caption: Choosing settings when exporting a project.
+
+  - id: lightsail-demo
+    title: Lightsail Demo
+    summary: A live chat room, collaborative drawing app, and multi-player bird game created to explore the capabilities of AWS Lightsail.
+    tags: [game, website, chat, server, graphics]
+    status: complete
+    draft: false
+    added: 2025-07-21
+    updated: 2026-09-22
+    description: |
+      # Intent
+      Mid-2025 was when I first acquired an AWS Lightsail instance for the purpose of exploring projects that would require a server to function. I was interested in learning more about building server-client programs that utilized a back-end websocket connection, especially for the prospect of tools that enable interaction between multiple users.
+
+      # The Apps
+      This project consists of three different apps that each contribute to the tools and processes for enabling server-client programs on an AWS lightsail instance.
+
+      ## Websocket Chat
+      A global chat room where all connected users can chat with one another.  Messages sent by one user are automatically delivered to all connected users.  A database with a message history was intentionally not used so users only receive chat messages that were sent after they connected.
+
+      ## Websocket Draw
+      A global drawing application where all connected users can contribute to a shared canvas and download the resulting art.  Similarly to Websocker Chat, a database was not used and only strokes made after a user connected would be received.  This was to limit the staying power of any undesirable art from uncouth users.
+
+      ## Websocket Game
+      A multi-player game where users can play birds roaming around their nest to collect worms for extra energy.  This project was a more fun journey than the previous two projects, and it encouraged me to come up with resource-efficient methods for handling character movement across websocket connections.
+    links:
+      - label: Visit Lightsail Demo
+        url: https://lightsail-demo.cowhill.dev/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/lightsail
+
+  - id: 3d-cube
+    title: 3D Cube Prototype
+    summary: Quick prototype for implement perspective 3D projection of a cube onto a 2D plane.
+    tags: [website, graphics]
+    status: complete
+    draft: false
+    added: 2024-05-19
+    updated: 2024-05-19
+    description: In an exercise to explore the types of mathematical equations that model perspective projection from 3D space to a 2D plane, this simple demo shows a 3D cube rendered from scratch onto an HTML canvas. Controls can be used to rotate the cube along each of the 3D rotational axes.
+    links:
+      - label: Visit 3D Cube Demo
+        url: https://pcowhill.github.io/3DCube/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/pcowhill.github.io/tree/main/3DCube
+
+  - id: portfolio2
+    title: Patrick Cowhill â€” Portfolio
+    summary: My personal portfolio and professional background.
+    tags: [website, portfolio]
+    status: active
+    draft: false
+    featured: true
+    added: 2026-09-26
+    updated: 2026-09-26
+    description: Curated website containing the important information regarding my professional journey.  Includes sections on what I bring to a team, my professional experience, some representative engineering work, my technical foundation, the principles for how I work, and ways to explore more. This acts as it digital resume to share with prospective collaborators.
+    links:
+      - label: Visit My Portfolio
+        url: https://www.patrickcowhill.com/
+        primary: true
+      - label: Visit Github Repo
+        url: https://github.com/pcowhill/patrick-portfolio
+
+  - id: initiative-tracker
+    title: DnD Initiative Tracker
+    summary: DnD utility for tracking the health, initiative, and status effects for a party of players and the enemies they face.
+    tags: [utility, website]
+    status: complete
+    draft: false
+    added: 2024-12-24
+    updated: 2024-12-24
+    notice: Phone Recommended
+    description: Spurred on by a DM friend requiring sone assistance with tracking initiative in combat, this projects was a convenient exercise to learning some of the more object-oriented intricacies of Javascript for UI from scratch without a framework.  It was incredibly helpful and very enjoyable to code, and helped pace the way for future Typescript, Cypress, and Vue work I would encounter in my career.
+    links:
+      - label: Visit Initiative Tracker
+        url: https://pcowhill.github.io/InitiativeTracker/index.html
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/pcowhill.github.io/tree/main/InitiativeTracker
+
+  - id: instrument-of-the-day
+    title: Instrument of the Day
+    summary: Every day, a different recording will be selected, and you will have six guesses to identify the instrument.
+    tags: [game, audio, music, website]
+    status: complete
+    draft: false
+    added: 2024-08-18
+    updated: 2024-08-18
+    description: |
+      In this project, I explored the world of daily puzzle games in a unique subject area that is at the intersection of multiple interests for me: a musical instrument guessing game.  Similar to games like Wordle or Worldle, there is a correct instrument players are encouraged to guess, and their only information is a audio recording of that instrument playing.  This site features a variety of instruments like the more common guitar, piano, and trumpet to the lesser known (at least in the west) erhu, carillon, and pipa.
+
+      Recordings are all sourced from public domain recordings available on IMSLP, and they covered a wide variety of instruments, styles, composers, and periods in musical history.  This was a fun experiment for exploring early game concepts that I would be proud to share with friends and see who is the most musically knowledgable.
+    links:
+      - label: Visit Instrument of the Day
+        url: https://pcowhill.github.io/InstrumentOfTheDay/
+        primary: true
+      - label: Visit GitHub
+        url: https://github.com/pcowhill/pcowhill.github.io/tree/main/InstrumentOfTheDay
+
+  - id: city-guesser
+    title: City Guesser Game
+    summary: A game of correctly identifying cities in the USA to reveal more of the map and uncover as many cities as possible.
+    tags: [game, website]
+    status: complete
+    draft: false
+    links:
+      - label: Visit City Guesser
+        url: https://pcowhill.github.io/CityGuesser/
+        primary: true
+      - label: Visit GitHub
+        url: https://github.com/pcowhill/pcowhill.github.io/tree/main/CityGuesser
+    added: 2024-05-18
+    updated: 2024-05-18
+    description: |
+      This game is mostly inspired from another game online with a very similar structure: guess cities in the United States, each one reveals neighboring cities within some radius, and revealing the entire map is the way to win the game.  The problem I faced is that the site that hosted this game only allowed people to play it on certain days of the month.  The next day it would be available would have been multiple weeks away, and so I decided to just make a version of the game myself!
+
+      With the geospatial experience I gained from my work, I could comfortably load up some geographic datasources (coordinates of the borders of the states and separately coordinates of the cities in the USA), draw them onto a map for the user to see, and wrap a simple geometry game on top.  Based on the statistics of what came with the city data, different metrics are tracked and presented to the user as goals to strive for.  This includes # of revealed states, # of named states, and even total number of revealed states (which is the main goal of the game).  For the overachiever out there, you can also try to name every city in the entire USA, though I think my record on that is only about 10%.
+
+  - id: qt-template
+    title: Qt Template
+    summary: Sample graphical projects like a File Editor, a 3D Viewer, a fun Tic Tac Toe game, and the Image Draw app.
+    tags: [game, graphics, utility, text, 3d]
+    status: complete
+    draft: false
+    links:
+      - label: Visit Github
+        url: https://github.com/pcowhill/QtTemplate/tree/main
+        primary: true
+    added: 2025-03-21
+    updated: 2025-03-21
+    description: |
+      At work around this time, I was getting closer exposure to graphical desktop applications both through the use of Qt and by virtue of participating in a TkInter book club.  To explore the power of these types of tools and gain experience in creating my own applications, I decided to make template examples of Qt applications that I could pull from in the future when making desktop GUI apps.
+
+      # The Templates
+
+      Each template aimed to be similar to a unique type of project I would be interested in creating in the future.
+
+      ## File Editor
+
+      A basic file editor, following a similar visual style to VScode, allows the opening and saving of plaintext files and editing the contents of them.
+
+      ## Rotate 3D
+
+      An OpenGL rendering app that can show a variety of 3D objects rotating in the windows.  Four examples are provided: a simple triangle, a cube, a rhombic dodecahedron, and an open-source dog key chain model.  Additionally users can upload their own. The meshes are dynamically colored, and ghe rotation is configured to show every angle of an object.
+
+      ## Tic Tac Toe
+
+      A simple game of tic tac toe, laying out a framework for handling mouse clicks, canvas rendering, and game logic.
+
+      ## Image Draw
+
+      A Paint-inspired app for drawing and saving simple images.
+
+  - id: harmony-glide
+    title: Harmony Glide
+    summary: "My first iOS project: a simple color matching game to play on an iPad."
+    tags: [game, ios, audio, graphics, music, video]
+    status: complete
+    draft: false
+    links:
+      - label: Visit GitHub
+        url: https://github.com/pcowhill/HarmonyGlide
+        primary: true
+    added: 2025-06-19
+    updated: 2025-06-19
+    description: |
+      Harmony glide is an approachable, musical puzzle game aimed at kids ages 1-4 to build motor coordination and musical curiosity.  Players drag colored squares onto the matching ring which triggers a musical note.  Matching all the rings in a level completes it.  The game comes with 12 handcrafted levels, each with multiple stages.  As levels get harder, new mechanics like multiple colors, layered rings, and moving goals are introduced.
+
+      Having discovered a curiosity for apps on Apple products, I wanted to try my hand at gaining some experience with Mac development, XCode, and Swift.  This was a fun project to work on, and I got to learn about some of the unique conventions found in iOS development.  Since I did not want to pay the annual fee to have this game on the App Store, it is not available there.  But, anyone with a Mac can download the code, compile it, and load it onto an iPad to play!
+    notice: iPad Application
+
+  - id: georgia-tech-showcase
+    title: Georgia Tech Showcase
+    summary: A showcase of my experience studying at GA Tech, the coursework I chose, and some cool projects I had the opportunity to work on.
+    tags: [website, portfolio, video]
+    status: complete
+    draft: false
+    added: 2025-04-22
+    updated: 2025-04-22
+    links:
+      - label: Visit Georgia Tech Showcase
+        url: https://pcowhill.github.io/GaTech/
+        primary: true
+      - label: Visit GitHub
+        url: https://github.com/pcowhill/pcowhill.github.io/tree/main/GaTech
+    description: This site captures a look into my experience pursuing a Masters in Electrical and Computer Engineering at Georgia Tech.  My intention in making this site right after I graduated was to capture a high-level of detail in a single place while it was still fresh in my mind.  This makes it easy to reference in future projects and serves as a reminder to me as to what the focus areas were in the curricula I explored.
+
+  - id: css-resume
+    title: CSS Resume
+    summary: A challenge to myself to recreate my resume as accurately as possible only using CSS instead of Word for styling.
+    tags: [website, graphics, text]
+    status: complete
+    draft: false
+    added: 2024-05-19
+    updated: 2024-05-19
+    notice: Out-of-Date
+    description: I strived to get better at learning how to use CSS to dependably format a web page to meet very strict requirements, and so decided to try remaking my resume (at the time) using only HTML and CSS.  My original resume was made in Word and consisted of some very meticulous formatting with tables, custom tabs, defined line spacing, and micro-adjustments of font size.  Recreating this in CSS gave me confidence to compose web page styles for future projects of mine.
+    links:
+      - label: Visit CSS Resume
+        url: https://pcowhill.github.io/Resume/
+        primary: true
+      - label: Visit GitHub
+
+        url: https://github.com/pcowhill/pcowhill.github.io/tree/main/Resume
