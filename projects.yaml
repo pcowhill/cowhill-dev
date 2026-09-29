@@ -1134,16 +1134,3 @@ projects:
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-one-shot-demo
         primary: true
-
-  - id: claude-one-shot-demo-pretest
-    title: One-Shot Demo Pretest
-    summary: A placeholder repository created ahead of the one-shot demo experiment; it contains only a README.
-    tags: []
-    status: complete
-    draft: false
-    added: 2026-06-18
-    updated: 2026-06-18
-    links:
-      - label: Visit GitHub Repo
-        url: https://github.com/pcowhill/claude-one-shot-demo-pretest
-        primary: true
