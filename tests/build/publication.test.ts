@@ -33,7 +33,7 @@ describe.each(Object.keys(VARIANTS) as (keyof typeof VARIANTS)[])('built output 
   });
 
   it('generates real HTML pages for every published project and none for drafts', () => {
-    for (const id of ['sentinel-published', 'sentinel-archived', 'sentinel-complete', 'sentinel-undated', 'sentinel-maintained', 'sentinel-featured-fourth', 'sentinel-recent', 'portfolio']) {
+    for (const id of ['sentinel-published', 'sentinel-archived', 'sentinel-complete', 'sentinel-undated', 'sentinel-maintained', 'sentinel-featured-fourth', 'sentinel-recent', 'portfolio2']) {
       expect(fs.existsSync(path.join(dist, 'projects', id, 'index.html')), id).toBe(true);
     }
     expect(fs.existsSync(path.join(dist, 'projects', 'sentinel-draft'))).toBe(false);
@@ -107,7 +107,7 @@ describe.each(Object.keys(VARIANTS) as (keyof typeof VARIANTS)[])('built output 
       expect(previewLink).toContain('target="_blank"');
       expect(rootLink).not.toContain('target=');
     }
-    const portfolio = read(dist, 'projects/portfolio/index.html');
+    const portfolio = read(dist, 'projects/portfolio2/index.html');
     expect(portfolio).toContain('href="https://www.patrickcowhill.com/" target="_blank" rel="noopener noreferrer"');
     const nav = /<nav[^>]*aria-label="Main"[^>]*>(.*?)<\/nav>/s.exec(portfolio)![1]!;
     expect(nav).toContain('href="https://www.patrickcowhill.com/"');
@@ -134,7 +134,7 @@ describe.each(Object.keys(VARIANTS) as (keyof typeof VARIANTS)[])('built output 
     expect(ids).toEqual(['sentinel-published', 'sentinel-complete', 'sentinel-featured-fourth']);
     const recentSection = /<section class="home-section" aria-labelledby="recent-heading">(.*?)<\/section>/s.exec(home)![1]!;
     const recentIds = [...recentSection.matchAll(/data-id="([^"]+)"/g)].map((m) => m[1]);
-    expect(recentIds).toEqual(['sentinel-recent', 'sentinel-maintained', 'portfolio']);
+    expect(recentIds).toEqual(['sentinel-recent', 'sentinel-maintained', 'portfolio2']);
     expect(recentIds).not.toContain('sentinel-archived');
     expect(home).toContain('aria-labelledby="tags-heading"');
   });
@@ -152,7 +152,7 @@ describe('sparse catalogs', () => {
     expect(home).not.toContain('tags-heading');
     const catalog = fs.readFileSync(path.join(TMP, 'dist-fail', 'projects/index.html'), 'utf8');
     expect(catalog).toContain('No projects have been published yet');
-    expect(fs.existsSync(path.join(TMP, 'dist-fail', 'projects/portfolio'))).toBe(false);
+    expect(fs.existsSync(path.join(TMP, 'dist-fail', 'projects/portfolio2'))).toBe(false);
   });
 
   it('fails the build on an invalid catalog instead of producing partial output', () => {

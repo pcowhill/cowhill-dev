@@ -1,7 +1,7 @@
 /**
  * About page content. Edit the text here; the portfolio link destination comes
- * from the "portfolio" project record in projects.yaml, so it is never
- * duplicated.
+ * from the project record named by `site.portfolioProjectId` in
+ * projects.yaml, so it is never duplicated.
  *
  * `{portfolio}` marks where the portfolio link goes; the words inside the
  * braces after the colon become the link text.
