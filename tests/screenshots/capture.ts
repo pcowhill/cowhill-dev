@@ -21,7 +21,7 @@ const pages = [
   ['home', `${prefix}/`],
   ['projects', `${prefix}/projects/`],
   ['projects-list', `${prefix}/projects/?view=list`],
-  ['project-portfolio', `${prefix}/projects/portfolio/`],
+  ['project-portfolio', `${prefix}/projects/portfolio2/`],
   ['about', `${prefix}/about/`],
   ['not-found', `${prefix}/does-not-exist/`],
 ] as const;

@@ -8,7 +8,8 @@ project catalog).
 - `projects.yaml` at the repository root is the **only** authored source of
   project metadata. Never introduce a second list of projects anywhere (no
   hard-coded featured lists, navigation entries, or duplicated records). The
-  Portfolio navigation link is derived from the `portfolio` record.
+  Portfolio navigation link is derived from the record named by
+  `site.portfolioProjectId` in `src/config/site.ts` (currently `portfolio2`).
 - Do not modify `public/brand/cowhill-logo-horizontal.svg` or
   `public/brand/cowhill-logo-stacked.svg`. Derived artwork is generated at build
   time by `scripts/generate-brand.ts` into `public/generated/` (git-ignored).

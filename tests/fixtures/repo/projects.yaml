@@ -106,7 +106,7 @@ projects:
     status: active
     featured: true
     added: 2026-05-01
-  - id: portfolio
+  - id: portfolio2
     title: SENTINEL_PORTFOLIO Site
     summary: The portfolio record that drives the Portfolio navigation link.
     tags: [portfolio, website]

@@ -139,7 +139,7 @@
 schemaVersion: 1
 projects:
   - id: portfolio
-    title: Patrick Cowhill â€” Legacy Portfolio
+    title: Patrick Cowhill — Legacy Portfolio
     summary: The legacy version of my personal portfolio and professional background.
     tags: [portfolio, website]
     status: complete
@@ -233,6 +233,19 @@ projects:
 
       ## Websocket Game
       A multi-player game where users can play birds roaming around their nest to collect worms for extra energy.  This project was a more fun journey than the previous two projects, and it encouraged me to come up with resource-efficient methods for handling character movement across websocket connections.
+    thumbnail:
+      src: project-assets/lightsail-demo/thumbnail.png
+      alt: The Lightsail Tower landing page with buttons for the chat, draw and game apps
+    screenshots:
+      - src: project-assets/lightsail-demo/websocket-game.png
+        alt: Birds and worms scattered around a nest in the WebSocket Game
+        caption: Several birds gathering worms around the shared nest in WebSocket Game.
+      - src: project-assets/lightsail-demo/websocket-draw.png
+        alt: A house and sun drawn on the shared WebSocket Draw canvas
+        caption: A quick sketch on the shared canvas of WebSocket Draw.
+      - src: project-assets/lightsail-demo/websocket-chat.png
+        alt: A short conversation in the WebSocket Chat room
+        caption: A conversation in the global WebSocket Chat room.
     links:
       - label: Visit Lightsail Demo
         url: https://lightsail-demo.cowhill.dev/
@@ -249,6 +262,13 @@ projects:
     added: 2024-05-19
     updated: 2024-05-19
     description: In an exercise to explore the types of mathematical equations that model perspective projection from 3D space to a 2D plane, this simple demo shows a 3D cube rendered from scratch onto an HTML canvas. Controls can be used to rotate the cube along each of the 3D rotational axes.
+    thumbnail:
+      src: project-assets/3d-cube/thumbnail.png
+      alt: A wireframe cube rendered in perspective on a gray canvas
+    screenshots:
+      - src: project-assets/3d-cube/rotated-cube.png
+        alt: The 3D cube demo with rotation buttons below the canvas
+        caption: The cube after a few rotations using the Up, Right and Clockwise controls.
     links:
       - label: Visit 3D Cube Demo
         url: https://pcowhill.github.io/3DCube/
@@ -257,7 +277,7 @@ projects:
         url: https://github.com/pcowhill/pcowhill.github.io/tree/main/3DCube
 
   - id: portfolio2
-    title: Patrick Cowhill â€” Portfolio
+    title: Patrick Cowhill — Portfolio
     summary: My personal portfolio and professional background.
     tags: [website, portfolio]
     status: active
@@ -266,6 +286,19 @@ projects:
     added: 2026-09-26
     updated: 2026-09-26
     description: Curated website containing the important information regarding my professional journey.  Includes sections on what I bring to a team, my professional experience, some representative engineering work, my technical foundation, the principles for how I work, and ways to explore more. This acts as it digital resume to share with prospective collaborators.
+    thumbnail:
+      src: project-assets/portfolio2/thumbnail.png
+      alt: The portfolio homepage hero with a rotating rhombic dodecahedron
+    screenshots:
+      - src: project-assets/portfolio2/selected-work.png
+        alt: The Selected public examples section with a network security case study
+        caption: Representative engineering work presented as case studies.
+      - src: project-assets/portfolio2/experience.png
+        alt: The professional experience section listing roles and technologies
+        caption: The professional experience timeline.
+      - src: project-assets/portfolio2/dark-theme.png
+        alt: The portfolio homepage in its dark theme
+        caption: The site also ships with a dark theme.
     links:
       - label: Visit My Portfolio
         url: https://www.patrickcowhill.com/
@@ -283,6 +316,19 @@ projects:
     updated: 2024-12-24
     notice: Phone Recommended
     description: Spurred on by a DM friend requiring sone assistance with tracking initiative in combat, this projects was a convenient exercise to learning some of the more object-oriented intricacies of Javascript for UI from scratch without a framework.  It was incredibly helpful and very enjoyable to code, and helped pace the way for future Typescript, Cypress, and Vue work I would encounter in my career.
+    thumbnail:
+      src: project-assets/initiative-tracker/thumbnail.png
+      alt: An encounter in progress with Nahala highlighted as the active turn
+    screenshots:
+      - src: project-assets/initiative-tracker/encounter-setup.png
+        alt: The encounter setup screen with party buttons and two added creatures
+        caption: "Setting up an encounter: pick party members or add other creatures with their initiative and hitpoints."
+      - src: project-assets/initiative-tracker/encounter-in-progress.png
+        alt: A running encounter sorted by initiative with the active creature highlighted
+        caption: The encounter in progress, sorted by initiative with the active turn highlighted.
+      - src: project-assets/initiative-tracker/more-actions.png
+        alt: The More menu offering move, effect and initiative actions
+        caption: "Extra actions for a creature: reorder, add or remove status effects, and edit initiative."
     links:
       - label: Visit Initiative Tracker
         url: https://pcowhill.github.io/InitiativeTracker/index.html
@@ -302,6 +348,13 @@ projects:
       In this project, I explored the world of daily puzzle games in a unique subject area that is at the intersection of multiple interests for me: a musical instrument guessing game.  Similar to games like Wordle or Worldle, there is a correct instrument players are encouraged to guess, and their only information is a audio recording of that instrument playing.  This site features a variety of instruments like the more common guitar, piano, and trumpet to the lesser known (at least in the west) erhu, carillon, and pipa.
 
       Recordings are all sourced from public domain recordings available on IMSLP, and they covered a wide variety of instruments, styles, composers, and periods in musical history.  This was a fun experiment for exploring early game concepts that I would be proud to share with friends and see who is the most musically knowledgable.
+    thumbnail:
+      src: project-assets/instrument-of-the-day/thumbnail.png
+      alt: A winning round of Instrument of the Day with the correct guess highlighted
+    screenshots:
+      - src: project-assets/instrument-of-the-day/winning-round.png
+        alt: A completed round showing three wrong guesses, the correct answer and the recording source
+        caption: Three wrong guesses before landing on the right instrument, with the recording credited at the bottom.
     links:
       - label: Visit Instrument of the Day
         url: https://pcowhill.github.io/InstrumentOfTheDay/
@@ -315,6 +368,13 @@ projects:
     tags: [game, website]
     status: complete
     draft: false
+    thumbnail:
+      src: project-assets/city-guesser/thumbnail.png
+      alt: A map of the USA with revealed cities shown as blue circles
+    screenshots:
+      - src: project-assets/city-guesser/revealed-map.png
+        alt: The city map after naming about fifty cities, with the score board below
+        caption: After naming around fifty cities, most of the country is revealed and the score board tracks progress.
     links:
       - label: Visit City Guesser
         url: https://pcowhill.github.io/CityGuesser/
@@ -334,6 +394,25 @@ projects:
     tags: [game, graphics, utility, text, 3d]
     status: complete
     draft: false
+    thumbnail:
+      src: project-assets/qt-template/thumbnail.png
+      alt: A collage of the File Editor, Rotate 3D, Tic Tac Toe and Image Draw apps
+    screenshots:
+      - src: project-assets/qt-template/file-editor.png
+        alt: The File Editor showing a configuration file
+        caption: File Editor with a configuration file open.
+      - src: project-assets/qt-template/rotate-3d.png
+        alt: Rotate 3D showing a colorful rhombic dodecahedron
+        caption: Rotate 3D cycling through its built-in models.
+      - src: project-assets/qt-template/rotate-3d-stl.png
+        alt: Rotate 3D rendering a low-poly dog key chain model
+        caption: A custom STL model loaded into Rotate 3D.
+      - src: project-assets/qt-template/tic-tac-toe.png
+        alt: Tic Tac Toe announcing that X has won
+        caption: Tic Tac Toe with a winner dialog.
+      - src: project-assets/qt-template/image-draw.png
+        alt: Image Draw with a hand-drawn cube
+        caption: Image Draw with a hand-drawn cube.
     links:
       - label: Visit Github
         url: https://github.com/pcowhill/QtTemplate/tree/main
@@ -369,6 +448,22 @@ projects:
     tags: [game, ios, audio, graphics, music, video]
     status: complete
     draft: false
+    thumbnail:
+      src: project-assets/harmony-glide/thumbnail.jpg
+      alt: A Harmony Glide level with colored squares and matching rings
+    screenshots:
+      - src: project-assets/harmony-glide/drag-controls.jpg
+        alt: A tutorial level with a red square and red rings
+        caption: "Simple drag controls: unlock each layer of every goal."
+      - src: project-assets/harmony-glide/color-matching.jpg
+        alt: A level with blue and red squares and rings
+        caption: "Color and coordination: match the hue of the square and goal."
+      - src: project-assets/harmony-glide/overcome-challenges.jpg
+        alt: A harder level with many colors and moving goals
+        caption: Later levels add more colors, more goals and movement.
+      - src: project-assets/harmony-glide/level-select.jpg
+        alt: The level select screen listing tutorial, easy, medium and hard levels
+        caption: Twelve handcrafted levels, each with multiple stages.
     links:
       - label: Visit GitHub
         url: https://github.com/pcowhill/HarmonyGlide
@@ -389,6 +484,16 @@ projects:
     draft: false
     added: 2025-04-22
     updated: 2025-04-22
+    thumbnail:
+      src: project-assets/georgia-tech-showcase/thumbnail.png
+      alt: The Georgia Tech showcase header and navigation
+    screenshots:
+      - src: project-assets/georgia-tech-showcase/project-highlights.png
+        alt: The Computer Vision Change Detection project highlight with slides
+        caption: Project highlights include papers, slides and presentations.
+      - src: project-assets/georgia-tech-showcase/coursework.png
+        alt: The coursework section describing each course taken
+        caption: A summary of every course in the curriculum.
     links:
       - label: Visit Georgia Tech Showcase
         url: https://pcowhill.github.io/GaTech/
@@ -407,6 +512,13 @@ projects:
     updated: 2024-05-19
     notice: Out-of-Date
     description: I strived to get better at learning how to use CSS to dependably format a web page to meet very strict requirements, and so decided to try remaking my resume (at the time) using only HTML and CSS.  My original resume was made in Word and consisted of some very meticulous formatting with tables, custom tabs, defined line spacing, and micro-adjustments of font size.  Recreating this in CSS gave me confidence to compose web page styles for future projects of mine.
+    thumbnail:
+      src: project-assets/css-resume/thumbnail.png
+      alt: The top of the CSS resume with the name, education and experience headings
+    screenshots:
+      - src: project-assets/css-resume/full-resume.png
+        alt: The full resume laid out with HTML and CSS only
+        caption: The complete resume rendered entirely with HTML and CSS.
     links:
       - label: Visit CSS Resume
         url: https://pcowhill.github.io/Resume/

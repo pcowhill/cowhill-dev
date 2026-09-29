@@ -35,7 +35,7 @@ export const site = {
     'A personal collection of games, tools, and experiments by Patrick Cowhill. Browse what I am building and explore past projects.',
   author: 'Patrick Cowhill',
   /** The project id whose primary link is used for the Portfolio navigation item. */
-  portfolioProjectId: 'portfolio',
+  portfolioProjectId: 'portfolio2',
   /** Public repository, used for documentation links only. */
   repository: 'https://github.com/pcowhill/cowhill-dev',
 };
