@@ -526,3 +526,588 @@ projects:
       - label: Visit GitHub
 
         url: https://github.com/pcowhill/pcowhill.github.io/tree/main/Resume
+
+  - id: claude-nanogram
+    title: Nonogram Odyssey
+    summary: A thousand nonogram picture-logic puzzles arranged in 50 chapters, playable in Classic or Three-Life mode, with progress saved on the device and no backend.
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-07-29
+    updated: 2026-07-29
+    thumbnail:
+      src: project-assets/claude-nanogram/thumbnail.png
+      alt: Level 1 of Nonogram Odyssey, an 8 by 8 grid with row and column clues, partly filled with dark squares and a few X marks.
+    screenshots:
+      - src: project-assets/claude-nanogram/puzzle-solved.png
+        alt: Puzzle complete dialog showing the revealed picture of a table, the solve time, mode and hints used.
+        caption: The completion reveal after submitting a correct solution.
+      - src: project-assets/claude-nanogram/chapter-browser.png
+        alt: Chapter 1 level browser with 20 level cards, the first marked solved and the second ready.
+        caption: The chapter browser listing the 20 levels of chapter 1.
+    links:
+      - label: Visit Nonogram Odyssey
+        url: https://pcowhill.github.io/claude-nanogram/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-nanogram
+
+  - id: claude-opus-5-chefs-choice-3d
+    title: SALVO
+    summary: A 3D arcade sea-survival game where firing the boat's swivel gun is the only way to move, across ten waves of sea monsters.
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-07-25
+    updated: 2026-07-25
+    thumbnail:
+      src: project-assets/claude-opus-5-chefs-choice-3d/thumbnail.png
+      alt: A small wooden boat with a swivel cannon on a stylised evening sea among low-poly sea stacks, with a cannonball in flight and hull and breech heat gauges in the corners.
+    screenshots:
+      - src: project-assets/claude-opus-5-chefs-choice-3d/title-screen.png
+        alt: The SALVO title screen styled like a printed broadside, listing mouse and keyboard controls above a Put to Sea button.
+        caption: The title screen with the control sheet.
+    links:
+      - label: Visit SALVO
+        url: https://pcowhill.github.io/claude-opus-5-chefs-choice-3d/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-opus-5-chefs-choice-3d
+
+  - id: claude-dsp
+    title: Signal Processing Playground
+    summary: "A browser lab for learning digital signal processing: patch modules together on a node canvas, inspect signals with oscilloscope and spectrum instruments, and work through guided lessons and graded challenges."
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-07-20
+    updated: 2026-07-20
+    thumbnail:
+      src: project-assets/claude-dsp/thumbnail.png
+      alt: The sandbox with a sine wave and white noise patched through a mixer and low-pass filter into an oscilloscope, spectrum analyzer and audio output, with the filter's inspector showing input and output waveforms.
+    screenshots:
+      - src: project-assets/claude-dsp/lesson-open.png
+        alt: Lesson 6, Filtering Fundamentals, open beside a prepared bench of sawtooth, low-pass filter, spectrum analyzer and oscilloscope nodes with a checkpoint to bring the cutoff below 500 Hz.
+        caption: A guided lesson opens its own bench with a try-it task and a measurable checkpoint.
+      - src: project-assets/claude-dsp/challenges.png
+        alt: The Practical Challenges page listing eight challenge cards such as Rescue a Noisy Tone and Stop the Aliasing with time estimates and pass scores.
+        caption: The eight graded engineering challenges.
+    links:
+      - label: Visit Signal Processing Playground
+        url: https://pcowhill.github.io/claude-dsp/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-dsp
+
+  - id: claude-hollow-oath
+    title: The Hollow Oath
+    summary: A party-based isometric CRPG built on the D&D 2024 rules, with turn-based tactical combat, an investigation story set in the fen town of Greyfen, and multiple endings.
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-07-15
+    updated: 2026-07-15
+    thumbnail:
+      src: project-assets/claude-hollow-oath/thumbnail.png
+      alt: The isometric town of Greyfen at dusk with a four-character party standing on a stone square near a lantern, party portraits and hit points down the left side.
+    screenshots:
+      - src: project-assets/claude-hollow-oath/dialogue-corvin.png
+        alt: A conversation panel with the merchant Corvin, showing his portrait, a line of dialogue and two numbered reply choices over the town scene.
+        caption: Talking to Corvin the merchant in Greyfen.
+      - src: project-assets/claude-hollow-oath/graveyard-stakeout.png
+        alt: A walled night-time graveyard with the party in gold rings on one side and four red-ringed cultists among the gravestones.
+        caption: A night-time stakeout in the graveyard, with cultists among the graves.
+      - src: project-assets/claude-hollow-oath/rules-glossary.png
+        alt: The Rules Glossary dialog on the Combat tab with entries for Initiative, Surprise, Action and Bonus Action.
+        caption: The in-game rules glossary, Combat tab.
+    links:
+      - label: Visit The Hollow Oath
+        url: https://pcowhill.github.io/claude-hollow-oath/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-hollow-oath
+
+  - id: claude-repo-steward
+    title: Repo Steward
+    summary: A simulated GitHub-style repository with an AI steward that reacts to issues and pull requests, where a deterministic policy engine decides which proposals run automatically, wait for approval, or are blocked.
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-07-14
+    updated: 2026-07-14
+    thumbnail:
+      src: project-assets/claude-repo-steward/thumbnail.png
+      alt: "Issue #42 in the simulated orbitops/readiness-tracker repository, with labels the steward bot just added and a Repo Steward panel summarising the bug and its confidence."
+    screenshots:
+      - src: project-assets/claude-repo-steward/steward-inbox.png
+        alt: The Steward Inbox listing two pending proposals, Remove needs-repro and Mark as ai-candidate, each with a confidence bar, the policy rule that applied and Approve and Reject buttons.
+        caption: Proposals that policy routes to a human wait in the Steward Inbox with the rule that decided it.
+      - src: project-assets/claude-repo-steward/pull-request-review.png
+        alt: "Pull request #47 conversation view with commits, a reviewer comment and a Repo Steward panel summarising the fix and the remaining test gap."
+        caption: "The pull request steward scenario after analysis of PR #47."
+    links:
+      - label: Visit Repo Steward
+        url: https://pcowhill.github.io/claude-repo-steward/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-repo-steward
+
+  - id: claude-jazz-piano-lessons
+    title: Jazz Piano Theory Atlas
+    summary: An interactive jazz harmony reference of ten lessons whose playable examples show grand-staff notation, chord symbols, and Roman numerals above an animated keyboard, transposable to any key.
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-07-13
+    updated: 2026-07-13
+    thumbnail:
+      src: project-assets/claude-jazz-piano-lessons/thumbnail.png
+      alt: A lesson 3 example, Layering a chord from triad to 13 sharp 11, playing back with notation on a grand staff and the sounding keys highlighted in blue on a piano keyboard.
+    screenshots:
+      - src: project-assets/claude-jazz-piano-lessons/tritone-substitution.png
+        alt: A lesson 5 example comparing G7 and D flat 7 in a ii V I cadence in Jazz voicing mode, with the Dm7 chord sounding and its keys lit on the keyboard.
+        caption: Tritone substitution example in Jazz voicing, mid-playback.
+      - src: project-assets/claude-jazz-piano-lessons/upper-structure-explorer.png
+        alt: The upper-structure explorer from lesson 8 with buttons for four triads over an F7 foundation, a table mapping triad notes to chord functions and notation below.
+        caption: The upper-structure explorer in the diminished systems lesson.
+    links:
+      - label: Visit Jazz Piano Theory Atlas
+        url: https://pcowhill.github.io/claude-jazz-piano-lessons/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-jazz-piano-lessons
+
+  - id: claude-fable-vs-sol-benchmark
+    title: Asterism Relay Planning Console (Claude build)
+    summary: "The Claude build of a benchmark task: a deep-space communications planning console for scrubbing a simulated 24-hour mission, inspecting relay links, deploying relays, and scoring the plan against a baseline."
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-07-10
+    updated: 2026-07-10
+    thumbnail:
+      src: project-assets/claude-fable-vs-sol-benchmark/thumbnail.png
+      alt: "Asterism relay planning console at mission time T+14:16 with the Lunar South Pole Resupply scenario: a tilted schematic map of Earth, the Moon, relays and links, and the Inspect panel for Shackleton Ridge Station showing its route to Earth via ARGUS-2 and DSS-63 Madrid."
+    screenshots:
+      - src: project-assets/claude-fable-vs-sol-benchmark/plan-deploy-relay.png
+        alt: The Plan tab with 24-hour plan metrics, the relay constellation list, and a new-relay form for RELAY-01 in lunar orbit with a pending-deploy ghost drawn on the map.
+        caption: Deploying a new relay from the Plan tab; the pending relay is previewed on the map.
+      - src: project-assets/claude-fable-vs-sol-benchmark/compare-tab.png
+        alt: "The Compare tab after deploying RELAY-01: coverage improved by 11.1 points and one critical window recovered, while latency, reliability, energy and relay count are marked worse, with paired base and plan bars."
+        caption: Baseline comparison after adding a relay, with direction-aware improved and worse verdicts.
+    links:
+      - label: Visit Asterism (Claude build)
+        url: https://pcowhill.github.io/claude-fable-vs-sol-benchmark/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-fable-vs-sol-benchmark
+
+  - id: codex-fable-vs-sol-benchmark
+    title: Asterism Relay Network Planning (Codex build)
+    summary: "The Codex build of the same benchmark task: a deep-space communications planning console with a network map, a 24-hour timeline, link inspectors, relay deployment, and baseline comparison."
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-07-09
+    updated: 2026-07-09
+    thumbnail:
+      src: project-assets/codex-fable-vs-sol-benchmark/thumbnail.png
+      alt: Asterism relay planning console with the Lunar South Pole Resupply scenario at MET +11.2 h, the Earth-Moon link topology map, an event queue, and the Dsn Atlas / Kestrel link inspection panel showing margin, signal, latency and bandwidth.
+    screenshots:
+      - src: project-assets/codex-fable-vs-sol-benchmark/compare-overlay.png
+        alt: Plan delta analysis overlay comparing the current plan against a saved baseline after deploying the VANTAGE-3 relay, with paired bars for coverage, latency, reliability, energy, gaps and relay count.
+        caption: Baseline comparison after deploying an extra lunar relay.
+      - src: project-assets/codex-fable-vs-sol-benchmark/add-relay.png
+        alt: Deploy communications relay dialog with designation, deployment region, orbital phase and transmission power controls.
+        caption: The relay deployment dialog.
+    links:
+      - label: Visit Asterism (Codex build)
+        url: https://pcowhill.github.io/codex-fable-vs-sol-benchmark/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/codex-fable-vs-sol-benchmark
+
+  - id: claude-ticket-forge
+    title: TicketForge
+    summary: An engineering ticket intake console that turns a messy user report, a repository brief, and a team template into a structured ticket where every field carries a confidence grade.
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-07-05
+    updated: 2026-07-05
+    thumbnail:
+      src: project-assets/claude-ticket-forge/thumbnail.png
+      alt: TicketForge console with the OrbitOps demo intake on the left, a forged structured ticket with graded fields in the middle, and a 62% readiness review with blockers and clarifying questions on the right.
+    screenshots:
+      - src: project-assets/claude-ticket-forge/refined-ticket.png
+        alt: "The same ticket after refinement: readiness at 88%, fields sourced from clarification answers, and a What Improved list."
+        caption: After answering the clarifying questions and refining, readiness climbs from 62% to 88%.
+      - src: project-assets/claude-ticket-forge/templates.png
+        alt: Templates screen listing Bug Report, Feature Request and Research Spike, with the Bug Report fields and per-field AI instructions open for editing.
+        caption: Ticket templates are editable, with per-field instructions and required toggles.
+    links:
+      - label: Visit TicketForge
+        url: https://pcowhill.github.io/claude-ticket-forge/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-ticket-forge
+
+  - id: claude-chefs-choice-3d
+    title: GLOAMING
+    summary: "A 3D sheepdog game built with Three.js: play a border collie driving a flock of thirteen sheep down a darkening valley into a stone fold before the wolves arrive."
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-07-04
+    updated: 2026-07-04
+    thumbnail:
+      src: project-assets/claude-chefs-choice-3d/thumbnail.png
+      alt: Third-person view of a low-poly border collie in a sunlit meadow facing a flock of blocky sheep, with a valley, pine trees and a sunset sky behind, and a sheep counter reading 10 of 13.
+    screenshots:
+      - src: project-assets/claude-chefs-choice-3d/title-screen.png
+        alt: GLOAMING title screen over a dusk-lit valley with sheep, showing Begin the Run and How to Herd buttons and a controls line.
+        caption: The title screen at dusk.
+    links:
+      - label: Visit GLOAMING
+        url: https://pcowhill.github.io/claude-chefs-choice-3d/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-chefs-choice-3d
+
+  - id: claude-chefs-choice2
+    title: TERRANE / SUBSTRATA Seismology Observatory
+    summary: "A synthetic seismology observatory: a procedurally generated geological cross-section drawn as an engraved survey plate, where clicking into the earth sends P- and S-waves through the strata and onto drum seismographs."
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-07-04
+    updated: 2026-07-04
+    thumbnail:
+      src: project-assets/claude-chefs-choice2/thumbnail.png
+      alt: An engraved cross-section of folded strata and a sediment basin with two ruptures radiating concentric blue P-wave and red S-wave rings, above a panel of three drum recorders, station analysis and lens controls.
+    screenshots:
+      - src: project-assets/claude-chefs-choice2/drum-recorders.png
+        alt: Wavefronts from two ruptures spreading across the whole section, reflecting off the surface, while the three drum recorders trace the arrivals.
+        caption: Waves refract through the layers and reflect off the free surface as the drums record arrivals.
+      - src: project-assets/claude-chefs-choice2/xray-lens.png
+        alt: The X-ray lens showing the velocity tomograph of the terrane in grey with interfering wavefronts and a new rupture marked at 20 km depth.
+        caption: The X-ray lens shows the velocity structure the waves travel through.
+      - src: project-assets/claude-chefs-choice2/dark-lens.png
+        alt: "The Dark lens: a phosphor darkfield view with blue P-wave and orange S-wave energy filling the section after several quakes."
+        caption: The Dark lens renders the wavefield as a phosphor darkfield.
+    links:
+      - label: Visit TERRANE
+        url: https://pcowhill.github.io/claude-chefs-choice2/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-chefs-choice2
+
+  - id: claude-chefs-choice-game2
+    title: EARSHOT
+    summary: "A top-down sonar-hunt roguelite played on a phosphor scope where sound is the only light: pinging reveals the cave and its creatures, but every sound you make tells them where you are."
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-07-03
+    updated: 2026-07-03
+    thumbnail:
+      src: project-assets/claude-chefs-choice-game2/thumbnail.png
+      alt: EARSHOT title screen with glowing phosphor lettering, a Click to Dive prompt and a row of control hints.
+    screenshots:
+      - src: project-assets/claude-chefs-choice-game2/sonar-ping.png
+        alt: A full sonar ping ring lighting up the cave outline with three red hunters closing on the sub and a hull breach warning at 80%.
+        caption: A ping lights the whole cavern, and three hunters converge on the sound.
+      - src: project-assets/claude-chefs-choice-game2/contact-detected.png
+        alt: Green phosphor sonar scope at 140 m depth with cave walls lit by a ping, the player's sub in the centre, red creature contacts to the upper left, a DETECTED warning, and a hydrophone dial in the corner.
+        caption: A contact detected on the scope shortly after diving into the first zone.
+    links:
+      - label: Visit EARSHOT
+        url: https://pcowhill.github.io/claude-chefs-choice-game2/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-chefs-choice-game2
+
+  - id: claude-chefs-choice-game
+    title: WYRMLIGHT
+    summary: "An arcade game crossing Snake with tower defense: steer a growing serpent whose segments are auto-firing turrets and coil around the last star to survive twelve hours of night."
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-07-03
+    updated: 2026-07-03
+    thumbnail:
+      src: project-assets/claude-chefs-choice-game/thumbnail.png
+      alt: "WYRMLIGHT title screen: gold lettering over a dark starfield with a beaded serpent crossing a beam of light, and Embark and How to Play options."
+    screenshots:
+      - src: project-assets/claude-chefs-choice-game/coiling-around-the-star.png
+        alt: "Gameplay in Hour I: a nine-segment serpent arcs around the glowing star while a prism beam fires outward; HUD shows star health, score 300 and coil count."
+        caption: Mid-play in the first hour, with the serpent's prism segment firing a beam as it coils around the Star.
+      - src: project-assets/claude-chefs-choice-game/boon-draft.png
+        alt: Draft screen titled The Star Offers a Boon with three cards (Whetted Fangs, Long Patience, Ancient Scales) and a coil summary below.
+        caption: The between-hours draft where one of three boons is chosen.
+    links:
+      - label: Visit WYRMLIGHT
+        url: https://pcowhill.github.io/claude-chefs-choice-game/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-chefs-choice-game
+
+  - id: claude-chefs-choice
+    title: The Chart Room
+    summary: A procedural drafting engine that plots a complete 19th-century style nautical chart of an invented sea in the browser, layer by layer, from graticule and coastlines to soundings, place names, and cartouche.
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-07-03
+    updated: 2026-07-03
+    thumbnail:
+      src: project-assets/claude-chefs-choice/thumbnail.png
+      alt: A finished fair-copy chart of The Kihel Sea on aged paper with islands, hatched relief, depth soundings, a compass rose and a title cartouche, beside a brass-and-ebony instrument panel reading Survey Complete.
+    screenshots:
+      - src: project-assets/claude-chefs-choice/drafting-in-progress.png
+        alt: A partly drawn chart of The Skifio Sea with coastlines and land washes inked but no soundings or names yet; the panel status reads Tracing Watercourses and a gantry cursor sits over the sheet.
+        caption: A new survey mid-draft, with the plotter still tracing rivers before soundings and lettering go on.
+      - src: project-assets/claude-chefs-choice/cyanotype-mode.png
+        alt: "The same Kihel Sea chart re-inked as a cyanotype: white line-work, names and soundings on a deep Prussian blue sheet."
+        caption: The finished survey switched to the Cyanotype drafting mode.
+    links:
+      - label: Visit The Chart Room
+        url: https://pcowhill.github.io/claude-chefs-choice/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-chefs-choice
+
+  - id: claude-breadboard
+    title: Virtual Breadboard Lab
+    summary: A 3D Arduino-style breadboard simulator with placeable components, jumper wires, a block-programming editor, a serial monitor, a live wiring linter, and four guided labs.
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-07-03
+    updated: 2026-07-03
+    thumbnail:
+      src: project-assets/claude-breadboard/thumbnail.png
+      alt: 3D workbench with a teal Arduino board wired by five colored jumpers to a breadboard holding a 74HC595 chip, resistors and a 7-segment display lit with the digit 7; the Lab 4 guide is open on the right.
+    screenshots:
+      - src: project-assets/claude-breadboard/lab1-led-lit.png
+        alt: Close view of the breadboard in Lab 1 with a resistor and a glowing orange LED wired from the power rails, the simulation running and the lab instructions on the right.
+        caption: Lab 1's starter circuit running, with the LED lit from the 5 V rail through a series resistor.
+      - src: project-assets/claude-breadboard/lab4-serial-monitor.png
+        alt: Lab 4 running with the 7-segment display showing 5 and the Serial tab open, listing time-stamped counter prints 0 through 9 and back to 0.
+        caption: The shift-register counter lab with the serial monitor open, receiving each digit as it is displayed.
+      - src: project-assets/claude-breadboard/block-program-editor.png
+        alt: The block program drawer open below the 3D scene, showing a forever loop with display digit on 7-segment, print to serial monitor and wait 600 ms blocks while the display reads 6.
+        caption: The Blockly block-program editor for the running Lab 4 counter.
+    links:
+      - label: Visit Virtual Breadboard Lab
+        url: https://pcowhill.github.io/claude-breadboard/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-breadboard
+
+  - id: claude-hubble
+    title: Hubble Systems Cutaway
+    summary: An interactive 3D exhibit of the Hubble Space Telescope built around NASA's official model, with subsystem hotspots, cutaway and overlay views, and a guided tour.
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-07-02
+    updated: 2026-07-02
+    thumbnail:
+      src: project-assets/claude-hubble/thumbnail.png
+      alt: X-Ray view of the Hubble model as a ghosted hull with colored interior volumes and numbered hotspots, and an info panel for the Primary Mirror with a confidence badge and what-it-is, how-it-works and why-it-matters sections.
+    screenshots:
+      - src: project-assets/claude-hubble/tour-optics-light-path.png
+        alt: "Guided tour stop 3 of 11, Follow the Light: a glowing beam traced down the telescope tube past labels for incoming starlight, the secondary mirror and the primary mirror, with the tour card below."
+        caption: The guided tour's optics stop, which overlays the light path from aperture to focal plane.
+      - src: project-assets/claude-hubble/tour-power-overlay.png
+        alt: "Guided tour stop 8, Power from Sunlight: orange solar-wing volumes and battery bay markers highlighted on the model, with the Earth limb at lower right and the tour card below."
+        caption: The electrical power tour stop with the solar arrays and battery bays highlighted.
+      - src: project-assets/claude-hubble/callouts-view.png
+        alt: "Initial exhibit view: the textured Hubble model against a starfield with numbered callout labels such as Aperture Door, Optical Assembly, Solar Arrays and Batteries, and the view and lighting menus on the left."
+        caption: The default Callouts view with all twelve subsystem labels visible.
+    links:
+      - label: Visit Hubble Systems Cutaway
+        url: https://pcowhill.github.io/claude-hubble/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-hubble
+
+  - id: claude-space
+    title: Living Orrery
+    summary: A real-time 3D orrery of an invented star system with orbit lines, an asteroid belt, comets, an adjustable time rate, a cinematic camera mode, and a dossier for each body.
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-06-30
+    updated: 2026-06-30
+    thumbnail:
+      src: project-assets/claude-space/thumbnail.png
+      alt: A glowing star at the center of tilted orbit rings with labeled planets and a dotted asteroid belt; the Selection panel shows the dossier for Cronara, a ringed planet, with orbit, day length, moons and class.
+    screenshots:
+      - src: project-assets/claude-space/cinematic-mode.png
+        alt: The orrery viewed from a lower, sweeping camera angle in Cinematic mode, with a comet streaking in at lower left and the control panel showing Cinematic active.
+        caption: Cinematic mode moving the camera around the system on its own.
+      - src: project-assets/claude-space/core-dossier.png
+        alt: "The central star highlighted with a Helion Core tooltip and the Selection panel showing its dossier: plasma core, about 5,800 K surface, stable pulse, 8 bodies."
+        caption: Clicking the central core opens its dossier in the selection panel.
+    links:
+      - label: Visit Living Orrery
+        url: https://pcowhill.github.io/claude-space/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-space
+
+  - id: claude-prompts
+    title: Prompt Gallery
+    summary: A single-file library of reusable prompt templates for AI tools, organized by category, where each prompt is split into highlighted sections with tooltips explaining what each part does.
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-06-30
+    updated: 2026-06-30
+    thumbnail:
+      src: project-assets/claude-prompts/thumbnail.png
+      alt: Dark gallery page with a search bar, a Categories sidebar with Coding Agents selected, and two prompt cards (One-Shot Build for a Coding Agent, Kick Off Work in an Existing Repo) whose prompt text is split into highlighted sections.
+    screenshots:
+      - src: project-assets/claude-prompts/section-tooltip.png
+        alt: A tooltip over a highlighted sentence in a prompt card explaining that a restate-and-plan step surfaces misunderstandings before code exists and can be removed to start immediately.
+        caption: Hovering a highlighted section shows why that part of the prompt is there.
+      - src: project-assets/claude-prompts/copied-prompt.png
+        alt: The bottom of a prompt card after clicking Copy Prompt, with the button reading Copied and an Edit before copying button beside it; more cards follow below.
+        caption: The Copy Prompt button confirming a copy, next to the Edit before copying option.
+    links:
+      - label: Visit Prompt Gallery
+        url: https://pcowhill.github.io/claude-prompts/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-prompts
+
+  - id: claude-banking-project
+    title: Meridian Simulated Banking Platform
+    summary: A simulated consumer bank with a public website, a customer portal, an internal operations console, and a backend whose ledger derives every balance from append-only entries. Runs locally only; not deployed.
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-06-29
+    updated: 2026-06-29
+    thumbnail:
+      src: project-assets/claude-banking-project/thumbnail.png
+      alt: Meridian customer dashboard for Avery Customer showing total available cash of $19,452.68, an Everyday Checking card and a Goal Savings card with available and current balances, and a Loans & CDs section below.
+    screenshots:
+      - src: project-assets/claude-banking-project/public-home.png
+        alt: Meridian public home page with the headline 'Modern banking that keeps you on course', a family photo, Open account and Log in buttons, and a simulation disclaimer banner across the top.
+        caption: The public marketing site that fronts the customer portal.
+      - src: project-assets/claude-banking-project/account-transactions.png
+        alt: Everyday Checking account page showing available and current balances, pending-out, on-hold and pending-in amounts, a transaction search box with status and category filters, and pending entries for a bill payment, a card authorization and a mobile check deposit.
+        caption: Account detail with pending and posted ledger entries, search and filters.
+      - src: project-assets/claude-banking-project/ops-request-queues.png
+        alt: Dark-themed operations simulator showing the Request queues page with status and lane filters and work-item cards for an identity check and a fraud alert, each with Approve, Reject, Hold and Request info buttons.
+        caption: The operations console where staff approve, reject or hold simulated bank work items.
+    links:
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-banking-project
+        primary: true
+
+  - id: claude-escape-room
+    title: The Quiet Hour
+    summary: "A point-and-click escape room set in a friend's study: turn between four walls, inspect and collect objects, and combine clues to work out the door code. All of the artwork is SVG drawn in code."
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-06-24
+    updated: 2026-06-24
+    thumbnail:
+      src: project-assets/claude-escape-room/thumbnail.png
+      alt: "The front wall of the study: a wooden door with a keypad, a wall clock reading seven o'clock, a framed sampler and a vase on a console table."
+    screenshots:
+      - src: project-assets/claude-escape-room/pen-cup-inspect.png
+        alt: An inspection window over the desk wall describing a pen cup with a brass key inside and a Take the brass key button.
+        caption: Inspecting the pen cup on the desk reveals the brass key that opens the first drawer.
+      - src: project-assets/claude-escape-room/desk-drawer-open.png
+        alt: A dialog titled The Drawer Opens listing a magnifying glass, a dead flashlight and a handwritten note about the seasons.
+        caption: Using the brass key on the desk drawer yields two items and the first clue.
+      - src: project-assets/claude-escape-room/desk-and-inventory.png
+        alt: The desk wall with a window, lamp, puzzle box, notebook and an opened drawer, with the inventory bar below showing a magnifying glass and flashlight.
+        caption: The desk wall after the tutorial step, with the collected items in the inventory bar.
+    links:
+      - label: Visit The Quiet Hour
+        url: https://pcowhill.github.io/claude-escape-room/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-escape-room
+
+  - id: claude-chess
+    title: Claude Chess
+    summary: A browser chess game against a built-in bot with four difficulty levels, time controls, and the full rules, written from scratch in plain JavaScript with no libraries.
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-06-21
+    updated: 2026-06-21
+    thumbnail:
+      src: project-assets/claude-chess/thumbnail.png
+      alt: A chess board in a green theme after eight moves each, with White castled and the move history panel listing the moves in algebraic notation.
+    screenshots:
+      - src: project-assets/claude-chess/setup-screen.png
+        alt: The New Game setup form with Easy, Medium, Hard and Impossible difficulty cards, time control options and a Play as colour choice.
+        caption: The setup screen where difficulty, time control and colour are chosen before a game.
+      - src: project-assets/claude-chess/opening-moves.png
+        alt: A chess board after three moves with the white knight on f3 selected and dots marking its legal destination squares.
+        caption: Selecting a piece highlights its legal moves with shape-based markers.
+    links:
+      - label: Visit Claude Chess
+        url: https://pcowhill.github.io/claude-chess/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-chess
+
+  - id: claude-music-notation
+    title: Clef Sheet Music Editor
+    summary: "A browser sheet-music editor in the spirit of MuseScore: enter notes on the staff, add staves with instrument presets, dynamics, and lyrics, and export a vector PDF."
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-06-20
+    updated: 2026-06-20
+    thumbnail:
+      src: project-assets/claude-music-notation/thumbnail.png
+      alt: A two-staff score titled Morning Air with a flute melody in quarter notes marked mf above a cello bass line in half notes, with the toolbar palette and staff settings sidebar around it.
+    screenshots:
+      - src: project-assets/claude-music-notation/melody-entered.png
+        alt: A single treble staff with four bars of quarter notes entered and the score title and composer filled in.
+        caption: A melody entered on the flute staff with the A to G letter keys.
+      - src: project-assets/claude-music-notation/help-legend.png
+        alt: A Keyboard shortcuts overlay listing note entry, duration, pitch nudging, cursor, chord, accidental, tie, undo and save keys.
+        caption: The in-app keyboard shortcut legend opened with the ? button.
+    links:
+      - label: Visit Clef
+        url: https://pcowhill.github.io/claude-music-notation/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-music-notation
+
+  - id: claude-fluid-game
+    title: Harvest the Hazard
+    summary: "A top-down strategy game where the spreading fluid is both the enemy and the only fuel: build extractors, relays, blasters, and barriers to harvest deep pools while keeping the flood off the Core."
+    tags: []
+    status: complete
+    draft: false
+    added: 2026-06-20
+    updated: 2026-06-20
+    thumbnail:
+      src: project-assets/claude-fluid-game/thumbnail.png
+      alt: A grid map with a glowing purple emitter and blue-to-teal fluid spreading across the right half, a chain of relays linking the Core on the left to a cluster of extractors in the pool, and an energy HUD across the top.
+    screenshots:
+      - src: project-assets/claude-fluid-game/how-to-play.png
+        alt: A How to play panel titled Harvest the Hazard explaining extractors, relays, blasters, metal, barriers, repair and the Beacon, with a Start Harvesting button.
+        caption: The rules panel shown on first load before harvesting starts.
+      - src: project-assets/claude-fluid-game/flood-advancing.png
+        alt: "Later game: the fluid has crept further toward the Core, seven extractors and two barriers are built and stored energy is over 2000."
+        caption: The same base later on, with the fluid advancing west and extractors feeding the energy store.
+    links:
+      - label: Visit Harvest the Hazard
+        url: https://pcowhill.github.io/claude-fluid-game/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-fluid-game
