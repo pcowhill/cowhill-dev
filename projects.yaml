@@ -1111,26 +1111,3 @@ projects:
         primary: true
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-fluid-game
-
-  - id: claude-one-shot-demo
-    title: Event-Driven Resource-Allocation Engine
-    summary: A Python event-driven scheduler that allocates prioritised, deadline-bound taskings to a limited pool of assets, with a live dashboard for automated, human-in-the-loop, and hybrid modes. Runs locally only; not deployed.
-    tags: []
-    status: complete
-    draft: false
-    added: 2026-06-19
-    updated: 2026-06-19
-    thumbnail:
-      src: project-assets/claude-one-shot-demo/thumbnail.png
-      alt: Dark operations dashboard in Automated mode at mission clock T+04:06 with KPI tiles for mission value delivered (1,198, +16.2% vs FIFO), value capture, taskings served and asset utilization, an event stream, a Gantt-style allocation timeline for six assets, and resource-utilization bars.
-    screenshots:
-      - src: project-assets/claude-one-shot-demo/human-in-the-loop.png
-        alt: The dashboard in Human-in-loop mode showing a banner that two changes proposed by re-optimization await approval, a selected ROUTINE tasking on SAT-2 with a details popup, and Lock, Hold and Override controls.
-        caption: Human-in-the-loop mode with a proposed plan awaiting approval and a tasking selected for lock, hold or override.
-      - src: project-assets/claude-one-shot-demo/completed-shift.png
-        alt: The dashboard at T+08:00 after the full shift in Automated mode, showing 2,356 mission value delivered (+15.1% vs FIFO), 57 of 90 taskings served, 80.3% mean asset utilization and a fully populated allocation timeline.
-        caption: The completed eight-hour shift with the final allocation timeline and KPIs.
-    links:
-      - label: Visit GitHub Repo
-        url: https://github.com/pcowhill/claude-one-shot-demo
-        primary: true
