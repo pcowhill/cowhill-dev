@@ -551,11 +551,35 @@ projects:
         primary: true
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-nanogram
+    description: |
+      This project served three different purposes.  First, I wanted to make a nonogram application that is easy to play on desktop and mobile that does not have ads (as many of the popular ones out there are filled with them).  Second, I wanted to see how Claude would approach creating 1000 puzzles from scratch that scale in difficulty.  Third, I wanted to see how Claude in Chrome would perform interacting with an application that it has never seen before.  Overall, I am happy with the results of this experiment and will certainly use some of these techniques in the future.
+
+      ## The Nonogram Application
+
+      I am quite happy with how the application feels.  There are many very nice quality of life features that I normally would have not focused on or bothered with for a project of this scale, but adding many generic and helpful features is one of the things Claude Code is best at.  In particular, one thing that is typically challenging for nonogram apps on mobile is that the puzzle is very large, but the screen is very small.  To accommodate for this, there is an intuitive puzzle navigation overlay that assists with getting to the part of the puzzle that is being worked on easily and conveniently.
+
+      ## The Nonogram Puzzles
+
+      The way that Claude approached the puzzles was interesting, and it produced mixed results.
+
+      Here are the things I liked:
+      - It successfully generated 1000 puzzles without repeats (technically).
+      - The puzzles for the most part did a good job of representing the object that they were trying to.
+      - The way it accounted for difficulty to order the puzzles was very savvy, and the puzzles did generally feel ordered correctly.
+
+      And, here are the things I did not like:
+      - It would often have full columns or rows on the edges of the puzzle of full white or full black squares, which makes me question why the puzzle grid was not just made smaller.
+      - It would often place blocks of filled squares throughout the puzzle (most often in the corners) in order to make the puzzle have a unique solution even if these did not actually fit with the theme of the puzzle.
+      - It had a problem with repetition.  Even after calling this out, there would be multiple puzzles with the same theme (e.g. cat, scorpion, numbers, etc.).
+
+      ## Claude in Chrome
+
+      What Claude in Chrome could do was one of the most interesting parts in the experiment.  This was really the first time that I had experimented with UI control on my desktop in a way that actually impressed me.  Previous iterations of this type of tool were often really buggy, but when I asked Claude in Chrome to play my app for ~20 minutes, it did just that.  It solved puzzles, explored the site, made some errors on purpose to see what would happen.  It even provided me a list of small bugs that it found that I could then feed back into Claude Code to fix on the next iteration of this app.  This is really cool, and I anticipate using this feature more and more in the future.
 
   - id: claude-opus-5-chefs-choice-3d
     title: SALVO
     summary: A 3D arcade sea-survival game where firing the boat's swivel gun is the only way to move, across ten waves of sea monsters.
-    tags: [website, interactive, game, graphics, 3d, action, audio, shooter]
+    tags: [website, interactive, game, graphics, 3d, action, audio, shooter, arcade]
     status: complete
     draft: false
     added: 2026-07-25
@@ -573,6 +597,7 @@ projects:
         primary: true
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-opus-5-chefs-choice-3d
+    description: This was another experiment where I gave Claude Code free reign to come up with the concept and feel of a game.  Specifically, this was the first experiment I ran with Claude Opus 5, and I wanted to see what type of product it could produce.  Overall, I am pretty happy with the outcome and it was a good introduction to working with Opus 5 and its... interesting way of conversing.  That game itself is quite enjoyable except that I am very bad at games like this, so I cannot get very far past the first wave.
 
   - id: claude-dsp
     title: Signal Processing Playground
@@ -598,6 +623,7 @@ projects:
         primary: true
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-dsp
+    description: Similar to the [Virtual Breadboard Lab](https://www.cowhill.dev/projects/claude-breadboard/) project, this experiment was a bit of a personal pet project.  I always enjoyed signal processing and took various classes at [Georgia Tech](https://www.cowhill.dev/projects/georgia-tech-showcase/) to gain a deeper understanding.  While I was in college, I would normally explore certain signal processing algorithms in MATLAB (for more scientific experiments), LTSpice (for more circuit-impacted experiments), and Audacity (for more practical/fun experiments).  I would have loved having this level of a signal processing playground that effectively bridges the gap between those tools.
 
   - id: claude-hollow-oath
     title: The Hollow Oath
@@ -796,7 +822,7 @@ projects:
   - id: claude-chefs-choice2
     title: TERRANE / SUBSTRATA Seismology Observatory
     summary: "A synthetic seismology observatory: a procedurally generated geological cross-section drawn as an engraved survey plate, where clicking into the earth sends P- and S-waves through the strata and onto drum seismographs."
-    tags: [website, interactive, engineering, graphics, audio, educational, simulation]
+    tags: [website, interactive, engineering, graphics, audio, educational, simulation, map]
     status: complete
     draft: false
     added: 2026-07-04
