@@ -148,3 +148,13 @@ test('card actions: primary launches directly, otherwise View details', async ({
   await expect(details.locator('svg')).toHaveCount(0);
   await expect(page.locator('.project-card a a')).toHaveCount(0);
 });
+
+test('a card link works on the first click right after typing a search', async ({ page }) => {
+  await page.goto(site.url('/projects/'));
+  await page.fill('#catalog-search', 'thing');
+  await expect(page.locator('#catalog-count')).toHaveText('2 of 8 projects');
+  // The search input still has focus, so this click also blurs it and fires `change`.
+  await expect(page.locator('#catalog-search')).toBeFocused();
+  await page.click('.project-card[data-id="sentinel-complete"] .project-card__actions a.button--primary');
+  await expect(page).toHaveURL(/\/projects\/sentinel-complete\/$/);
+});

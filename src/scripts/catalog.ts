@@ -73,11 +73,16 @@ export function initCatalog(): void {
     const visible = filterEntries(entries, state);
     const visibleIds = new Set(visible.map((e) => e.id));
     for (const [id, card] of cards) card.hidden = !visibleIds.has(id);
-    // Reorder DOM nodes to match the sort without re-rendering them.
-    for (const entry of visible) {
-      const card = cards.get(entry.id);
-      if (card) results!.appendChild(card);
-    }
+    // Reorder DOM nodes to match the sort without re-rendering them: visible
+    // cards in sort order, then hidden ones. Only cards that are out of place
+    // move, because detaching a card between mousedown and mouseup cancels the
+    // click (a search box blurred by that mousedown fires `change` and renders).
+    const ordered = visible.map((e) => cards.get(e.id)).filter((c): c is HTMLElement => Boolean(c));
+    for (const card of cards.values()) if (card.hidden) ordered.push(card);
+    ordered.forEach((card, i) => {
+      const current = results!.children[i] ?? null;
+      if (current !== card) results!.insertBefore(card, current);
+    });
     results!.classList.toggle('catalog--grid', state.view === 'grid');
     results!.classList.toggle('catalog--list', state.view === 'list');
     if (countEl) {
