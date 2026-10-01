@@ -141,7 +141,7 @@ projects:
   - id: portfolio
     title: Patrick Cowhill — Legacy Portfolio
     summary: The legacy version of my personal portfolio and professional background.
-    tags: [portfolio, website, 3d]
+    tags: [portfolio, web, 3d]
     status: complete
     featured: true
     added: 2025-07-18
@@ -167,7 +167,7 @@ projects:
   - id: browser-video-editor
     title: Browser Video Editor
     summary: A bowser-based video editing app created and iteratively expanded with an experimental AI-agile team of agents.
-    tags: [website, video, graphics, interactive]
+    tags: [web, video, graphics, interactive, tool, audio, editor, AI experiment]
     status: active
     draft: false
     links:
@@ -213,7 +213,7 @@ projects:
   - id: lightsail-demo
     title: Lightsail Demo
     summary: A live chat room, collaborative drawing app, and multi-player bird game created to explore the capabilities of AWS Lightsail.
-    tags: [game, website, chat, server, graphics, interactive, text]
+    tags: [game, web, chat, server-backed, graphics, interactive, experiment]
     status: complete
     draft: false
     added: 2025-07-21
@@ -256,7 +256,7 @@ projects:
   - id: 3d-cube
     title: 3D Cube Prototype
     summary: Quick prototype for implement perspective 3D projection of a cube onto a 2D plane.
-    tags: [website, graphics, interactive, 3d]
+    tags: [web, graphics, interactive, 3d, experiment]
     status: complete
     draft: false
     added: 2024-05-19
@@ -279,7 +279,7 @@ projects:
   - id: portfolio2
     title: Patrick Cowhill — Portfolio
     summary: My personal portfolio and professional background.
-    tags: [website, portfolio]
+    tags: [web, portfolio]
     status: active
     draft: false
     featured: true
@@ -309,7 +309,7 @@ projects:
   - id: initiative-tracker
     title: DnD Initiative Tracker
     summary: DnD utility for tracking the health, initiative, and status effects for a party of players and the enemies they face.
-    tags: [utility, website, interactive]
+    tags: [tool, web, interactive, D&D, mobile]
     status: complete
     draft: false
     added: 2024-12-24
@@ -339,7 +339,7 @@ projects:
   - id: instrument-of-the-day
     title: Instrument of the Day
     summary: Every day, a different recording will be selected, and you will have six guesses to identify the instrument.
-    tags: [game, audio, music, website, interactive, puzzle]
+    tags: [game, audio, music, web, interactive, puzzle]
     status: complete
     draft: false
     added: 2024-08-18
@@ -365,7 +365,7 @@ projects:
   - id: city-guesser
     title: City Guesser Game
     summary: A game of correctly identifying cities in the USA to reveal more of the map and uncover as many cities as possible.
-    tags: [game, website, interactive, graphics, puzzle, map]
+    tags: [game, web, interactive, graphics, puzzle, map]
     status: complete
     draft: false
     thumbnail:
@@ -391,7 +391,7 @@ projects:
   - id: qt-template
     title: Qt Template
     summary: Sample graphical projects like a File Editor, a 3D Viewer, a fun Tic Tac Toe game, and the Image Draw app.
-    tags: [game, graphics, utility, text, 3d, interactive]
+    tags: [game, graphics, tool, 3d, interactive, editor, desktop]
     status: complete
     draft: false
     thumbnail:
@@ -445,7 +445,7 @@ projects:
   - id: harmony-glide
     title: Harmony Glide
     summary: "My first iOS project: a simple color matching game to play on an iPad."
-    tags: [game, ios, audio, graphics, music, video, puzzle, action]
+    tags: [game, ios, audio, graphics, music, video, puzzle, action, educational, mobile]
     status: complete
     draft: false
     thumbnail:
@@ -479,7 +479,7 @@ projects:
   - id: georgia-tech-showcase
     title: Georgia Tech Showcase
     summary: A showcase of my experience studying at GA Tech, the coursework I chose, and some cool projects I had the opportunity to work on.
-    tags: [website, portfolio, video]
+    tags: [web, portfolio, video]
     status: complete
     draft: false
     added: 2025-04-22
@@ -505,7 +505,7 @@ projects:
   - id: css-resume
     title: CSS Resume
     summary: A challenge to myself to recreate my resume as accurately as possible only using CSS instead of Word for styling.
-    tags: [website, graphics, text]
+    tags: [web, graphics, portfolio]
     status: complete
     draft: false
     added: 2024-05-19
@@ -530,7 +530,7 @@ projects:
   - id: claude-nanogram
     title: Nonogram Odyssey
     summary: A thousand nonogram picture-logic puzzles arranged in 50 chapters, playable in Classic or Three-Life mode, with progress saved on the device and no backend.
-    tags: [website, interactive, game, puzzle]
+    tags: [web, interactive, game, puzzle, AI experiment]
     status: complete
     draft: false
     added: 2026-07-29
@@ -579,7 +579,7 @@ projects:
   - id: claude-opus-5-chefs-choice-3d
     title: SALVO
     summary: A 3D arcade sea-survival game where firing the boat's swivel gun is the only way to move, across ten waves of sea monsters.
-    tags: [website, interactive, game, graphics, 3d, action, audio, shooter, arcade]
+    tags: [web, interactive, game, graphics, 3d, action, audio, shooter, arcade, AI experiment]
     status: complete
     draft: false
     added: 2026-07-25
@@ -602,7 +602,7 @@ projects:
   - id: claude-dsp
     title: Signal Processing Playground
     summary: "A browser lab for learning digital signal processing: patch modules together on a node canvas, inspect signals with oscilloscope and spectrum instruments, and work through guided lessons and graded challenges."
-    tags: [website, interactive, graphics, engineering, utility, audio, simulation]
+    tags: [web, interactive, graphics, engineering, tool, audio, simulation, educational]
     status: complete
     draft: false
     added: 2026-07-20
@@ -628,7 +628,7 @@ projects:
   - id: claude-hollow-oath
     title: The Hollow Oath
     summary: A party-based isometric CRPG built on the D&D 2024 rules, with turn-based tactical combat, an investigation story set in the fen town of Greyfen, and multiple endings.
-    tags: [website, interactive, graphics, game, audio, music, strategy]
+    tags: [web, interactive, graphics, game, audio, music, strategy, D&D, AI experiment]
     status: complete
     draft: false
     added: 2026-07-15
@@ -657,7 +657,7 @@ projects:
   - id: claude-repo-steward
     title: Repo Steward
     summary: A simulated GitHub-style repository with an AI steward that reacts to issues and pull requests, where a deterministic policy engine decides which proposals run automatically, wait for approval, or are blocked.
-    tags: [website, interactive, demonstration, engineering]
+    tags: [web, interactive, experiment, engineering, developer tool, AI experiment]
     status: complete
     draft: false
     added: 2026-07-14
@@ -686,7 +686,7 @@ projects:
   - id: claude-jazz-piano-lessons
     title: Jazz Piano Theory Atlas
     summary: An interactive jazz harmony reference of ten lessons whose playable examples show grand-staff notation, chord symbols, and Roman numerals above an animated keyboard, transposable to any key.
-    tags: [music, educational, website, interactive, audio, utility, demonstration]
+    tags: [music, educational, web, interactive, audio, tool, experiment, AI experiment]
     status: complete
     draft: false
     added: 2026-07-13
@@ -715,7 +715,7 @@ projects:
   - id: claude-fable-vs-sol-benchmark
     title: Asterism Relay Planning Console (Claude build)
     summary: "The Claude build of a benchmark task: a deep-space communications planning console for scrubbing a simulated 24-hour mission, inspecting relay links, deploying relays, and scoring the plan against a baseline."
-    tags: [website, interactive, demonstration]
+    tags: [web, interactive, experiment, simulation, engineering, space, AI experiment]
     status: complete
     draft: false
     added: 2026-07-10
@@ -741,7 +741,7 @@ projects:
   - id: codex-fable-vs-sol-benchmark
     title: Asterism Relay Network Planning (Codex build)
     summary: "The Codex build of the same benchmark task: a deep-space communications planning console with a network map, a 24-hour timeline, link inspectors, relay deployment, and baseline comparison."
-    tags: [website, interactive, demonstration]
+    tags: [web, interactive, experiment, simulation, engineering, space, AI experiment]
     status: complete
     draft: false
     added: 2026-07-09
@@ -767,7 +767,7 @@ projects:
   - id: claude-ticket-forge
     title: TicketForge
     summary: An engineering ticket intake console that turns a messy user report, a repository brief, and a team template into a structured ticket where every field carries a confidence grade.
-    tags: [website, interactive, demonstration, utility, engineering]
+    tags: [web, interactive, experiment, tool, engineering, developer tool, AI experiment]
     status: complete
     draft: false
     added: 2026-07-05
@@ -796,7 +796,7 @@ projects:
   - id: claude-chefs-choice-3d
     title: GLOAMING
     summary: "A 3D sheepdog game built with Three.js: play a border collie driving a flock of thirteen sheep down a darkening valley into a stone fold before the wolves arrive."
-    tags: [website, interactive, game, graphics, audio, 3d, action]
+    tags: [web, interactive, game, graphics, audio, 3d, action, AI experiment]
     status: complete
     draft: false
     added: 2026-07-04
@@ -822,7 +822,7 @@ projects:
   - id: claude-chefs-choice2
     title: TERRANE / SUBSTRATA Seismology Observatory
     summary: "A synthetic seismology observatory: a procedurally generated geological cross-section drawn as an engraved survey plate, where clicking into the earth sends P- and S-waves through the strata and onto drum seismographs."
-    tags: [website, interactive, engineering, graphics, audio, educational, simulation, map]
+    tags: [web, interactive, engineering, graphics, audio, educational, simulation, map, procedural, AI experiment]
     status: complete
     draft: false
     added: 2026-07-04
@@ -854,7 +854,7 @@ projects:
   - id: claude-chefs-choice-game2
     title: EARSHOT
     summary: "A top-down sonar-hunt roguelite played on a phosphor scope where sound is the only light: pinging reveals the cave and its creatures, but every sound you make tells them where you are."
-    tags: [website, interactive, game, graphics, action, shooter]
+    tags: [web, interactive, game, graphics, action, shooter, audio, AI experiment]
     status: complete
     draft: false
     added: 2026-07-03
@@ -883,7 +883,7 @@ projects:
   - id: claude-chefs-choice-game
     title: WYRMLIGHT
     summary: "An arcade game crossing Snake with tower defense: steer a growing serpent whose segments are auto-firing turrets and coil around the last star to survive twelve hours of night."
-    tags: [website, interactive, graphics, arcade, game, audio, action, shooter]
+    tags: [web, interactive, graphics, arcade, game, audio, action, shooter, strategy, AI experiment]
     status: complete
     draft: false
     added: 2026-07-03
@@ -912,7 +912,7 @@ projects:
   - id: claude-chefs-choice
     title: The Chart Room
     summary: A procedural drafting engine that plots a complete 19th-century style nautical chart of an invented sea in the browser, layer by layer, from graticule and coastlines to soundings, place names, and cartouche.
-    tags: [website, interactive, graphics, map]
+    tags: [web, interactive, graphics, map, procedural, AI experiment]
     status: complete
     draft: false
     added: 2026-07-03
@@ -941,7 +941,7 @@ projects:
   - id: claude-breadboard
     title: Virtual Breadboard Lab
     summary: A 3D Arduino-style breadboard simulator with placeable components, jumper wires, a block-programming editor, a serial monitor, a live wiring linter, and four guided labs.
-    tags: [engineering, website, interactive, graphics, 3d, audio, educational, utility, simulation]
+    tags: [engineering, web, interactive, graphics, 3d, audio, educational, tool, simulation, AI experiment]
     status: complete
     draft: false
     added: 2026-07-03
@@ -973,7 +973,7 @@ projects:
   - id: claude-hubble
     title: Hubble Systems Cutaway
     summary: An interactive 3D exhibit of the Hubble Space Telescope built around NASA's official model, with subsystem hotspots, cutaway and overlay views, and a guided tour.
-    tags: [website, interactive, graphics, 3d, engineering, educational]
+    tags: [web, interactive, graphics, 3d, engineering, educational, space, AI experiment]
     status: complete
     draft: false
     added: 2026-07-02
@@ -1002,7 +1002,7 @@ projects:
   - id: claude-space
     title: Living Orrery
     summary: A real-time 3D orrery of an invented star system with orbit lines, an asteroid belt, comets, an adjustable time rate, a cinematic camera mode, and a dossier for each body.
-    tags: [map, website, interactive, graphics, 3d]
+    tags: [web, interactive, graphics, 3d, simulation, space, AI experiment]
     status: complete
     draft: false
     added: 2026-06-30
@@ -1028,7 +1028,7 @@ projects:
   - id: claude-prompts
     title: Prompt Gallery
     summary: A single-file library of reusable prompt templates for AI tools, organized by category, where each prompt is split into highlighted sections with tooltips explaining what each part does.
-    tags: [educational, website, engineering, utility]
+    tags: [educational, web, engineering, tool, interactive, developer tool, AI experiment]
     status: complete
     draft: false
     added: 2026-06-30
@@ -1054,7 +1054,7 @@ projects:
   - id: claude-banking-project
     title: Meridian Simulated Banking Platform
     summary: A simulated consumer bank with a public website, a customer portal, an internal operations console, and a backend whose ledger derives every balance from append-only entries. Runs locally only; not deployed.
-    tags: [simulation, website, interactive, text, demonstration, server]
+    tags: [simulation, web, interactive, experiment, server-backed, AI experiment]
     status: complete
     draft: false
     added: 2026-06-29
@@ -1098,7 +1098,7 @@ projects:
   - id: claude-escape-room
     title: The Quiet Hour
     summary: "A point-and-click escape room set in a friend's study: turn between four walls, inspect and collect objects, and combine clues to work out the door code. All of the artwork is SVG drawn in code."
-    tags: [website, interactive, graphics, game, puzzle]
+    tags: [web, interactive, graphics, game, puzzle, AI experiment]
     status: complete
     draft: false
     added: 2026-06-24
@@ -1130,7 +1130,7 @@ projects:
   - id: claude-chess
     title: Claude Chess
     summary: A browser chess game against a built-in bot with four difficulty levels, time controls, and the full rules, written from scratch in plain JavaScript with no libraries.
-    tags: [website, interactive, game, strategy]
+    tags: [web, interactive, game, strategy, AI experiment]
     status: complete
     draft: false
     added: 2026-06-21
@@ -1159,7 +1159,7 @@ projects:
   - id: claude-music-notation
     title: Clef Sheet Music Editor
     summary: "A browser sheet-music editor in the spirit of MuseScore: enter notes on the staff, add staves with instrument presets, dynamics, and lyrics, and export a vector PDF."
-    tags: [website, interactive, text, audio, music, utility, demonstration]
+    tags: [web, interactive, audio, music, tool, experiment, editor, AI experiment]
     status: complete
     draft: false
     added: 2026-06-20
@@ -1188,7 +1188,7 @@ projects:
   - id: claude-fluid-game
     title: Harvest the Hazard
     summary: "A top-down strategy game where the spreading fluid is both the enemy and the only fuel: build extractors, relays, blasters, and barriers to harvest deep pools while keeping the flood off the Core."
-    tags: [website, interactive, game, graphics, strategy]
+    tags: [web, interactive, game, graphics, strategy, AI experiment]
     status: complete
     draft: false
     added: 2026-06-20
