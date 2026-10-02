@@ -145,10 +145,10 @@ projects:
     status: archived
     added: 2025-07-18
     description: |
-      The legacy version of my personal portfolio website, with information about my work and background.  The successor to this site can be found at [patrickcowhill.com](https://www.patrickcowhill.com/) .
+      The legacy version of my personal portfolio website, with information about my work and background.  The successor to this site can be found at [patrickcowhill.com](https://www.patrickcowhill.com/).
 
       ## Reason for Retiring
-      This page originally served the dual purpose of being a catalog of projects that I worked on and a professional portfolio to summarize my professional life.  However, with the explosion of new projects that I pursued in the middle of 2026, I felt the separation of these two into dedicated spaces was more appropriate moving forward.  My professional portfolio is now located at [patrickcowhill.com](https://www.patrickcowhill.com/) and my catalog of projects is located at [cowhill.dev](https://www.cowhill.dev/) .
+      This page originally served the dual purpose of being a catalog of projects that I worked on and a professional portfolio to summarize my professional life.  However, with the explosion of new projects that I pursued in the middle of 2026, I felt that separating the two into dedicated spaces was more appropriate going forward.  My professional portfolio is now located at [patrickcowhill.com](https://www.patrickcowhill.com/) and my catalog of projects is located at [cowhill.dev](https://www.cowhill.dev/).
     links:
       - label: Visit portfolio
         url: https://legacy.patrickcowhill.com/
@@ -161,11 +161,11 @@ projects:
     screenshots:
       - src: project-assets/portfolio/main-page.png
         alt: Portfolio Main Page
-        caption: List of Projects found on the portfolio's main page.
+        caption: The list of projects on the portfolio's main page.
 
   - id: browser-video-editor
     title: Browser Video Editor
-    summary: A bowser-based video editing app created and iteratively expanded with an experimental AI-agile team of agents.
+    summary: A browser-based video editing app created and iteratively expanded with an experimental AI-agile team of agents.
     tags: [web, video, graphics, interactive, tool, audio, editor, AI experiment]
     status: maintained
     draft: false
@@ -183,20 +183,20 @@ projects:
       alt: Browser Video Editor Main Page
     description: |
       # The Experiment
-      While the final product of this project is a fully-functional browser-based video editing application, the underlying experiment is what is most interesting to me.  I set out to explore how much of the product creation process (from a software development perspective) can be performed by AI agents utilizing an agile-based workflow.  Over the course of development, I would be responsible for playing around with the Browser Video Editor app and creating issues directly in GitHub to voice my preferences, propose new features, and report bugs.  An AI agent (Claude in this case) would be responsible for everything else from project management and development to code review and testing.
+      While the final product of this project is a fully functional browser-based video editing application, the underlying experiment is what is most interesting to me.  I set out to explore how much of the product creation process (from a software development perspective) could be performed by AI agents using an agile-based workflow.  Over the course of development, I was responsible for playing around with the Browser Video Editor app and creating issues directly in GitHub to voice my preferences, propose new features, and report bugs.  An AI agent (Claude, in this case) was responsible for everything else, from project management and development to code review and testing.
 
-      500+ issues and pull requests were created over the course of weeks, and what resulted is a feature-rich, portable application that I will certainly be using in the future for any of my projects involving creating videos, demos, and presentations.
+      More than 500 issues and pull requests were created over the course of several weeks, and the result is a feature-rich, portable application that I will certainly be using in the future for any of my projects involving creating videos, demos, and presentations.
 
       # The Application
       The Browser Video Editor can:
       - Live record or import existing video clips, images, and audio in various file formats.
-      - Save project configuration, uploaded media, and restore state from previous sessions.
-      - Build a dynamic timeline from media handling sequencing, overlap, and transition effects.
-      - Preview full video with chapters, looping, and frame controls.
-      - Provide fine-tune controls for picture look, audio mastering, and canvas settings.
-      - Apply effects for transitions, zoom, spotlight, and redacting.
-      - Add additional content such as color slates, text overlays, and imported subtitles.
-      - Export final products as videos, audio, and GIFs as clips or as a whole.
+      - Save project configurations and uploaded media, and restore state from previous sessions.
+      - Build a dynamic timeline from media, handling sequencing, overlap, and transition effects.
+      - Preview the full video with chapters, looping, and frame controls.
+      - Provide fine-tuning controls for picture look, audio mastering, and canvas settings.
+      - Apply effects for transitions, zoom, spotlight, and redaction.
+      - Add extra content such as color slates, text overlays, and imported subtitles.
+      - Export final products as video, audio, or GIFs, either as clips or as a whole.
       - And much more...
     screenshots:
       - src: project-assets/browser-video-editor/spotlight-mode.png
@@ -211,7 +211,7 @@ projects:
 
   - id: lightsail-demo
     title: Lightsail Demo
-    summary: A live chat room, collaborative drawing app, and multi-player bird game created to explore the capabilities of AWS Lightsail.
+    summary: A live chat room, collaborative drawing app, and multiplayer bird game created to explore the capabilities of AWS Lightsail.
     tags: [game, web, chat, server-backed, graphics, interactive, experiment]
     status: complete
     draft: false
@@ -219,19 +219,19 @@ projects:
     updated: 2026-09-22
     description: |
       # Intent
-      Mid-2025 was when I first acquired an AWS Lightsail instance for the purpose of exploring projects that would require a server to function. I was interested in learning more about building server-client programs that utilized a back-end websocket connection, especially for the prospect of tools that enable interaction between multiple users.
+      In mid-2025, I first acquired an AWS Lightsail instance to explore projects that would require a server to function.  I was interested in learning more about building server-client programs that used a back-end WebSocket connection, especially with an eye toward tools that enable interaction between multiple users.
 
       # The Apps
-      This project consists of three different apps that each contribute to the tools and processes for enabling server-client programs on an AWS lightsail instance.
+      This project consists of three different apps that each contribute to the tools and processes for enabling server-client programs on an AWS Lightsail instance.
 
-      ## Websocket Chat
-      A global chat room where all connected users can chat with one another.  Messages sent by one user are automatically delivered to all connected users.  A database with a message history was intentionally not used so users only receive chat messages that were sent after they connected.
+      ## WebSocket Chat
+      A global chat room where all connected users can chat with one another.  Messages sent by one user are automatically delivered to all connected users.  A message-history database was intentionally left out, so users only receive chat messages that were sent after they connected.
 
-      ## Websocket Draw
-      A global drawing application where all connected users can contribute to a shared canvas and download the resulting art.  Similarly to Websocker Chat, a database was not used and only strokes made after a user connected would be received.  This was to limit the staying power of any undesirable art from uncouth users.
+      ## WebSocket Draw
+      A global drawing application where all connected users can contribute to a shared canvas and download the resulting art.  Similar to WebSocket Chat, a database was not used, and users only receive strokes made after they connected.  This was to limit the staying power of any undesirable art from uncouth users.
 
-      ## Websocket Game
-      A multi-player game where users can play birds roaming around their nest to collect worms for extra energy.  This project was a more fun journey than the previous two projects, and it encouraged me to come up with resource-efficient methods for handling character movement across websocket connections.
+      ## WebSocket Game
+      A multiplayer game where users can play as birds roaming around their nest to collect worms for extra energy.  This project was a more fun journey than the previous two, and it encouraged me to come up with resource-efficient methods for handling character movement across websocket connections.
     thumbnail:
       src: project-assets/lightsail-demo/thumbnail.png
       alt: The Lightsail Tower landing page with buttons for the chat, draw and game apps
@@ -254,13 +254,13 @@ projects:
 
   - id: 3d-cube
     title: 3D Cube Prototype
-    summary: Quick prototype for implement perspective 3D projection of a cube onto a 2D plane.
+    summary: A quick prototype implementing perspective 3D projection of a cube onto a 2D plane.
     tags: [web, graphics, interactive, 3d, experiment]
     status: complete
     draft: false
     added: 2024-05-19
     updated: 2024-05-19
-    description: In an exercise to explore the types of mathematical equations that model perspective projection from 3D space to a 2D plane, this simple demo shows a 3D cube rendered from scratch onto an HTML canvas. Controls can be used to rotate the cube along each of the 3D rotational axes.
+    description: As an exercise in exploring the mathematical equations that model perspective projection from 3D space onto a 2D plane, this simple demo renders a 3D cube from scratch onto an HTML canvas.  Controls can be used to rotate the cube about each of its three rotational axes.
     thumbnail:
       src: project-assets/3d-cube/thumbnail.png
       alt: A wireframe cube rendered in perspective on a gray canvas
@@ -283,7 +283,7 @@ projects:
     draft: false
     added: 2026-09-26
     updated: 2026-09-26
-    description: Curated website containing the important information regarding my professional journey.  Includes sections on what I bring to a team, my professional experience, some representative engineering work, my technical foundation, the principles for how I work, and ways to explore more. This acts as it digital resume to share with prospective collaborators.
+    description: A curated website containing the key information about my professional journey.  It includes sections on what I bring to a team, my professional experience, some representative engineering work, my technical foundation, the principles for how I work, and ways to explore more.  It acts as my digital resume to share with prospective collaborators.
     thumbnail:
       src: project-assets/portfolio2/thumbnail.png
       alt: The portfolio homepage hero with a rotating rhombic dodecahedron
@@ -301,26 +301,26 @@ projects:
       - label: Visit My Portfolio
         url: https://www.patrickcowhill.com/
         primary: true
-      - label: Visit Github Repo
+      - label: Visit GitHub Repo
         url: https://github.com/pcowhill/patrick-portfolio
 
   - id: initiative-tracker
     title: DnD Initiative Tracker
-    summary: DnD utility for tracking the health, initiative, and status effects for a party of players and the enemies they face.
+    summary: A DnD utility for tracking the health, initiative, and status effects of a party of players and the enemies they face.
     tags: [tool, web, interactive, D&D, mobile]
     status: complete
     draft: false
     added: 2024-12-24
     updated: 2024-12-24
     notice: Phone Recommended
-    description: Spurred on by a DM friend requiring sone assistance with tracking initiative in combat, this projects was a convenient exercise to learning some of the more object-oriented intricacies of Javascript for UI from scratch without a framework.  It was incredibly helpful and very enjoyable to code, and helped pace the way for future Typescript, Cypress, and Vue work I would encounter in my career.
+    description: Spurred on by a DM friend who needed some assistance with tracking initiative in combat, this project was a convenient exercise in learning some of the more object-oriented intricacies of JavaScript by building a UI from scratch without a framework.  It was incredibly helpful and very enjoyable to code, and it helped pave the way for the TypeScript, Cypress, and Vue work I would later encounter in my career.
     thumbnail:
       src: project-assets/initiative-tracker/thumbnail.png
       alt: An encounter in progress with Nahala highlighted as the active turn
     screenshots:
       - src: project-assets/initiative-tracker/encounter-setup.png
         alt: The encounter setup screen with party buttons and two added creatures
-        caption: "Setting up an encounter: pick party members or add other creatures with their initiative and hitpoints."
+        caption: "Setting up an encounter: pick party members or add other creatures with their initiative and hit points."
       - src: project-assets/initiative-tracker/encounter-in-progress.png
         alt: A running encounter sorted by initiative with the active creature highlighted
         caption: The encounter in progress, sorted by initiative with the active turn highlighted.
@@ -336,16 +336,16 @@ projects:
 
   - id: instrument-of-the-day
     title: Instrument of the Day
-    summary: Every day, a different recording will be selected, and you will have six guesses to identify the instrument.
+    summary: Each day, a different recording is selected, and you have six guesses to identify the instrument.
     tags: [game, audio, music, web, interactive, puzzle]
     status: complete
     draft: false
     added: 2024-08-18
     updated: 2024-08-18
     description: |
-      In this project, I explored the world of daily puzzle games in a unique subject area that is at the intersection of multiple interests for me: a musical instrument guessing game.  Similar to games like Wordle or Worldle, there is a correct instrument players are encouraged to guess, and their only information is a audio recording of that instrument playing.  This site features a variety of instruments like the more common guitar, piano, and trumpet to the lesser known (at least in the west) erhu, carillon, and pipa.
+      In this project, I explored the world of daily puzzle games in a unique subject area that sits at the intersection of several of my interests: a musical instrument guessing game.  Similar to games like Wordle or Worldle, there is a correct instrument that players try to guess, and their only information is an audio recording of that instrument playing.  This site features a variety of instruments, from the more common guitar, piano, and trumpet to the lesser-known (at least in the West) erhu, carillon, and pipa.
 
-      Recordings are all sourced from public domain recordings available on IMSLP, and they covered a wide variety of instruments, styles, composers, and periods in musical history.  This was a fun experiment for exploring early game concepts that I would be proud to share with friends and see who is the most musically knowledgable.
+      The recordings are all sourced from public-domain material available on IMSLP, and they cover a wide variety of instruments, styles, composers, and periods in musical history.  This was a fun experiment in exploring early game concepts, and one I was proud to share with friends to see who is the most musically knowledgeable.
     thumbnail:
       src: project-assets/instrument-of-the-day/thumbnail.png
       alt: A winning round of Instrument of the Day with the correct guess highlighted
@@ -382,13 +382,13 @@ projects:
     added: 2024-05-18
     updated: 2024-05-18
     description: |
-      This game is mostly inspired from another game online with a very similar structure: guess cities in the United States, each one reveals neighboring cities within some radius, and revealing the entire map is the way to win the game.  The problem I faced is that the site that hosted this game only allowed people to play it on certain days of the month.  The next day it would be available would have been multiple weeks away, and so I decided to just make a version of the game myself!
+      This game is mostly inspired by another online game with a very similar structure: guess cities in the United States, each one reveals neighboring cities within some radius, and revealing the entire map is the way to win the game.  The problem I faced was that the site hosting this game only allowed people to play it on certain days of the month.  The next day it would be available was multiple weeks away, so I decided to just make my own version of the game!
 
-      With the geospatial experience I gained from my work, I could comfortably load up some geographic datasources (coordinates of the borders of the states and separately coordinates of the cities in the USA), draw them onto a map for the user to see, and wrap a simple geometry game on top.  Based on the statistics of what came with the city data, different metrics are tracked and presented to the user as goals to strive for.  This includes # of revealed states, # of named states, and even total number of revealed states (which is the main goal of the game).  For the overachiever out there, you can also try to name every city in the entire USA, though I think my record on that is only about 10%.
+      With the geospatial experience I gained from my work, I could comfortably load up some geographic data sources (coordinates of the state borders and, separately, coordinates of the cities in the USA), draw them onto a map for the user to see, and wrap a simple geometry game on top.  Based on the statistics included with the city data, different metrics are tracked and presented to the user as goals to strive for.  These include the number of revealed states, the number of named states, and even the total number of revealed states (which is the main goal of the game).  For the overachievers out there, you can also try to name every city in the entire USA, though I think my record on that is only about 10%.
 
   - id: qt-template
     title: Qt Template
-    summary: Sample graphical projects like a File Editor, a 3D Viewer, a fun Tic Tac Toe game, and the Image Draw app.
+    summary: Sample graphical projects, including a File Editor, a 3D Viewer, a fun Tic Tac Toe game, and an Image Draw app.
     tags: [game, graphics, tool, 3d, interactive, editor, desktop]
     status: complete
     draft: false
@@ -412,25 +412,25 @@ projects:
         alt: Image Draw with a hand-drawn cube
         caption: Image Draw with a hand-drawn cube.
     links:
-      - label: Visit Github
+      - label: Visit GitHub
         url: https://github.com/pcowhill/QtTemplate/tree/main
         primary: true
     added: 2025-03-21
     updated: 2025-03-21
     description: |
-      At work around this time, I was getting closer exposure to graphical desktop applications both through the use of Qt and by virtue of participating in a TkInter book club.  To explore the power of these types of tools and gain experience in creating my own applications, I decided to make template examples of Qt applications that I could pull from in the future when making desktop GUI apps.
+      Around this time at work, I was getting closer exposure to graphical desktop applications, both through using Qt and through participating in a Tkinter book club.  To explore the power of these types of tools and gain experience in creating my own applications, I decided to make template examples of Qt applications that I could pull from in the future when making desktop GUI apps.
 
       # The Templates
 
-      Each template aimed to be similar to a unique type of project I would be interested in creating in the future.
+      Each template was meant to resemble a distinct type of project I would be interested in creating in the future.
 
       ## File Editor
 
-      A basic file editor, following a similar visual style to VScode, allows the opening and saving of plaintext files and editing the contents of them.
+      A basic file editor, with a visual style similar to VS Code, that allows opening, editing, and saving plaintext files.
 
       ## Rotate 3D
 
-      An OpenGL rendering app that can show a variety of 3D objects rotating in the windows.  Four examples are provided: a simple triangle, a cube, a rhombic dodecahedron, and an open-source dog key chain model.  Additionally users can upload their own. The meshes are dynamically colored, and ghe rotation is configured to show every angle of an object.
+      An OpenGL rendering app that can show a variety of 3D objects rotating in the window.  Four examples are provided: a simple triangle, a cube, a rhombic dodecahedron, and an open-source dog key chain model.  Additionally, users can upload their own.  The meshes are dynamically colored, and the rotation is configured to show every angle of an object.
 
       ## Tic Tac Toe
 
@@ -442,7 +442,7 @@ projects:
 
   - id: harmony-glide
     title: Harmony Glide
-    summary: "My first iOS project: a simple color matching game to play on an iPad."
+    summary: "My first iOS project: a simple color-matching game to play on an iPad."
     tags: [game, ios, audio, graphics, music, video, puzzle, action, educational, mobile]
     status: complete
     draft: false
@@ -469,9 +469,9 @@ projects:
     added: 2025-06-19
     updated: 2025-06-19
     description: |
-      Harmony glide is an approachable, musical puzzle game aimed at kids ages 1-4 to build motor coordination and musical curiosity.  Players drag colored squares onto the matching ring which triggers a musical note.  Matching all the rings in a level completes it.  The game comes with 12 handcrafted levels, each with multiple stages.  As levels get harder, new mechanics like multiple colors, layered rings, and moving goals are introduced.
+      Harmony Glide is an approachable, musical puzzle game aimed at kids ages 1–4 to build motor coordination and musical curiosity.  Players drag colored squares onto the matching ring, which triggers a musical note.  Matching all the rings in a level completes it.  The game comes with 12 handcrafted levels, each with multiple stages.  As levels get harder, new mechanics like multiple colors, layered rings, and moving goals are introduced.
 
-      Having discovered a curiosity for apps on Apple products, I wanted to try my hand at gaining some experience with Mac development, XCode, and Swift.  This was a fun project to work on, and I got to learn about some of the unique conventions found in iOS development.  Since I did not want to pay the annual fee to have this game on the App Store, it is not available there.  But, anyone with a Mac can download the code, compile it, and load it onto an iPad to play!
+      Having developed a curiosity about apps on Apple products, I wanted to try my hand at gaining some experience with Mac development, Xcode, and Swift.  This was a fun project to work on, and I got to learn about some of the unique conventions found in iOS development.  Since I did not want to pay the annual fee to have this game on the App Store, it is not available there.  However, anyone with a Mac can download the code, compile it, and load it onto an iPad to play!
     notice: iPad Application
 
   - id: georgia-tech-showcase
@@ -498,18 +498,18 @@ projects:
         primary: true
       - label: Visit GitHub
         url: https://github.com/pcowhill/pcowhill.github.io/tree/main/GaTech
-    description: This site captures a look into my experience pursuing a Masters in Electrical and Computer Engineering at Georgia Tech.  My intention in making this site right after I graduated was to capture a high-level of detail in a single place while it was still fresh in my mind.  This makes it easy to reference in future projects and serves as a reminder to me as to what the focus areas were in the curricula I explored.
+    description: This site offers a look into my experience pursuing a master's degree in Electrical and Computer Engineering at Georgia Tech.  My intention in making this site right after I graduated was to capture a high level of detail in a single place while it was still fresh in my mind.  This makes it easy to reference in future projects, and it serves as a reminder to me of the focus areas in the curricula I explored.
 
   - id: css-resume
     title: CSS Resume
-    summary: A challenge to myself to recreate my resume as accurately as possible only using CSS instead of Word for styling.
+    summary: A challenge to myself to recreate my resume as accurately as possible using only CSS instead of Word for styling.
     tags: [web, graphics, portfolio]
     status: archived
     draft: false
     added: 2024-05-19
     updated: 2024-05-19
-    notice: Out-of-Date
-    description: I strived to get better at learning how to use CSS to dependably format a web page to meet very strict requirements, and so decided to try remaking my resume (at the time) using only HTML and CSS.  My original resume was made in Word and consisted of some very meticulous formatting with tables, custom tabs, defined line spacing, and micro-adjustments of font size.  Recreating this in CSS gave me confidence to compose web page styles for future projects of mine.
+    notice: Out of Date
+    description: I wanted to get better at using CSS to dependably format a web page to meet very strict requirements, so I decided to try remaking my resume (at the time) using only HTML and CSS.  My original resume was made in Word and consisted of some very meticulous formatting with tables, custom tabs, defined line spacing, and micro-adjustments of font size.  Recreating this in CSS gave me the confidence to compose web page styles for my future projects.
     thumbnail:
       src: project-assets/css-resume/thumbnail.png
       alt: The top of the CSS resume with the name, education and experience headings
@@ -522,7 +522,6 @@ projects:
         url: https://pcowhill.github.io/Resume/
         primary: true
       - label: Visit GitHub
-
         url: https://github.com/pcowhill/pcowhill.github.io/tree/main/Resume
 
   - id: claude-nanogram
@@ -550,11 +549,11 @@ projects:
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-nanogram
     description: |
-      This project served three different purposes.  First, I wanted to make a nonogram application that is easy to play on desktop and mobile that does not have ads (as many of the popular ones out there are filled with them).  Second, I wanted to see how Claude would approach creating 1000 puzzles from scratch that scale in difficulty.  Third, I wanted to see how Claude in Chrome would perform interacting with an application that it has never seen before.  Overall, I am happy with the results of this experiment and will certainly use some of these techniques in the future.
+      This project served three different purposes.  First, I wanted to make a nonogram application that is easy to play on desktop and mobile and does not have ads (many of the popular ones out there are filled with them).  Second, I wanted to see how Claude would approach creating 1000 puzzles from scratch that scale in difficulty.  Third, I wanted to see how Claude in Chrome would perform when interacting with an application that it had never seen before.  Overall, I am happy with the results of this experiment and will certainly use some of these techniques in the future.
 
       ## The Nonogram Application
 
-      I am quite happy with how the application feels.  There are many very nice quality of life features that I normally would have not focused on or bothered with for a project of this scale, but adding many generic and helpful features is one of the things Claude Code is best at.  In particular, one thing that is typically challenging for nonogram apps on mobile is that the puzzle is very large, but the screen is very small.  To accommodate for this, there is an intuitive puzzle navigation overlay that assists with getting to the part of the puzzle that is being worked on easily and conveniently.
+      I am quite happy with how the application feels.  There are many very nice quality-of-life features that I normally would not have focused on or bothered with for a project of this scale, but adding many generic and helpful features is one of the things Claude Code is best at.  In particular, one thing that is typically challenging for nonogram apps on mobile is that the puzzle is very large, but the screen is very small.  To accommodate this, there is an intuitive puzzle navigation overlay that makes it easy and convenient to get to the part of the puzzle being worked on.
 
       ## The Nonogram Puzzles
 
@@ -562,17 +561,17 @@ projects:
 
       Here are the things I liked:
       - It successfully generated 1000 puzzles without repeats (technically).
-      - The puzzles for the most part did a good job of representing the object that they were trying to.
-      - The way it accounted for difficulty to order the puzzles was very savvy, and the puzzles did generally feel ordered correctly.
+      - For the most part, the puzzles did a good job of representing the objects they were trying to depict.
+      - The way it accounted for difficulty when ordering the puzzles was very savvy, and the puzzles generally did feel correctly ordered.
 
-      And, here are the things I did not like:
-      - It would often have full columns or rows on the edges of the puzzle of full white or full black squares, which makes me question why the puzzle grid was not just made smaller.
-      - It would often place blocks of filled squares throughout the puzzle (most often in the corners) in order to make the puzzle have a unique solution even if these did not actually fit with the theme of the puzzle.
-      - It had a problem with repetition.  Even after calling this out, there would be multiple puzzles with the same theme (e.g. cat, scorpion, numbers, etc.).
+      And here are the things I did not like:
+      - It would often leave entire rows or columns of all-white or all-black squares along the edges of the puzzle, which makes me question why the puzzle grid was not just made smaller.
+      - It would often place blocks of filled squares throughout the puzzle (most often in the corners) in order to give the puzzle a unique solution, even if these did not actually fit the theme of the puzzle.
+      - It had a problem with repetition.  Even after I called this out, there would still be multiple puzzles with the same theme (e.g. cat, scorpion, numbers, etc.).
 
       ## Claude in Chrome
 
-      What Claude in Chrome could do was one of the most interesting parts in the experiment.  This was really the first time that I had experimented with UI control on my desktop in a way that actually impressed me.  Previous iterations of this type of tool were often really buggy, but when I asked Claude in Chrome to play my app for ~20 minutes, it did just that.  It solved puzzles, explored the site, made some errors on purpose to see what would happen.  It even provided me a list of small bugs that it found that I could then feed back into Claude Code to fix on the next iteration of this app.  This is really cool, and I anticipate using this feature more and more in the future.
+      What Claude in Chrome could do was one of the most interesting parts of the experiment.  This was really the first time that I had experimented with UI control on my desktop in a way that actually impressed me.  Previous iterations of this type of tool were often really buggy, but when I asked Claude in Chrome to play my app for ~20 minutes, it did just that.  It solved puzzles, explored the site, and made some errors on purpose to see what would happen.  It even provided me with a list of small bugs it found, which I could then feed back into Claude Code to fix in the next iteration of this app.  This is really cool, and I anticipate using this feature more and more in the future.
 
   - id: claude-opus-5-chefs-choice-3d
     title: SALVO
@@ -595,7 +594,7 @@ projects:
         primary: true
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-opus-5-chefs-choice-3d
-    description: This was another experiment where I gave Claude Code free reign to come up with the concept and feel of a game.  Specifically, this was the first experiment I ran with Claude Opus 5, and I wanted to see what type of product it could produce.  Overall, I am pretty happy with the outcome and it was a good introduction to working with Opus 5 and its... interesting way of conversing.  That game itself is quite enjoyable except that I am very bad at games like this, so I cannot get very far past the first wave.
+    description: This was another experiment where I gave Claude Code free rein to come up with the concept and feel of a game.  Specifically, this was the first experiment I ran with Claude Opus 5, and I wanted to see what type of product it could produce.  Overall, I am pretty happy with the outcome, and it was a good introduction to working with Opus 5 and its... interesting way of conversing.  The game itself is quite enjoyable, except that I am very bad at games like this, so I cannot get very far past the first wave.
 
   - id: claude-dsp
     title: Signal Processing Playground
@@ -621,7 +620,7 @@ projects:
         primary: true
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-dsp
-    description: Similar to the [Virtual Breadboard Lab](https://www.cowhill.dev/projects/claude-breadboard/) project, this experiment was a bit of a personal pet project.  I always enjoyed signal processing and took various classes at [Georgia Tech](https://www.cowhill.dev/projects/georgia-tech-showcase/) to gain a deeper understanding.  While I was in college, I would normally explore certain signal processing algorithms in MATLAB (for more scientific experiments), LTSpice (for more circuit-impacted experiments), and Audacity (for more practical/fun experiments).  I would have loved having this level of a signal processing playground that effectively bridges the gap between those tools.
+    description: Similar to the [Virtual Breadboard Lab](https://www.cowhill.dev/projects/claude-breadboard/) project, this experiment was a bit of a personal pet project.  I have always enjoyed signal processing and took various classes at [Georgia Tech](https://www.cowhill.dev/projects/georgia-tech-showcase/) to gain a deeper understanding.  While I was in college, I would normally explore certain signal processing algorithms in MATLAB (for more scientific experiments), LTSpice (for more circuit-impacted experiments), and Audacity (for more practical/fun experiments).  I would have loved having a signal processing playground like this one that effectively bridges the gap between those tools.
 
   - id: claude-hollow-oath
     title: The Hollow Oath
@@ -650,7 +649,8 @@ projects:
         primary: true
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-hollow-oath
-    description: As I grew in interest of DnD, I wanted to see how Claude Code would fair attempting to create a game similar to Baldur's Gate.  This was also to experiment with how AI would implement a very well established but complicated interacting web of game rules into a single prototype.  I iteratively played the game and provided feedback.  It did an okay job, but there were certainly some rough edges.  It did its best on the visual style, and there were many, many bugs to sort through.  In its current state, it is playable, but there is the problem that has been encountered in other game-type prototypes that while it technically hits all the requirements it does not "feel" like a fun game.  I am curious to how these models would get better at this type of task over time.
+    description: |
+      As my interest in DnD grew, I wanted to see how Claude Code would fare at creating a game similar to Baldur's Gate.  This was also an experiment in how AI would implement a very well-established but complicated web of interacting game rules in a single prototype.  I iteratively played the game and provided feedback.  It did an okay job, but there were certainly some rough edges.  It did its best on the visual style, and there were many, many bugs to sort through.  In its current state, it is playable, but it has the same problem I have encountered in other game-type prototypes: while it technically hits all the requirements, it does not "feel" like a fun game.  I am curious to see how these models get better at this type of task over time.
 
   - id: claude-banking-project
     title: Meridian Simulated Banking Platform
@@ -685,21 +685,21 @@ projects:
     description: |
       ## Introduction
 
-      Up until this point, all of the projects that I pursued with Claude Code were relatively small prototypes.  Many of them were one-shots, and a few others iterated over a few steps to fix up some bugs or implement my preferences.  I desired for this next project to reveal how far one engineer can push the current frontier AI development tools.  Because of this, I deliberately chose something too large to treat as a toy example: a simulated banking platform with multiple interfaces, workflows, and interacting systems.
+      Up until this point, all of the projects that I pursued with Claude Code were relatively small prototypes.  Many of them were one-shots, and others iterated over a few steps to fix up some bugs or implement my preferences.  I wanted this next project to reveal how far one engineer can push the current frontier AI development tools.  Because of this, I deliberately chose something too large to treat as a toy example: a simulated banking platform with multiple interfaces, workflows, and interacting systems.
 
       ## Approach
 
-      I started with a design planning session within ChatGPT.  Over the course of discussion, exploration, and interviewing, the plan for this entire experiment was composed.  The plan included splitting up the implementation of a simulated banking platform into multiple discrete steps.  Each step would thoroughly implement a certain subset of features and test them end-to-end before preparing the next step.  In between steps, I would have an opportunity to test the current iteration of the application and provide feedback on how it is going as well as report any bugs if I found them.  After 10 of these steps, the first 1.0 major release version would be complete.
+      I started with a design planning session within ChatGPT.  Over the course of discussion, exploration, and interviewing, the plan for this entire experiment was composed.  The plan included splitting up the implementation of a simulated banking platform into multiple discrete steps.  Each step would thoroughly implement a certain subset of features and test them end-to-end before preparing the next step.  In between steps, I would have an opportunity to test the current iteration of the application, provide feedback on how it was going, and report any bugs I found.  After 10 of these steps, the first major release (version 1.0) would be complete.
 
-      I used Claude Code to implement each new version of this application.  The prompt for the next session would be composed from the previous Claude Code session, and it would include a section for me to add my feedback to the next prompt.  Additionally, it would provide me specific testing instructions to point me to the new features available in this version so that I could test them to my satisfaction.
+      I used Claude Code to implement each new version of this application.  The prompt for each next session would be composed by the previous Claude Code session, and it would include a section for me to add my feedback to the next prompt.  Additionally, it would provide me with specific testing instructions pointing me to the new features available in this version so that I could test them to my satisfaction.
 
       ## Results
 
-      Overall, this experiment was a glowing success.  The resulting banking application and other capabilities surrounding it exceed my expectations.  Furthermore, the process of creating this was very straight forward and easy to accomplish.  I never felt like I personally had to perform too much work myself, and I feel as though the product that I received is very aligned to what I had envisioned when I started.
+      Overall, this experiment was a glowing success.  The resulting banking application and the capabilities surrounding it exceeded my expectations.  Furthermore, the process of creating it was very straightforward and easy to accomplish.  I never felt like I had to perform too much work myself, and I feel as though the product I received is closely aligned with what I had envisioned when I started.
 
-      There was one instance in version 0.6.0 in which there was a bug that I found, and it took two iterations for Claude Code to finish fixing it.  However, apart from that, there were no unexpected speed bumps in this process.
+      There was one instance, in version 0.6.0, where I found a bug that took Claude Code two iterations to fully fix.  However, apart from that, there were no unexpected speed bumps in this process.
 
-      The results of this test go beyond just the resulting banking application.  I could have chosen anything for this project; a banking application was just a good complicated system to demo as many people are already familiar of what a banking application should do and what features should be present.  The most important finding from this experiment is that this *process* was successful.  The waterfall-type approach of building complex software with AI tools was definitely effective.  In just under a regular workweek, I went from idea to operational prototype.  I see no reason why this process could not reproduce all kinds of complicated software.
+      The results of this test go beyond just the resulting banking application.  I could have chosen anything for this project; a banking application was just a good, complicated system to demo, as many people are already familiar with what a banking application should do and what features should be present.  The most important finding from this experiment is that this *process* was successful.  The waterfall-type approach of building complex software with AI tools was definitely effective.  In just under a regular workweek, I went from idea to operational prototype.  I see no reason why this process could not reproduce all kinds of complicated software.
 
   - id: claude-repo-steward
     title: Repo Steward
@@ -727,9 +727,9 @@ projects:
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-repo-steward
     description: |
-      One of the topics that I have been hearing more and more is how AI can be used productively in the software engineering process.  I found that many of these discussions suffered from the fact that my peers I was talking to often had different visions of theoretical situations involving AI.  While one developer may see an AI-enhanced process going well in how *they* envision it, another developer may see an AI-enhanced process going poorly when *they* envision it.  This is not particularly helpful, because the specifics of how AI is enhancing the process may not be very well defined.  Therefore assessing the potential benefits and risks is a very difficult task.
+      One topic I have been hearing about more and more is how AI can be used productively in the software engineering process.  I found that many of these discussions suffered from the fact that the peers I was talking to often had different visions of hypothetical situations involving AI.  While one developer may see an AI-enhanced process going well as *they* envision it, another developer may see an AI-enhanced process going poorly as *they* envision it.  This is not particularly helpful, because the specifics of how AI is enhancing the process may not be very well defined.  Therefore, assessing the potential benefits and risks is a very difficult task.
 
-      The purpose of this project was an attempt to give one potential outlook for how an AI agent may help in the process of pursuing tickets, reviewing pull requests, and updating documentation based on new code.  This project aimed to demonstrate the ways in which AI can provide value and benefit to developers in real ways.
+      The purpose of this project was to present one potential outlook on how an AI agent may help in the process of pursuing tickets, reviewing pull requests, and updating documentation based on new code.  This project aimed to demonstrate ways in which AI can provide real value and benefit to developers.
 
   - id: claude-jazz-piano-lessons
     title: Jazz Piano Theory Atlas
@@ -756,9 +756,9 @@ projects:
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-jazz-piano-lessons
     description: |
-      In this experiment, I wanted to see how well I could leverage Claude Code to interactively learn about a topic I have been interested in learning more about.  As a pianist, I am always seeking to deepen my understanding of applicable jazz music theory.  I was curious to learn more about the origin of Barry Harris style sixth-diminished scales, and I used Claude to produce an interactive tool for learning them.
+      In this experiment, I wanted to see how well I could leverage Claude Code to interactively learn about a topic I have wanted to explore further.  As a pianist, I am always seeking to deepen my understanding of applicable jazz music theory.  I was curious to learn more about the origin of Barry Harris-style sixth-diminished scales, and I used Claude to produce an interactive tool for learning them.
 
-      I was very pleased with how this turned out.  I originally instructed Claude to make a ladder of lessons that worked up to this complicated music theory concept just in case it got stuck along the way, but it nailed every step.  The piano and interactive and adjustable lessons are very helpful for learning.  Sure, there could be some polish and improvements, but for a one-shot I would have loved to have something like this when learning in college.
+      I was very pleased with how this turned out.  I originally instructed Claude to make a ladder of lessons that worked up to this complicated music theory concept just in case it got stuck along the way, but it nailed every step.  The piano and the interactive, adjustable lessons are very helpful for learning.  Sure, there is room for some polish and improvements, but for a one-shot, it is something I would have loved to have when learning in college.
 
   - id: claude-fable-vs-sol-benchmark
     title: Asterism Relay Planning Console (Claude build)
@@ -784,7 +784,7 @@ projects:
         primary: true
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-fable-vs-sol-benchmark
-    description: This is one project in a pair of projects that both seek to implement a benchmark web application task.  The goal of creating these two projects was to compare the implementation that was achieved by Claude Code vs Codex for the exact same prompt.  These types of comparisons are performed all the time on various models, and I wanted to get some hands-on experience for what that might be like.  While I found these to be interesting, the complexity of the resulting products made them somewhat difficult to analyze.  Both applications seemed to be good and met the completion criteria, but they definitely took slightly different approaches for the problem.
+    description: This is one of a pair of projects that both seek to implement the same benchmark web application task.  The goal of creating these two projects was to compare the implementations produced by Claude Code and Codex from the exact same prompt.  These types of comparisons are performed all the time between various models, and I wanted to get some hands-on experience with what that might be like.  While I found them interesting, the complexity of the resulting products made them somewhat difficult to analyze.  Both applications seemed good and met the completion criteria, but they definitely took slightly different approaches to the problem.
 
   - id: codex-fable-vs-sol-benchmark
     title: Asterism Relay Network Planning (Codex build)
@@ -810,7 +810,7 @@ projects:
         primary: true
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/codex-fable-vs-sol-benchmark
-    description: This is one project in a pair of projects that both seek to implement a benchmark web application task.  The goal of creating these two projects was to compare the implementation that was achieved by Claude Code vs Codex for the exact same prompt.  These types of comparisons are performed all the time on various models, and I wanted to get some hands-on experience for what that might be like.  While I found these to be interesting, the complexity of the resulting products made them somewhat difficult to analyze.  Both applications seemed to be good and met the completion criteria, but they definitely took slightly different approaches for the problem.
+    description: This is one of a pair of projects that both seek to implement the same benchmark web application task.  The goal of creating these two projects was to compare the implementations produced by Claude Code and Codex from the exact same prompt.  These types of comparisons are performed all the time between various models, and I wanted to get some hands-on experience with what that might be like.  While I found them interesting, the complexity of the resulting products made them somewhat difficult to analyze.  Both applications seemed good and met the completion criteria, but they definitely took slightly different approaches to the problem.
 
   - id: claude-ticket-forge
     title: TicketForge
@@ -837,9 +837,9 @@ projects:
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-ticket-forge
     description: |
-      One of the topics that I have been hearing more and more is how AI can be used productively in the software engineering process.  I found that many of these discussions suffered from the fact that my peers I was talking to often had different visions of theoretical situations involving AI.  While one developer may see an AI-enhanced process going well in how *they* envision it, another developer may see an AI-enhanced process going poorly when *they* envision it.  This is not particularly helpful, because the specifics of how AI is enhancing the process may not be very well defined.  Therefore assessing the potential benefits and risks is a very difficult task.
+      One topic I have been hearing about more and more is how AI can be used productively in the software engineering process.  I found that many of these discussions suffered from the fact that the peers I was talking to often had different visions of hypothetical situations involving AI.  While one developer may see an AI-enhanced process going well as *they* envision it, another developer may see an AI-enhanced process going poorly as *they* envision it.  This is not particularly helpful, because the specifics of how AI is enhancing the process may not be very well defined.  Therefore, assessing the potential benefits and risks is a very difficult task.
 
-      From my experience creating similar AI-enhanced prototypes, this project was pursued to attempt to see what it might look like for an AI agent to automatically triage a developer's ticket.  I wanted to show the potential value of enhancing exiting tickets with guiding information and resources to accelerate the completion of that ticket.  I believe this TicketForge project helps show at least one possible way for AI to assist in the ticket triaging process.
+      Building on my experience creating similar AI-enhanced prototypes, I pursued this project to see what it might look like for an AI agent to automatically triage a developer's ticket.  I wanted to show the potential value of enhancing existing tickets with guiding information and resources to accelerate the completion of that ticket.  I believe this TicketForge project helps show at least one possible way for AI to assist in the ticket triaging process.
 
   - id: claude-chefs-choice-3d
     title: GLOAMING
@@ -863,9 +863,9 @@ projects:
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-chefs-choice-3d
     description: |
-      As I was continuing to create Claude Code prototypes, I started to realize that Claude Code could create prototypes faster than I could create one-shot applications faster than I could come up with ideas.  This was one of the "Chef's Choice" projects, where I gave Claude Code loose requirements (like making a static webpage), and otherwise it gave it the freedom and creativity to make whatever it wanted to.
+      As I continued to create Claude Code prototypes, I started to realize that Claude Code could create one-shot applications faster than I could come up with ideas.  This was one of the "Chef's Choice" projects, where I gave Claude Code loose requirements (like making a static webpage) and otherwise gave it the creative freedom to make whatever it wanted.
 
-      This is the first "Chef's Choice" project that I requested a 3D game from Claude Code.  I am very happy for how this turned out, and it really opens up the possibilities for other interactive 3D applications in the future.  Some things still "feel" a little off or janky like the character and camera movement, but it is still far better than I have seen with earlier models.
+      This is the first "Chef's Choice" project in which I requested a 3D game from Claude Code.  I am very happy with how this turned out, and it really opens up the possibilities for other interactive 3D applications in the future.  Some things, like the character and camera movement, still "feel" a little off or janky, but it is still far better than what I have seen from earlier models.
 
   - id: claude-chefs-choice2
     title: TERRANE / SUBSTRATA Seismology Observatory
@@ -895,9 +895,9 @@ projects:
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-chefs-choice2
     description: |
-      As I was continuing to create Claude Code prototypes, I started to realize that Claude Code could create prototypes faster than I could create one-shot applications faster than I could come up with ideas.  This was one of the "Chef's Choice" projects, where I gave Claude Code loose requirements (like making a static webpage), and otherwise it gave it the freedom and creativity to make whatever it wanted to.
+      As I continued to create Claude Code prototypes, I started to realize that Claude Code could create one-shot applications faster than I could come up with ideas.  This was one of the "Chef's Choice" projects, where I gave Claude Code loose requirements (like making a static webpage) and otherwise gave it the creative freedom to make whatever it wanted.
 
-      This was a very fascinating simulation.  I would have kind of wanted to see a bit more explanation or tying to realism, but I think this is still very neat.  It feels like the kind of thing that would have been created for a science fair project.
+      This was a fascinating simulation.  I would have liked to see a bit more explanation or connection to realism, but I think this is still very neat.  It feels like the kind of thing that would have been created for a science fair project.
 
   - id: claude-chefs-choice-game2
     title: EARSHOT
@@ -924,9 +924,9 @@ projects:
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-chefs-choice-game2
     description: |
-      As I was continuing to create Claude Code prototypes, I started to realize that Claude Code could create prototypes faster than I could create one-shot applications faster than I could come up with ideas.  This was one of the "Chef's Choice" projects, where I gave Claude Code loose requirements (like making a static webpage), and otherwise it gave it the freedom and creativity to make whatever it wanted to.
+      As I continued to create Claude Code prototypes, I started to realize that Claude Code could create one-shot applications faster than I could come up with ideas.  This was one of the "Chef's Choice" projects, where I gave Claude Code loose requirements (like making a static webpage) and otherwise gave it the creative freedom to make whatever it wanted.
 
-      This was an interesting project idea.  It kind of feels like a game jam type game.  It works and is an interesting creative project.
+      This was an interesting project idea.  It feels a bit like a game-jam game.  It works and is an interesting creative project.
 
   - id: claude-chefs-choice-game
     title: WYRMLIGHT
@@ -953,9 +953,9 @@ projects:
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-chefs-choice-game
     description: |
-      As I was continuing to create Claude Code prototypes, I started to realize that Claude Code could create prototypes faster than I could create one-shot applications faster than I could come up with ideas.  This was one of the "Chef's Choice" projects, where I gave Claude Code loose requirements (like making a static webpage), and otherwise it gave it the freedom and creativity to make whatever it wanted to.
+      As I continued to create Claude Code prototypes, I started to realize that Claude Code could create one-shot applications faster than I could come up with ideas.  This was one of the "Chef's Choice" projects, where I gave Claude Code loose requirements (like making a static webpage) and otherwise gave it the creative freedom to make whatever it wanted.
 
-      This was the first "Chef's Choice" project where I specifically requested a game.  It came out really well, and I played it for quite a bit.  It seems Claude did a fairly decent job at balancing a game that is not too easy, but is still fun to play.
+      This was the first "Chef's Choice" project where I specifically requested a game.  It came out really well, and I played it for quite a while.  It seems Claude did a fairly decent job of balancing the game so that it is not too easy but is still fun to play.
 
   - id: claude-chefs-choice
     title: The Chart Room
@@ -982,7 +982,7 @@ projects:
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-chefs-choice
     description: |
-      As I was continuing to create Claude Code prototypes, I started to realize that Claude Code could create prototypes faster than I could create one-shot applications faster than I could come up with ideas.  This was one of the "Chef's Choice" projects, where I gave Claude Code loose requirements (like making a static webpage), and otherwise it gave it the freedom and creativity to make whatever it wanted to.
+      As I continued to create Claude Code prototypes, I started to realize that Claude Code could create one-shot applications faster than I could come up with ideas.  This was one of the "Chef's Choice" projects, where I gave Claude Code loose requirements (like making a static webpage) and otherwise gave it the creative freedom to make whatever it wanted.
 
       This project was pretty neat, and not something I would have considered asking it to make.  It makes me think that Claude prototypes may be a good source of ideas to pursue more seriously in the future.
 
@@ -1014,9 +1014,9 @@ projects:
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-breadboard
     description: |
-      I have had the opportunity to experiment on physical breadboards both in my educational pursuits and my personal ventures.  I find the process to be very enjoyable, and building little circuits can be a very educational way to build a foundation for understanding computer engineering and computer science.  The purpose of this application was to simulate the experience of playing around with a breadboard.
+      I have had the opportunity to experiment with physical breadboards both in my educational pursuits and my personal ventures.  I find the process to be very enjoyable, and building little circuits can be a very educational way to build a foundation for understanding computer engineering and computer science.  The purpose of this application was to simulate the experience of playing around with a breadboard.
 
-      The thing that surprised me the most about this project is how feature-rich the resulting application became.  In the planning session that I had with ChatGPT, I mostly took the attitude of just wanting to see a breadboard simulator and gave the AI the mentally taxing task of coming up with creative features to add for me to approve.  It made the decision to include various additional circuitry components, lessons for learning how to use some of the complicated components, block-based programming akin to Scratch for the Arduino, time controls, automatic issue debugging for the circuit, and more.  As a nerd for this type of low-level circuitry, it is very easy to get lost having fun in this application.
+      The thing that surprised me the most about this project is how feature-rich the resulting application became.  In the planning session that I had with ChatGPT, I mostly took the attitude of just wanting to see a breadboard simulator and gave the AI the mentally taxing task of coming up with creative features to add for me to approve.  It decided to include various additional circuit components, lessons for learning how to use some of the complicated components, block-based programming akin to Scratch for the Arduino, time controls, automatic issue debugging for the circuit, and more.  As a nerd for this type of low-level circuitry, it is very easy to get lost having fun in this application.
 
   - id: claude-hubble
     title: Hubble Systems Cutaway
@@ -1045,7 +1045,7 @@ projects:
         primary: true
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-hubble
-    description: This experiment was performed to see how well Claude Code could use existing 3D models from the internet.  It did not perform quite to the level I was hoping as it was not able to find representative models for the portions inside the Hubble telescope, but it did a reasonable attempt and it is understandable why it was not able to reach my expectations for this experiment.  It seems something complicated with very strict requirements currently would rely on those types of models being provided up-front before coding using an AI tool commences.
+    description: This experiment was performed to see how well Claude Code could use existing 3D models from the internet.  It did not perform quite to the level I was hoping for, as it was not able to find representative models for the components inside the Hubble telescope, but it made a reasonable attempt, and it is understandable why it was not able to meet my expectations for this experiment.  It seems that something complicated with very strict requirements would currently rely on those types of models being provided up front, before coding with an AI tool begins.
 
   - id: claude-space
     title: Living Orrery
@@ -1071,7 +1071,7 @@ projects:
         primary: true
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-space
-    description: This experiment was performed to see how Claude Code could do at 3D graphics.  With this capability, this opens up a wide variety of possibilities for AI-assisted development to reach.
+    description: This experiment was performed to see how well Claude Code could handle 3D graphics.  This capability opens up a wide variety of possibilities for AI-assisted development.
 
   - id: claude-prompts
     title: Prompt Gallery
@@ -1097,7 +1097,7 @@ projects:
         primary: true
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-prompts
-    description: In an attempt to assist my developer peers with "prompt engineering", this interactive reference was created to teach a way to think about how to prompt an AI coding agent to receive the type of result that one is looking for.
+    description: In an attempt to assist my developer peers with "prompt engineering," I created this interactive reference to teach a way of thinking about how to prompt an AI coding agent to get the type of result one is looking for.
 
   - id: claude-escape-room
     title: The Quiet Hour
@@ -1127,9 +1127,9 @@ projects:
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-escape-room
     description: |
-      This is a Claude Code experiment where I wanted to see how well Claude Code could do at a particular genre of puzzle game: virtual escape rooms.  Could it handle the complex interactions between the various persistent elements of multiple puzzles in a room while also balancing a challenging and enjoyable experience?
+      This is a Claude Code experiment where I wanted to see how well Claude Code could handle a particular genre of puzzle game: virtual escape rooms.  Could it handle the complex interactions between the various persistent elements of multiple puzzles in a room while also balancing a challenging and enjoyable experience?
 
-      What I found was that while Claude Code was able to handle the multiple different elements present in the escape room (different puzzles, different objects, states of interaction), it did not really land well on the "puzzle" challenge part of the game.  Many of the puzzles were pretty straight forward: put the square peg into the square hole.  There were some puzzles that felt like a medium challenge and could have been a bit clever, but Claude Code chose to add in many obvious hints that pretty much held my hand as I played through the game.  There was a lot of "You found object ABC which makes you recall puzzle XYZ on the other side of the room.  Perhaps using ABC on XYZ will be beneficial!" instead of just "You found object ABC" and then trusting that the player will reason that they should try using it on XYZ.  I hope that future models and versions of Claude Code can better build this intuition for the genre of challenging, but possible puzzles.
+      What I found was that while Claude Code was able to handle the multiple different elements present in the escape room (different puzzles, different objects, states of interaction), it did not really land well on the "puzzle" challenge part of the game.  Many of the puzzles were pretty straightforward: put the square peg into the square hole.  There were some puzzles that felt like a medium challenge and could have been a bit clever, but Claude Code chose to add many obvious hints that pretty much held my hand as I played through the game.  There was a lot of "You found object ABC which makes you recall puzzle XYZ on the other side of the room.  Perhaps using ABC on XYZ will be beneficial!" instead of just "You found object ABC" and then trusting that the player will reason that they should try using it on XYZ.  I hope that future models and versions of Claude Code can better build this intuition for the genre of challenging but solvable puzzles.
 
   - id: claude-chess
     title: Claude Chess
@@ -1156,9 +1156,9 @@ projects:
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-chess
     description: |
-      This Claude Code project was to test if Claude was "smart" enough to make a chess engine that could beat me.  Now, this was not a super scientific test, but more just to see what would happen.  I went into this knowing that there was already a fairly robust and public area of study for portable chess bots from material such as [this YouTube video about a chess bot tournament from Sebastian Lague](https://youtu.be/Ne40a5LkK6A?si=F1ygeYZtOudxc-0_).
+      The goal of this Claude Code project was to test whether Claude was "smart" enough to make a chess engine that could beat me.  Now, this was not a very scientific test; it was more just to see what would happen.  I went into this knowing that there was already a fairly robust, public area of study for portable chess bots, with material such as [this YouTube video about a chess bot tournament from Sebastian Lague](https://youtu.be/Ne40a5LkK6A?si=F1ygeYZtOudxc-0_).
 
-      In short: this experiment was a success.  If I really cared about building this out, I could; however, there are many, many options available for free, online chess applications where users can play against bots and against other humans.  So for now, this will remain as a two-shot interesting experiment.
+      In short: this experiment was a success.  If I really cared about building this out, I could; however, there are many, many free online chess applications where users can play against bots and against other humans.  So for now, this will remain an interesting two-shot experiment.
 
   - id: claude-music-notation
     title: Clef Sheet Music Editor
@@ -1185,9 +1185,9 @@ projects:
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-music-notation
     description: |
-      This experiment I ran with Claude Code was to test the ability of Claude Code to work more in an agile-based way with shifting or growing requirements instead of a one-shot way (which is how I saw many experiments online disproportionately being attempted).  The theme I chose was a sheet music transcription application in the browser as I am familiar with similar tools like MuseScore, Finale, and Sibelius.  Consistent with the spirit of this experiment, I would attempt to create an MVP sheet music transcription application and would iteratively ask for more and more features to be added.  Only a few iterations were eventually performed, and it taught me about how Claude Code performs in this type of experiment as compared to a one-shot.
+      In this experiment, I tested Claude Code's ability to work in a more agile-based way, with shifting or growing requirements, instead of a one-shot way (which is how I saw a disproportionate number of experiments online being attempted).  The theme I chose was a browser-based sheet music transcription application, as I am familiar with similar tools like MuseScore, Finale, and Sibelius.  Consistent with the spirit of this experiment, I would create an MVP sheet music transcription application and then iteratively ask for more and more features to be added.  In the end, only a few iterations were performed, and it taught me how Claude Code performs in this type of experiment compared to a one-shot.
 
-      I found that Claude Code successfully added the new features that I requested.  One interesting thing is that it seems Claude Code tended to be hesitant to change what previously existed in the code, even if refactoring a portion would result in fewer files or lines of code with the same functionality.  This potentially can be seen as a good thing in general since if Claude Code is working on a baseline, it should aim to try to keep that baseline as similar as possible after an incremental change to not introduce unanticipated behavior and refactor something that is already familiar to developers.  However, in a project like this where Claude Code has full control over the code, it could potentially be a better strategy in the future to encourage Claude Code to perform refactors as long as it is confident in them and have a thorough test suite to ensure there is no drift in capabilities or introduction of bugs within these refactors.
+      I found that Claude Code successfully added the new features that I requested.  One interesting thing is that Claude Code seemed hesitant to change what previously existed in the code, even if refactoring a portion would result in fewer files or lines of code with the same functionality.  This can potentially be seen as a good thing in general: if Claude Code is working on an existing baseline, it should try to keep that baseline as similar as possible after an incremental change, so as not to introduce unanticipated behavior or refactor something that is already familiar to developers.  However, in a project like this, where Claude Code has full control over the code, a better strategy in the future could be to encourage Claude Code to perform refactors, as long as it is confident in them and has a thorough test suite to ensure there is no drift in capabilities or introduction of bugs within these refactors.
 
   - id: claude-fluid-game
     title: Harvest the Hazard
@@ -1214,6 +1214,6 @@ projects:
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-fluid-game
     description: |
-      One of the first prototype applications that I utilized Claude Code to implement.  In the early tests that I ran, I started utilizing Claude Opus 4.8 (since Fable 5 was removed from public offering for a time).  I was aiming to test how well Claude Code would be able to reproduce a simple browser game that I had played considerably, and the game I chose was Creeper World.
+      This was one of the first prototype applications that I used Claude Code to implement.  In the early tests that I ran, I started out using Claude Opus 4.8 (since Fable 5 was removed from public availability for a time).  I was aiming to test how well Claude Code would be able to reproduce a simple browser game that I had played a lot, and the game I chose was Creeper World.
 
-      Over the course of a handful of iterations, I got closer to the type of experience I was hoping for.  I learned that Claude Code's ability to generate graphics and work toward and known goal are fairly reliably.  However, one thing that was certainly not reliable was getting the "feel" of the game right.  I found that Claude Code tended to make the game trivially easy until I continually pressed it to make it more challenging and forcing me to interact with the different elements of the game.
+      Over the course of a handful of iterations, I got closer to the type of experience I was hoping for.  I learned that Claude Code's ability to generate graphics and work toward a known goal is fairly reliable.  However, one thing that was certainly not reliable was getting the "feel" of the game right.  I found that Claude Code tended to make the game trivially easy until I continually pressed it to make the game more challenging and to force me to interact with the different elements of the game.
