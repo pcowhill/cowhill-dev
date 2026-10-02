@@ -142,8 +142,7 @@ projects:
     title: Patrick Cowhill — Legacy Portfolio
     summary: The legacy version of my personal portfolio and professional background.
     tags: [portfolio, web, 3d]
-    status: complete
-    featured: true
+    status: archived
     added: 2025-07-18
     description: |
       The legacy version of my personal portfolio website, with information about my work and background.  The successor to this site can be found at [patrickcowhill.com](https://www.patrickcowhill.com/) .
@@ -168,7 +167,7 @@ projects:
     title: Browser Video Editor
     summary: A bowser-based video editing app created and iteratively expanded with an experimental AI-agile team of agents.
     tags: [web, video, graphics, interactive, tool, audio, editor, AI experiment]
-    status: active
+    status: maintained
     draft: false
     links:
       - label: Visit Browser Video Editor
@@ -282,7 +281,6 @@ projects:
     tags: [web, portfolio]
     status: active
     draft: false
-    featured: true
     added: 2026-09-26
     updated: 2026-09-26
     description: Curated website containing the important information regarding my professional journey.  Includes sections on what I bring to a team, my professional experience, some representative engineering work, my technical foundation, the principles for how I work, and ways to explore more. This acts as it digital resume to share with prospective collaborators.
@@ -506,7 +504,7 @@ projects:
     title: CSS Resume
     summary: A challenge to myself to recreate my resume as accurately as possible only using CSS instead of Word for styling.
     tags: [web, graphics, portfolio]
-    status: complete
+    status: archived
     draft: false
     added: 2024-05-19
     updated: 2024-05-19
@@ -654,11 +652,61 @@ projects:
         url: https://github.com/pcowhill/claude-hollow-oath
     description: As I grew in interest of DnD, I wanted to see how Claude Code would fair attempting to create a game similar to Baldur's Gate.  This was also to experiment with how AI would implement a very well established but complicated interacting web of game rules into a single prototype.  I iteratively played the game and provided feedback.  It did an okay job, but there were certainly some rough edges.  It did its best on the visual style, and there were many, many bugs to sort through.  In its current state, it is playable, but there is the problem that has been encountered in other game-type prototypes that while it technically hits all the requirements it does not "feel" like a fun game.  I am curious to how these models would get better at this type of task over time.
 
+  - id: claude-banking-project
+    title: Meridian Simulated Banking Platform
+    summary: A simulated consumer bank with a public website, a customer portal, an internal operations console, and a backend whose ledger derives every balance from append-only entries. The customer site and the operations console are both live as public demos.
+    tags: [simulation, web, interactive, experiment, server-backed, AI experiment]
+    status: complete
+    featured: true
+    draft: false
+    added: 2026-06-29
+    updated: 2026-06-29
+    thumbnail:
+      src: project-assets/claude-banking-project/thumbnail.png
+      alt: Meridian customer dashboard for Avery Customer showing total available cash of $19,452.68, an Everyday Checking card and a Goal Savings card with available and current balances, and a Loans & CDs section below.
+    screenshots:
+      - src: project-assets/claude-banking-project/public-home.png
+        alt: Meridian public home page with the headline 'Modern banking that keeps you on course', a family photo, Open account and Log in buttons, and a simulation disclaimer banner across the top.
+        caption: The public marketing site that fronts the customer portal.
+      - src: project-assets/claude-banking-project/account-transactions.png
+        alt: Everyday Checking account page showing available and current balances, pending-out, on-hold and pending-in amounts, a transaction search box with status and category filters, and pending entries for a bill payment, a card authorization and a mobile check deposit.
+        caption: Account detail with pending and posted ledger entries, search and filters.
+      - src: project-assets/claude-banking-project/ops-request-queues.png
+        alt: Dark-themed operations simulator showing the Request queues page with status and lane filters and work-item cards for an identity check and a fraud alert, each with Approve, Reject, Hold and Request info buttons.
+        caption: The operations console where staff approve, reject or hold simulated bank work items.
+    links:
+      - label: Visit Meridian
+        url: https://banking.cowhill.dev/
+        primary: true
+      - label: Visit Meridian Ops
+        url: https://banking-ops.cowhill.dev/
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/claude-banking-project
+    description: |
+      ## Introduction
+
+      Up until this point, all of the projects that I pursued with Claude Code were relatively small prototypes.  Many of them were one-shots, and a few others iterated over a few steps to fix up some bugs or implement my preferences.  I desired for this next project to reveal how far one engineer can push the current frontier AI development tools.  Because of this, I deliberately chose something too large to treat as a toy example: a simulated banking platform with multiple interfaces, workflows, and interacting systems.
+
+      ## Approach
+
+      I started with a design planning session within ChatGPT.  Over the course of discussion, exploration, and interviewing, the plan for this entire experiment was composed.  The plan included splitting up the implementation of a simulated banking platform into multiple discrete steps.  Each step would thoroughly implement a certain subset of features and test them end-to-end before preparing the next step.  In between steps, I would have an opportunity to test the current iteration of the application and provide feedback on how it is going as well as report any bugs if I found them.  After 10 of these steps, the first 1.0 major release version would be complete.
+
+      I used Claude Code to implement each new version of this application.  The prompt for the next session would be composed from the previous Claude Code session, and it would include a section for me to add my feedback to the next prompt.  Additionally, it would provide me specific testing instructions to point me to the new features available in this version so that I could test them to my satisfaction.
+
+      ## Results
+
+      Overall, this experiment was a glowing success.  The resulting banking application and other capabilities surrounding it exceed my expectations.  Furthermore, the process of creating this was very straight forward and easy to accomplish.  I never felt like I personally had to perform too much work myself, and I feel as though the product that I received is very aligned to what I had envisioned when I started.
+
+      There was one instance in version 0.6.0 in which there was a bug that I found, and it took two iterations for Claude Code to finish fixing it.  However, apart from that, there were no unexpected speed bumps in this process.
+
+      The results of this test go beyond just the resulting banking application.  I could have chosen anything for this project; a banking application was just a good complicated system to demo as many people are already familiar of what a banking application should do and what features should be present.  The most important finding from this experiment is that this *process* was successful.  The waterfall-type approach of building complex software with AI tools was definitely effective.  In just under a regular workweek, I went from idea to operational prototype.  I see no reason why this process could not reproduce all kinds of complicated software.
+
   - id: claude-repo-steward
     title: Repo Steward
     summary: A simulated GitHub-style repository with an AI steward that reacts to issues and pull requests, where a deterministic policy engine decides which proposals run automatically, wait for approval, or are blocked.
     tags: [web, interactive, experiment, engineering, developer tool, AI experiment]
     status: complete
+    featured: true
     draft: false
     added: 2026-07-14
     updated: 2026-07-14
@@ -1050,54 +1098,6 @@ projects:
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-prompts
     description: In an attempt to assist my developer peers with "prompt engineering", this interactive reference was created to teach a way to think about how to prompt an AI coding agent to receive the type of result that one is looking for.
-
-  - id: claude-banking-project
-    title: Meridian Simulated Banking Platform
-    summary: A simulated consumer bank with a public website, a customer portal, an internal operations console, and a backend whose ledger derives every balance from append-only entries. The customer site and the operations console are both live as public demos.
-    tags: [simulation, web, interactive, experiment, server-backed, AI experiment]
-    status: complete
-    draft: false
-    added: 2026-06-29
-    updated: 2026-06-29
-    thumbnail:
-      src: project-assets/claude-banking-project/thumbnail.png
-      alt: Meridian customer dashboard for Avery Customer showing total available cash of $19,452.68, an Everyday Checking card and a Goal Savings card with available and current balances, and a Loans & CDs section below.
-    screenshots:
-      - src: project-assets/claude-banking-project/public-home.png
-        alt: Meridian public home page with the headline 'Modern banking that keeps you on course', a family photo, Open account and Log in buttons, and a simulation disclaimer banner across the top.
-        caption: The public marketing site that fronts the customer portal.
-      - src: project-assets/claude-banking-project/account-transactions.png
-        alt: Everyday Checking account page showing available and current balances, pending-out, on-hold and pending-in amounts, a transaction search box with status and category filters, and pending entries for a bill payment, a card authorization and a mobile check deposit.
-        caption: Account detail with pending and posted ledger entries, search and filters.
-      - src: project-assets/claude-banking-project/ops-request-queues.png
-        alt: Dark-themed operations simulator showing the Request queues page with status and lane filters and work-item cards for an identity check and a fraud alert, each with Approve, Reject, Hold and Request info buttons.
-        caption: The operations console where staff approve, reject or hold simulated bank work items.
-    links:
-      - label: Visit Meridian
-        url: https://banking.cowhill.dev/
-        primary: true
-      - label: Visit Meridian Ops
-        url: https://banking-ops.cowhill.dev/
-      - label: Visit GitHub Repo
-        url: https://github.com/pcowhill/claude-banking-project
-    description: |
-      ## Introduction
-
-      Up until this point, all of the projects that I pursued with Claude Code were relatively small prototypes.  Many of them were one-shots, and a few others iterated over a few steps to fix up some bugs or implement my preferences.  I desired for this next project to reveal how far one engineer can push the current frontier AI development tools.  Because of this, I deliberately chose something too large to treat as a toy example: a simulated banking platform with multiple interfaces, workflows, and interacting systems.
-
-      ## Approach
-
-      I started with a design planning session within ChatGPT.  Over the course of discussion, exploration, and interviewing, the plan for this entire experiment was composed.  The plan included splitting up the implementation of a simulated banking platform into multiple discrete steps.  Each step would thoroughly implement a certain subset of features and test them end-to-end before preparing the next step.  In between steps, I would have an opportunity to test the current iteration of the application and provide feedback on how it is going as well as report any bugs if I found them.  After 10 of these steps, the first 1.0 major release version would be complete.
-
-      I used Claude Code to implement each new version of this application.  The prompt for the next session would be composed from the previous Claude Code session, and it would include a section for me to add my feedback to the next prompt.  Additionally, it would provide me specific testing instructions to point me to the new features available in this version so that I could test them to my satisfaction.
-
-      ## Results
-
-      Overall, this experiment was a glowing success.  The resulting banking application and other capabilities surrounding it exceed my expectations.  Furthermore, the process of creating this was very straight forward and easy to accomplish.  I never felt like I personally had to perform too much work myself, and I feel as though the product that I received is very aligned to what I had envisioned when I started.
-
-      There was one instance in version 0.6.0 in which there was a bug that I found, and it took two iterations for Claude Code to finish fixing it.  However, apart from that, there were no unexpected speed bumps in this process.
-
-      The results of this test go beyond just the resulting banking application.  I could have chosen anything for this project; a banking application was just a good complicated system to demo as many people are already familiar of what a banking application should do and what features should be present.  The most important finding from this experiment is that this *process* was successful.  The waterfall-type approach of building complex software with AI tools was definitely effective.  In just under a regular workweek, I went from idea to operational prototype.  I see no reason why this process could not reproduce all kinds of complicated software.
 
   - id: claude-escape-room
     title: The Quiet Hour
