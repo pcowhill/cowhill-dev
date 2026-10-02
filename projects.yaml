@@ -1053,7 +1053,7 @@ projects:
 
   - id: claude-banking-project
     title: Meridian Simulated Banking Platform
-    summary: A simulated consumer bank with a public website, a customer portal, an internal operations console, and a backend whose ledger derives every balance from append-only entries. Runs locally only; not deployed.
+    summary: A simulated consumer bank with a public website, a customer portal, an internal operations console, and a backend whose ledger derives every balance from append-only entries. The customer site and the operations console are both live as public demos.
     tags: [simulation, web, interactive, experiment, server-backed, AI experiment]
     status: complete
     draft: false
@@ -1073,9 +1073,13 @@ projects:
         alt: Dark-themed operations simulator showing the Request queues page with status and lane filters and work-item cards for an identity check and a fraud alert, each with Approve, Reject, Hold and Request info buttons.
         caption: The operations console where staff approve, reject or hold simulated bank work items.
     links:
+      - label: Visit Meridian
+        url: https://banking.cowhill.dev/
+        primary: true
+      - label: Visit Meridian Ops
+        url: https://banking-ops.cowhill.dev/
       - label: Visit GitHub Repo
         url: https://github.com/pcowhill/claude-banking-project
-        primary: true
     description: |
       ## Introduction
 
