@@ -31,6 +31,7 @@ describe('card', () => {
   it('renders a thumbnail or an explicit placeholder', () => {
     const withImage = project({ thumbnail: { src: 'project-assets/demo/t.png', alt: 'Thumb' } });
     expect(renderCard(ctx, withImage).value).toContain('<img class="project-card__image" src="/cowhill-dev/assets/projects/demo/t.png" alt="Thumb"');
+    expect(renderCard(ctx, withImage).value).toContain('<a class="project-card__media" href="/cowhill-dev/projects/demo/" tabindex="-1" aria-hidden="true"><img');
     const placeholder = renderCard({ ...ctx, resolveImage: () => null }, withImage).value;
     expect(placeholder).toContain('Local image not loaded');
     expect(placeholder).not.toContain('<img');

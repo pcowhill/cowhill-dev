@@ -19,8 +19,11 @@ export function renderCard(ctx: RenderContext, project: Project, options: CardOp
   const level = options.headingLevel ?? 2;
   const detailHref = routes.project(ctx.base, project.id);
   const primary = project.primaryLink;
+  // The thumbnail links to the detail page as a larger click target. The title
+  // link already names the destination, so this duplicate stays out of the tab
+  // order and the accessibility tree.
   const media = project.thumbnail
-    ? html`<div class="project-card__media">${imageOrPlaceholder(ctx, project.thumbnail, { className: 'project-card__image' })}</div>`
+    ? html`<a class="project-card__media" href="${detailHref}" tabindex="-1" aria-hidden="true">${imageOrPlaceholder(ctx, project.thumbnail, { className: 'project-card__image' })}</a>`
     : raw('');
   const tagKeys = project.tags.map(normalizeTag).join(' ');
   return html`<article class="project-card${project.thumbnail ? '' : ' project-card--no-image'}" data-id="${project.id}" data-status="${project.status}" data-tags="${tagKeys}" data-added="${project.added ?? ''}" data-updated="${project.updated ?? ''}" data-title="${project.title}">

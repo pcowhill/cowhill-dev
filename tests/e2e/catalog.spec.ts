@@ -149,6 +149,14 @@ test('card actions: primary launches directly, otherwise View details', async ({
   await expect(page.locator('.project-card a a')).toHaveCount(0);
 });
 
+test('clicking a card thumbnail opens the detail page', async ({ page }) => {
+  await page.goto(site.url('/projects/'));
+  const media = page.locator('.project-card[data-id="sentinel-published"] .project-card__media');
+  await expect(media).toHaveAttribute('href', `${site.prefix}/projects/sentinel-published/`);
+  await media.click();
+  await expect(page).toHaveURL(/\/projects\/sentinel-published\/$/);
+});
+
 test('a card link works on the first click right after typing a search', async ({ page }) => {
   await page.goto(site.url('/projects/'));
   await page.fill('#catalog-search', 'thing');

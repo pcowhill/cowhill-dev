@@ -489,6 +489,86 @@ h3 {
 .back-link:hover {
   text-decoration: underline;
 }
+/* Screenshot overlay (src/scripts/lightbox.ts): the image at its natural
+   size, scaled down only as far as the window requires. */
+.lightbox {
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: var(--space-6) var(--space-4) var(--space-4);
+  border: 0;
+  background: transparent;
+  cursor: zoom-out;
+}
+.lightbox[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: lightbox-in 160ms ease-out;
+}
+.lightbox::backdrop {
+  background: rgba(20, 35, 36, 0.92);
+}
+:root:has(.lightbox[open]) {
+  overflow: hidden;
+}
+.lightbox__figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 100%;
+  margin: 0;
+}
+.lightbox__image {
+  display: block;
+  min-height: 0;
+  max-width: 100%;
+  /* Room for the dialog padding and a one-line caption. */
+  max-height: calc(100vh - 6rem);
+  max-height: calc(100dvh - 6rem);
+  object-fit: contain;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  background: var(--color-surface-muted);
+}
+.lightbox__caption {
+  flex: none;
+  color: var(--color-sand-soft);
+  font-size: 0.95rem;
+  text-align: center;
+}
+.lightbox__close {
+  position: fixed;
+  top: var(--space-2);
+  right: var(--space-2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 253, 249, 0.12);
+  color: var(--color-surface);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+.lightbox__close:hover {
+  background: rgba(255, 253, 249, 0.24);
+}
+.lightbox__close:focus-visible {
+  outline-color: var(--color-sand);
+}
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+  }
+}
+
 /* About page */
 .about {
   max-width: var(--measure);

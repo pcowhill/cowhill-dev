@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { resolveDeployment } from '../config/site.ts';
-import { aboutDescription, aboutParagraphs, aboutTitle } from '../content/about.ts';
+import { aboutDescription, aboutParagraphs, aboutTitle, githubProfile } from '../content/about.ts';
 import { getPortfolioLink } from '../data/projects.ts';
 import { escapeHtml } from '../shared/html.ts';
 import { renderAnchor } from '../shared/links.ts';
@@ -10,9 +10,10 @@ const { origin, base } = resolveDeployment(process.env);
 const portfolio = getPortfolioLink();
 
 function renderParagraph(text: string): string {
-  return text.replace(/\{portfolio:([^}]+)\}|([^{]+)|(\{)/g, (match, linkText: string | undefined, plain: string | undefined) => {
+  return text.replace(/\{(portfolio|github):([^}]+)\}|([^{]+)|(\{)/g, (match, key: string | undefined, linkText: string | undefined, plain: string | undefined) => {
     if (linkText !== undefined) {
-      return portfolio ? renderAnchor(portfolio.href, linkText, { origin, base }).value : escapeHtml(linkText);
+      const href = key === 'github' ? githubProfile : portfolio?.href;
+      return href ? renderAnchor(href, linkText, { origin, base }).value : escapeHtml(linkText);
     }
     return escapeHtml(plain ?? match);
   });

@@ -3,15 +3,19 @@
  * from the project record named by `site.portfolioProjectId` in
  * projects.yaml, so it is never duplicated.
  *
- * `{portfolio}` marks where the portfolio link goes; the words inside the
- * braces after the colon become the link text.
+ * `{portfolio}` marks where the portfolio link goes and `{github}` where the
+ * GitHub profile link goes; the words inside the braces after the colon
+ * become the link text.
  */
 export const aboutTitle = 'About';
 
 export const aboutDescription =
   'About cowhill.dev, the place where Patrick Cowhill shares projects, tests new ideas, and keeps a record of past work.';
 
+/** GitHub profile linked from the About page. */
+export const githubProfile = 'https://github.com/pcowhill';
+
 export const aboutParagraphs: string[] = [
   "I'm Patrick Cowhill. This site is where I share projects I build, test new ideas, and keep a record of past work.",
-  'For my professional background, {portfolio:visit my portfolio}.',
+  'For my professional background, {portfolio:visit my portfolio}. To see more of my code, {github:find me on GitHub}.',
 ];

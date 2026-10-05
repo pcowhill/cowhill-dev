@@ -2,7 +2,7 @@ import { html, raw, type SafeHtml } from '../html.ts';
 import { renderProjectLink } from '../links.ts';
 import { renderMarkdown } from '../markdown.ts';
 import type { Project } from '../schema.ts';
-import type { RenderContext } from './context.ts';
+import { imageUrl, type RenderContext } from './context.ts';
 import { dateLine, draftBadge, imageOrPlaceholder, statusBadge, tagList } from './parts.ts';
 
 /**
@@ -44,7 +44,7 @@ export function renderDetail(ctx: RenderContext, project: Project): SafeHtml {
   ${
     project.screenshots.length
       ? html`<section class="project-detail__section project-detail__media" aria-labelledby="screenshots-heading"><h2 id="screenshots-heading">Screenshots</h2><div class="screenshots">${project.screenshots.map(
-          (shot) => html`<figure class="screenshot">${imageOrPlaceholder(ctx, shot, { className: 'screenshot__image' })}${shot.caption ? html`<figcaption>${shot.caption}</figcaption>` : ''}</figure>`,
+          (shot) => html`<figure class="screenshot">${screenshotImage(ctx, shot)}${shot.caption ? html`<figcaption>${shot.caption}</figcaption>` : ''}</figure>`,
         )}</div></section>`
       : ''
   }
@@ -57,4 +57,16 @@ export function renderDetail(ctx: RenderContext, project: Project): SafeHtml {
   }
   </div>
 </article>`;
+}
+
+/**
+ * A screenshot linked to its full-size file. Without scripts the link simply
+ * opens the image; on the website `src/scripts/lightbox.ts` intercepts it and
+ * shows the image in an overlay instead. Placeholders are never linked.
+ */
+function screenshotImage(ctx: RenderContext, shot: { src: string; alt: string }): SafeHtml {
+  const image = imageOrPlaceholder(ctx, shot, { className: 'screenshot__image' });
+  const { url } = imageUrl(ctx, shot.src);
+  if (url === null) return image;
+  return html`<a class="screenshot__link" href="${url}" data-lightbox>${image}<span class="sr-only"> (view full size)</span></a>`;
 }
