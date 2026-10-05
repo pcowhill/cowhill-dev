@@ -33,8 +33,12 @@ for (const variant of ['root', 'repo'] as const) {
     test('navigation links and portfolio derive from the catalog', async ({ page }) => {
       await page.goto(site.url('/about/'));
       await expect(page.locator('.site-nav a[aria-current="page"]')).toHaveText('About');
-      await expect(page.locator('.about a')).toHaveAttribute('href', 'https://www.patrickcowhill.com/');
-      await expect(page.locator('.about a')).toHaveAttribute('target', '_blank');
+      const portfolio = page.locator('.about a:has-text("visit my portfolio")');
+      await expect(portfolio).toHaveAttribute('href', 'https://www.patrickcowhill.com/');
+      await expect(portfolio).toHaveAttribute('target', '_blank');
+      const github = page.locator('.about a:has-text("find me on GitHub")');
+      await expect(github).toHaveAttribute('href', 'https://github.com/pcowhill');
+      await expect(github).toHaveAttribute('target', '_blank');
       await page.click('.site-nav a:text("Projects")');
       await expect(page).toHaveURL(new RegExp(`${site.prefix}/projects/$`));
       await page.click('.site-logo');
@@ -76,6 +80,24 @@ for (const variant of ['root', 'repo'] as const) {
       }
       await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', `${variant === 'repo' ? 'https://www.patrickcowhill.com/cowhill-dev' : 'https://www.cowhill.dev'}/projects/sentinel-published/`);
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `${variant === 'repo' ? 'https://www.patrickcowhill.com/cowhill-dev' : 'https://www.cowhill.dev'}/projects/sentinel-published/`);
+    });
+
+    test('screenshots open full size in an overlay that closes again', async ({ page }) => {
+      await page.goto(site.url('/projects/sentinel-published/'));
+      const link = page.locator('.screenshot__link').first();
+      await expect(link).toHaveAttribute('href', `${site.prefix}/assets/projects/sentinel-published/shot-1.png`);
+      const lightbox = page.locator('dialog.lightbox');
+      await expect(lightbox).toBeHidden();
+      await link.click();
+      await expect(lightbox).toBeVisible();
+      await expect(page).toHaveURL(new RegExp(`${site.prefix}/projects/sentinel-published/$`));
+      await expect(lightbox.locator('img')).toHaveAttribute('src', new RegExp(`${site.prefix}/assets/projects/sentinel-published/shot-1.png$`));
+      await page.keyboard.press('Escape');
+      await expect(lightbox).toBeHidden();
+      await link.click();
+      await expect(lightbox).toBeVisible();
+      await lightbox.locator('.lightbox__close').click();
+      await expect(lightbox).toBeHidden();
     });
 
     test('sitemap and robots.txt advertise the deployment origin and base only', async ({ page }) => {

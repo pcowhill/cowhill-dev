@@ -237,9 +237,11 @@ a:hover {
   display: none;
 }
 .project-card__media {
+  display: block;
   aspect-ratio: 16 / 9;
   background: var(--color-surface-muted);
   border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
 }
 .project-card__media > * {
   display: block;
@@ -249,6 +251,12 @@ a:hover {
 }
 .project-card__media .image-placeholder {
   min-height: 0;
+}
+.project-card__image {
+  transition: opacity 120ms ease;
+}
+.project-card__media:hover .project-card__image {
+  opacity: 0.88;
 }
 .project-card__body {
   display: flex;
@@ -431,6 +439,18 @@ a:hover {
   border-radius: var(--radius);
   border: 1px solid var(--color-border);
   background: var(--color-surface-muted);
+}
+.screenshot__link {
+  display: block;
+  border-radius: var(--radius);
+  cursor: zoom-in;
+}
+.screenshot__link .screenshot__image {
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+.screenshot__link:hover .screenshot__image {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow);
 }
 .screenshot figcaption {
   margin-top: var(--space-2);
