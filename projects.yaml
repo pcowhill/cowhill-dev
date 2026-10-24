@@ -209,6 +209,42 @@ projects:
         alt: Export Project
         caption: Choosing settings when exporting a project.
 
+  - id: llm-token-explorer
+    title: LLM Token Explorer
+    summary: A browser-based workbench that runs small language models entirely on your device to show tokenization, next-token probabilities, the full token vocabulary, and token-by-token sampling.
+    tags: [web, interactive, educational, tool, AI experiment, AI, LLM, machine learning]
+    status: complete
+    draft: false
+    added: 2026-10-21
+    updated: 2026-10-21
+    notice: Desktop Recommended
+    description: |
+      I made a little webapp to run small LLM AI models directly in a browser. No API calls are needed and installing additional software is not necessary. It is primarily meant to be a learning tool to help gain a better appreciation for the inference engine that runs to generate new tokens in a response when using an AI agent.
+
+      The app lets you enter any text into the context window, shows you the tokenization of the text into tokens, displays the probability distribution of potential next tokens, enables browsing through the entire token lexicon, and lets you iteratively sample tokens from the model you are running.
+    thumbnail:
+      src: project-assets/llm-token-explorer/thumbnail.png
+      alt: The LLM Token Explorer workbench with "The capital of France is" split into tokens and a chart of next-token probabilities led by Paris
+    screenshots:
+      - src: project-assets/llm-token-explorer/tokenized-context.png
+        alt: The context panel showing the text split into color-coded token chips with IDs and the inspector for one token
+        caption: The context split into its exact token IDs, with one token open in the inspector.
+      - src: project-assets/llm-token-explorer/probability-distribution.png
+        alt: A bar chart and table comparing the original and adjusted probabilities of the most likely next tokens
+        caption: Next-token probabilities before and after temperature and top-k adjustments.
+      - src: project-assets/llm-token-explorer/vocabulary-explorer.png
+        alt: The full vocabulary table filtered to tokens containing "Par", with IDs, logits and probabilities
+        caption: Searching the model's full 49,152-token vocabulary.
+      - src: project-assets/llm-token-explorer/generation-history.png
+        alt: A short story prompt extended with sampled tokens, and the history panel listing each sampled token with its probability
+        caption: Sampling a story one token at a time, with every step recorded in an undoable history.
+    links:
+      - label: Visit LLM Token Explorer
+        url: https://pcowhill.github.io/llm-token-explorer/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/llm-token-explorer
+
   - id: lightsail-demo
     title: Lightsail Demo
     summary: A live chat room, collaborative drawing app, and multiplayer bird game created to explore the capabilities of AWS Lightsail.
