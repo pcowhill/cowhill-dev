@@ -163,6 +163,45 @@ projects:
         alt: Portfolio Main Page
         caption: The list of projects on the portfolio's main page.
 
+  - id: onefile-studio
+    title: OneFile Studio
+    summary: A browser-based, no-code editor for building interactive slide presentations and scrolling webpages that export as one self-contained HTML file you can share, open offline and re-open to keep editing.
+    tags: [web, tool, editor, interactive, educational, graphics, 3d, AI experiment]
+    status: complete
+    featured: true
+    draft: false
+    added: 2026-11-23
+    updated: 2026-11-23
+    notice: Desktop Recommended
+    description: |
+      I made a browser-based editor that lets anyone create their own shareable website, stored in a single HTML file.  This project was an attempt to solve some of the problems encountered when sharing teaching materials in common formats like PDF or PowerPoint.  Namely, I find that those formats lack interactivity.  They are good for static documents, and PowerPoint certainly has some responsive and animation capabilities, but that is not their main feature.  OneFile Studio, in contrast, gives users a very simple interface to design their own website, either in the form of slides or a traditional scrolling page, with numerous interactive elements available.  These elements include before-and-after image comparisons, buttons, transitions, movable elements, and simple variable logic.
+
+      This idea stemmed from my experience of finding that an interactive website I could simply share with a colleague would best communicate a concept.  I could create a custom website from scratch, but that was time-consuming, and fitting everything into a single file was often non-trivial.  The idea for OneFile Studio came to me as I was learning how media data (from images, videos, 3D models, etc.) could be stored natively as text inside an HTML file.  This enables a very streamlined process in which users can upload any information, data, and media they want and have a shareable webpage file in minutes, with all the interactive elements they desire.
+
+      Additionally, I really enjoyed experimenting with Claude Code's capabilities to create the landing page for this project.  This includes the example pages, the recorded videos of how to use the app, and the overall design of the landing page.  This was a fun project to work on, and I hope you give it a try!
+    thumbnail:
+      src: project-assets/onefile-studio/thumbnail.png
+      alt: The OneFile Studio editor with the Feed Puff! mini game open and Puff selected, listing its click and right-click interactions in the Behavior panel
+    screenshots:
+      - src: project-assets/onefile-studio/landing-page.png
+        alt: "The OneFile Studio landing page with the headline 'Make it interactive. Share it as one file.', Start creating and Explore examples buttons, and the 40-second product tour paused on its export chapter"
+        caption: The landing page, with a 40-second tour recorded from the real app.
+      - src: project-assets/onefile-studio/together-interaction.png
+        alt: The Three shapes, together example in the editor, with the Reveal button's interaction showing a Together group that pops a circle, star and heart at once, a half-second wait, and a step that fades in a label
+        caption: A WHEN → DO interaction that pops three shapes together, waits, then fades in a label.
+      - src: project-assets/onefile-studio/before-after-showcase.png
+        alt: The Valley, Restored showcase with a draggable before-and-after slider comparing a snowy winter 2023 valley with a green spring 2026 valley
+        caption: A before-and-after comparison slider in an exported OneFile.
+      - src: project-assets/onefile-studio/export-dialog.png
+        alt: The Export one HTML file dialog with original and optimised quality options, an estimated file size of 281 KB and a breakdown of the largest files
+        caption: Exporting a project as one HTML file, with a size estimate and its largest files.
+    links:
+      - label: Visit OneFile Studio
+        url: https://pcowhill.github.io/onefile-studio/
+        primary: true
+      - label: Visit GitHub Repo
+        url: https://github.com/pcowhill/onefile-studio
+
   - id: browser-video-editor
     title: Browser Video Editor
     summary: A browser-based video editing app created and iteratively expanded with an experimental AI-agile team of agents.
@@ -263,7 +302,6 @@ projects:
     summary: A browser-based workbench that runs small language models entirely on your device to show tokenization, next-token probabilities, the full token vocabulary, and token-by-token sampling.
     tags: [web, interactive, educational, tool, AI experiment, AI, LLM, machine learning]
     status: complete
-    featured: true
     draft: false
     added: 2026-10-21
     updated: 2026-10-21
